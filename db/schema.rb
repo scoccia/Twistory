@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140621092710) do
   create_table "feeds", force: true do |t|
     t.string   "feed_text"
     t.datetime "date"
-    t.boolean  "has_been_published"
+    t.boolean  "has_been_published", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
