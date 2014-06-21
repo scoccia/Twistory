@@ -1,4 +1,8 @@
-first of all you must enter in mysql with the root user (mysql -u root -p and then digit the password) , then create the new user using the following command:
+first of all create a database with name: twistory_db
+
+------------------------------------------------------------
+
+then you enter in mysql with the root user (mysql -u root -p and then digit the password) , then create the new user using the following command:
 
 ------------------------------------------------------------
 
@@ -24,8 +28,22 @@ flush privileges;
 
 ------------------------------------------------------------
 
-now let's check if it's all done.
+now let's check if it's all done:
 
 exit from mysql then login with the new user (mysql -u twistory_user -p) and then digit the password (1914).
 
 once entered ,using “show databases;”, you should see “twistory_db”. 
+
+------------------------------------------------------------
+
+now you can enter: git clone https//<repository_name>
+
+------------------------------------------------------------
+
+now open your terminal an cd in the folder with this project
+
+------------------------------------------------------------
+
+you can now enter this command: bundle exec rake db:migrate
+
+
