@@ -1,0 +1,31 @@
+first of all you must enter in mysql with the root user (mysql -u root -p and then digit the password) , then create the new user using the following command:
+
+------------------------------------------------------------
+
+create user 'twistory_user'@'localhost' identified by '1914';
+
+------------------------------------------------------------
+
+(the quotes are important)
+
+then we must "tell" the computer which privileges we are going to give to the new user, using the command:
+
+------------------------------------------------------------
+
+grant all privileges on twistory_db.* to 'twistory_user'@'localhost';
+
+------------------------------------------------------------
+
+then we must confirm the privileges , to do this use:
+
+------------------------------------------------------------
+
+flush privileges;
+
+------------------------------------------------------------
+
+now let's check if it's all done.
+
+exit from mysql then login with the new user (mysql -u twistory_user -p) and then digit the password (1914).
+
+once entered ,using “show databases;”, you should see “twistory_db”. 
