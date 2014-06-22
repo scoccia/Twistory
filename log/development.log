@@ -1,7 +1,0 @@
-  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
-Migrating to CreateFeeds (20140621092710)
-  [1m[35m (119.5ms)[0m  CREATE TABLE `feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `feed_text` varchar(255), `date` datetime, `has_been_published` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
-  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
-  [1m[35mSQL (0.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140621092710')
-  [1m[36m (28.2ms)[0m  [1mCOMMIT[0m
-  [1m[35mActiveRecord::SchemaMigration Load (0.7ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
