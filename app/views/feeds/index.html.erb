@@ -5,7 +5,6 @@
     <tr>
       <th>Feed text</th>
       <th>Date</th>
-      <th>Has been published</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= feed.feed_text %></td>
         <td><%= feed.date %></td>
-        <td><%= feed.has_been_published %></td>
         <td><%= link_to 'Show', feed %></td>
         <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
         <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
