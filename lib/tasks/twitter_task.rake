@@ -13,20 +13,21 @@ namespace :twitter_connection do
   		config.access_token_secret = "GQ9xnJVu7V063LuA1BaMYGxaWJABmtyRfPro3dlQ3az2Z"
 		end
 
-		time_now = DateTime.now.to_time
+		time_now = DateTime.now.utc
 		
 		CTRL = Feed.count
-		get_feeds = Feed.find(:all)
+		feed_box = Feed.find(:all)
 
 		i = 0
 
 		while i != CTRL do
 	
-		ctrl_date = get_feeds[i].date.to_time
-		ctrl_sent = get_feeds[i].has_been_published 		
+		ctrl_date = feed_box[i].date
+		ctrl_sent = feed_box[i].has_been_published 		
 
-			if ctrl_date < time_now && ctrl_sent == false
-				get_text = get_feeds[i].feed_text
+			if ctrl_sent == false && ctrl_date < time_now
+				get_text = feed_box[i].feed_text
+				feed_box[i].update_attribute(:has_been_published, true)
 				client.update(get_text);
 			end		
 		i = i+1
