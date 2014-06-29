@@ -29,6 +29,8 @@ namespace :twitter_connection do
 				get_text = feed_box[i].feed_text
 				feed_box[i].update_attribute(:has_been_published, true)
 				client.update(get_text);
+				# use this for debug: 
+				# puts "time now: #{time_now}  date: #{ctrl_date}"
 			end		
 		i = i+1
 		end
