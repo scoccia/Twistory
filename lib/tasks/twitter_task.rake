@@ -7,10 +7,10 @@ namespace :twitter_connection do
 		task twitter_task: :environment do
 
 		client = Twitter::REST::Client.new do |config|
-  		config.consumer_key        = "WDBRb1Ag9SupCdXJWSm6VgfxR"
-  		config.consumer_secret     = "qjjr3xcJxjtWhFOfziCDroFjnsevSNSam1HgGaVKTMJLGruBt5"
-  		config.access_token        = "2593429657-dlGqk5b4UXR4vnfY19PegntbJbCuyqjZZAPEmRA"
-  		config.access_token_secret = "GQ9xnJVu7V063LuA1BaMYGxaWJABmtyRfPro3dlQ3az2Z"
+  		config.consumer_key        = "add your consumer key here"
+  		config.consumer_secret     = "add your consumer scecret key here"
+  		config.access_token        = "add your access token here"
+  		config.access_token_secret = "add your access token secret here"
 		end
 
 		time_now = DateTime.now.utc
