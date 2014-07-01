@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :feed_text %><br>
-    <%= f.text_field :feed_text %>
-  </div>
+    <h3>Enter text for your feed:</h3>
+    <%= f.text_area :feed_text, size: "50x4"%>
+  </div><br>
+
   <div class="field">
-    <%= f.label :date %><br>
+    <h3>Enter a date (UTC timezone):</h3>
     <%= f.datetime_select :date %>
-  </div>
- 
+  </div><br>
+
   <div class="actions">
     <%= f.submit %>
   </div>

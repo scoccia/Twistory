@@ -32,6 +32,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# This gem will connect to ours twitter account
+gem 'twitter'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
