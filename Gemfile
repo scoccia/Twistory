@@ -35,6 +35,10 @@ end
 # This gem will connect to ours twitter account
 gem 'twitter'
 
+# gem 'devise' for authentication
+gem 'devise'
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
