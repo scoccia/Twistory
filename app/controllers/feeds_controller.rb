@@ -58,19 +58,19 @@ class FeedsController < ApplicationController
 
   # PATCH/PUT /feeds/1
   def update
-		if @feed.user_id == current_user.id
-   		respond_to do |format|
-      	if @feed.update(feed_params)
-      		format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-        	format.json { head :no_content }
-     		else
-        	format.html { render action: 'edit' }
-        	format.json { render json: @feed.errors, status: :unprocessable_entity }
-      	end
-			end
-		else
-			err_mex
-		end
+    if @feed.user_id == current_user.id
+      respond_to do |format|
+        if @feed.update(feed_params)
+          format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @feed.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      err_mex
+    end
   end	
 # update end #
  
