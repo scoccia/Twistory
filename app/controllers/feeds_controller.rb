@@ -3,11 +3,11 @@ class FeedsController < ApplicationController
 before_action :authorize, :except => :index	
 before_action :set_feed, only: [:show, :edit, :update, :destroy]
 	
-	# error message for feeds not belonging to a user
-	def err_mex 
-		flash.now[:notice] = "Non sei il possessore di questo feed e non detieni i privilegi per alterarlo!" 			
-		render "show"
-	end
+  # error message for feeds not belonging to a user
+  def err_mex 
+    flash.now[:notice] = "Non sei il possessore di questo feed e non detieni i privilegi per alterarlo!" 			
+    render "show"
+  end
 # err_mex end #
 		
 
