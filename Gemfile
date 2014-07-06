@@ -38,6 +38,9 @@ gem 'twitter'
 # gem 'devise' for authentication
 gem 'devise'
 
+# gem 'carrierwave' for images' upload
+gem 'carrierwave'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
