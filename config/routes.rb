@@ -1,4 +1,4 @@
-TwittwarApp::Application.routes.draw do
+TwittwarApp::Application.routes.draw do  
   devise_for :users
   resources :feeds
 
@@ -6,8 +6,17 @@ TwittwarApp::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  devise_scope :user do
+  
+    authenticated :user do
+      root 'feeds#index', as: :authenticated_root
+    end
 
+    unauthenticated do
+      root 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
+    
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
