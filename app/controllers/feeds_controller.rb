@@ -1,9 +1,7 @@
 class FeedsController < ApplicationController
 
 before_action :authorize, :except => :index	
-
-	before_action :set_feed, only: 
-[:show, :edit, :update, :destroy]
+before_action :set_feed, only: [:show, :edit, :update, :destroy]
 	
 	# error message for feeds not belonging to a user
 	def err_mex 
