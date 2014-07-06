@@ -1,16 +1,12 @@
-<% if admin? %>
 <p>
   <strong>Feed text:</strong>
   <%= @feed.feed_text %>
 </p>
-<% end %>
 
-<% if admin? %>
 <p>
   <strong>Date:</strong>
   <%= @feed.date %>
 </p>
-<% end %>
 
 <%= link_to 'Edit', edit_feed_path(@feed) %> |
 <%= link_to 'Back', feeds_path %>
