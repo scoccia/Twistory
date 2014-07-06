@@ -3,4 +3,15 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :authenticate_user!
+  before_action :check_permission_level
+    
+  def check_permission_level
+    if user_signed_in? 
+      permission = User.where(id: current_user.id).take
+      if permission.permission_level == 100
+        sign_out 
+        redirect_to "http://localhost:3000/acces_deniend.html" # in public folder 
+      end
+    end 
+  end
 end

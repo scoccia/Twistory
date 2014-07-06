@@ -1,11 +1,11 @@
 class FeedsController < ApplicationController
-	before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [:show, :edit, :update, :destroy]
 	
-	# error message for feeds not belonging to a user
-	def err_mex 
-		flash.now[:notice] = "Non sei il possessore di questo feed e non detieni i privilegi per alterarlo!" 			
-		render "show"
-	end
+  # error message for feeds not belonging to a user
+  def err_mex 
+    flash.now[:notice] = "Non sei il possessore di questo feed e non detieni i privilegi per alterarlo!" 			
+    render "show"
+  end
 # err_mex end #
 		
 
@@ -31,9 +31,9 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1/edit
   def edit
-		if @feed.user_id != current_user.id
-			err_mex
-		end
+    if @feed.user_id != current_user.id
+      err_mex
+    end
   end 
 # edit end #
 
@@ -77,15 +77,15 @@ class FeedsController < ApplicationController
 
   # DELETE /feeds/1
   def destroy
-		if @feed.user_id == current_user.id
-   		@feed.destroy
-    	respond_to do |format|
-      	format.html { redirect_to feeds_url }
-      	format.json { head :no_content }
-    		end
-		else
-			err_mex
-		end
+    if @feed.user_id == current_user.id
+      @feed.destroy
+      respond_to do |format|
+        format.html { redirect_to feeds_url }
+        format.json { head :no_content }
+        end
+    else
+      err_mex
+    end
   end	
 # destroy end #
 
