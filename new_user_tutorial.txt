@@ -40,10 +40,43 @@ now you can enter: git clone https//<repository_name>
 
 ------------------------------------------------------------
 
-now open your terminal an cd in the folder with this project
+now open your terminal and cd in the folder with this project
+
+------------------------------------------------------------
+
+to refresh the gemfile enter: bundle install
 
 ------------------------------------------------------------
 
 you can now enter this command: bundle exec rake db:migrate
+
+------------------------------------------------------------
+
+to check if the migration has been successful log into mysql with twistory_user and enter "use twistory_db;"
+
+------------------------------------------------------------
+
+to show which tables are in the database enter "show tables;"
+
+------------------------------------------------------------
+
+if those are "feeds", "schema_migrations" and "users" the migration has been successful
+
+------------------------------------------------------------
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
 
 
