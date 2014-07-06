@@ -33,9 +33,9 @@ before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
   # GET /feeds/1/edit
   def edit
-		if @feed.user_id != current_user.id
-			err_mex
-		end
+    if @feed.user_id != current_user.id
+      err_mex
+    end
   end 
 # edit end #
 
@@ -79,15 +79,15 @@ before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
   # DELETE /feeds/1
   def destroy
-		if @feed.user_id == current_user.id
-   		@feed.destroy
-    	respond_to do |format|
-      	format.html { redirect_to feeds_url }
-      	format.json { head :no_content }
-    		end
-		else
-			err_mex
-		end
+    if @feed.user_id == current_user.id
+      @feed.destroy
+      respond_to do |format|
+        format.html { redirect_to feeds_url }
+        format.json { head :no_content }
+        end
+    else
+      err_mex
+    end
   end	
 # destroy end #
 
