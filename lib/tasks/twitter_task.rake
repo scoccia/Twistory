@@ -27,7 +27,7 @@ namespace :twitter_connection do
         ## use the line below to debug:                              
         ## puts "\n\nctrl: #{ctrl}, i: #{i}\ntime now: #{time_now}\nhas_been: #{box[i].has_been_published}\nfeed text: #{box[i].feed_text}"
 			  	
-			  i = i+1
+        i = i+1
       end #** while loop finish **#
     end #** if statement finish **#
     
