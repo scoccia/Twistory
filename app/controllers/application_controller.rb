@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
   def check_permission_level
     if user_signed_in? 
       permission = User.where(id: current_user.id).take
-      if permission.permission_level == 100
+      if permission.permission_level != 0
         sign_out 
-        redirect_to "http://localhost:3000/acces_deniend.html" # in public folder 
+        redirect_to "http://localhost:3000/acces_denied.html" # in public folder 
       end
     end 
   end
