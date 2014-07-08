@@ -1,6 +1,5 @@
 <html>
   <head>
-    <title>Tutti i Feeds</title>
 
     <style type="text/css">
 
@@ -29,38 +28,33 @@
         font-size: 200%
       }
       
-      td
-      {
-        font-family:Courier,Arial;
-        color:black;
-        font-size: 200%
-      }
-
-      table.fixed 
-      { 
-        table-layout:fixed; 
-      }
-
-      table.fixed td { overflow: hidden; }
-
     </style>  
   </head>
 <body>
-	<h1><br><br>Iscriviti</h1>
+  <br><br>
+  <h1>Iscriviti</h1>
 
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-	  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
 
-	  <div><%= f.label :email %><br />
-	  <%= f.email_field :email, autofocus: true %></div>
+  <div>
+    <%= f.label :email %><br>
+	  <%= f.email_field :email, autofocus: true %>
+	</div>
 
-	  <div><%= f.label :password %><br />
-	    <%= f.password_field :password, autocomplete: "off" %></div>
+	<div>
+	  <%= f.label :password %><br>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
 
-	  <div><%= f.label :password_confirmation %><br />
-	    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
 
-	  <div><br><%= f.submit "Iscriviti" %><br></div>
+  <div>
+    <br><%= f.submit "Iscriviti" %><br>
+  </div>
 	<% end %>
 
 	<%= render "devise/shared/links" %>
