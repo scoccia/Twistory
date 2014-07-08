@@ -1,11 +1,7 @@
 <%= form_for(@feed) do |f| %>
   <% if @feed.errors.any? %>
     <div id="error_explanation">
-      <% if @feed.errors.count == 1 %> 
-        <h2>1 errore impedisce di salvare il feed:</h2>
-      <% else %>
-        <h2><%= @feed.errors.count %> errori impediscono di salvare il feed:</h2>
-      <% end %>
+      <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
 
       <ul>
       <% @feed.errors.full_messages.each do |msg| %>
@@ -16,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <h3>Enter text for your feed:</h3>
-    <%= f.text_area :feed_text, size: "50x4"%>
+    <p>
+      <b>Inserisci qui il testo del tuo feed<br><br></b>
+      <%= f.text_area :feed_text, size: "50x4"%>
+    </p>
   </div><br>
 
   <div class="field">
-    <h3>Enter a date (UTC timezone):</h3>
-    <%= f.datetime_select :date %>
+    <p>
+      <b>Inserisci la data in cui verrà pubblicato (fusorario UTC):<br><br></b>
+      <%= f.datetime_select :date %>
+    </p>
   </div><br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "conferma"%>
   </div>
 <% end %>
