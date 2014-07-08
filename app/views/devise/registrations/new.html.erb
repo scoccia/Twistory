@@ -1,0 +1,60 @@
+<html>
+
+    <style type="text/css">
+
+      body
+      {
+        background-image: url(<%= asset_path 'background.jpg' %>);
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-size:cover;
+        font-family:Courier,Arial;
+        color:black;
+      }
+
+
+      h1
+      {
+        font-family: Impact;
+        color:black;
+        font-size: 200%
+      }
+
+      th
+      {
+        font-family:Courier,Arial;
+        color:black;
+        font-size: 200%
+      }
+      
+    </style>  
+<body>
+  <br><br>
+  <h1>Iscriviti</h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div>
+    <%= f.label :email %><br>
+	  <%= f.email_field :email, autofocus: true %>
+	</div>
+
+	<div>
+	  <%= f.label :password %><br>
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div>
+    <br><%= f.submit "Iscriviti" %><br>
+  </div>
+	<% end %>
+
+	<%= render "devise/shared/links" %>
+</body>
+</html>
