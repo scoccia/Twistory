@@ -1,8 +1,6 @@
 <html>
-  <head>
-    <title>Tutti i Feeds</title>
 
-    <style type="text/css">
+      <style type="text/css">
 
       body
       {
@@ -21,41 +19,23 @@
         font-size: 200%
       }
 
-      th
-      {
-        font-family:Courier,Arial;
-        color:black;
-        font-size: 200%
-      }
-      
-      td
-      {
-        font-family:Courier,Arial;
-        color:black;
-        font-size: 200%
-      }
+      </style> 
+  
+<body>
+		<br><br>
+		<h1>Hai dimenticato la password?</h1>
 
-      table.fixed 
-      { 
-        table-layout:fixed; 
-      }
+	  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		<%= devise_error_messages! %>
 
-      table.fixed td { overflow: hidden; }
-
-    </style>  
-  </head>
-  <body>
-		<h1><br><br>Ti sei dimenticato la password?</h1>
-
-		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-		  <%= devise_error_messages! %>
-
-		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email, autofocus: true %></div>
-
-		  <div><br><%= f.submit "invia email per nuova password" %><br></div>
+		<div>
+		  <%= f.label :email %></br>
+		  <%= f.email_field :email, autofocus: true %><br><br>
+		  <%= f.submit "Invia email per nuova password" %><br>
+    </div>
 		<% end %>
 </body>
+
 <p>
 <%= render "devise/shared/links" %>
 </p>
