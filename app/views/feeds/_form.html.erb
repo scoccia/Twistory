@@ -1,6 +1,18 @@
+<style>
+    a:link 
+    { 
+      color: #A60000;
+    }
+
+    a:visited 
+    { 
+      color: #A60000;
+    }
+</style>
+
 <%= form_for(@feed) do |f| %>
   <% if @feed.errors.any? %>
-    <div id="error_explanation">
+   <div id="error_explanation">
       <% if @feed.errors.count == 1 %> 
         <h2>1 errore impedisce di salvare il feed:</h2>
       <% else %>
@@ -15,22 +27,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <p>
-      <b>Inserisci qui il testo del tuo feed</b><br><br>
-      <%= f.text_area :feed_text, size: "50x4"%>
-    </p>
-  </div><br>
-
-  <div class="field">
-    <p>
-      <b>Inserisci la data in cui verrà pubblicato (fusorario UTC):</b><br><br>
-      <%= f.datetime_select :date %>
-    </p>
-  </div><br>
-
-  <div class="actions">
+  <div class="form_box">
+    <%= f.text_area :feed_text, size: "60x5"%><br><br>
+    Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
+    <%= f.datetime_select :date %><br><br>
     <%= f.submit "conferma"%>
   </div>
 <% end %>
+
 
