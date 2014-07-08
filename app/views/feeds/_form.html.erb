@@ -1,7 +1,11 @@
 <%= form_for(@feed) do |f| %>
   <% if @feed.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+      <% if @feed.errors.count == 1 %> 
+        <h2>1 errore impedisce di salvare il feed:</h2>
+      <% else %>
+        <h2><%= @feed.errors.count %> errori impediscono di salvare il feed:</h2>
+      <% end %>
 
       <ul>
       <% @feed.errors.full_messages.each do |msg| %>
