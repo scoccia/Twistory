@@ -1,9 +1,8 @@
 <html>
-  <head>
-    <title>Modifica feed</title>
-
+    <head>
+        <title>Modifica feed</title>
+    </head>
     <style type="text/css">
-
       body
       {
         background-image: url(<%= asset_path 'background.jpg' %>);
@@ -63,31 +62,16 @@
         color:black;
         font-size: 200%
       }
-
-      th
-      {
-        font-family:Courier,Arial;
-        color:black;
-        font-size: 200%
-      }
-      
-      td
-      {
-        font-family:Courier,Arial;
-        color:black;
-        font-size: 200%
-      }
-
-
-    </style>  
-  </head>
-  <body align="center">
+</style>  
+  
+<body align="center">
 	<div class="dialog">
 		<h1>Modifica il tuo feed</h1>
 	</div>
+	
 	<%= render 'form' %>
 	
-		<%= link_to 'Mostra', @feed %> |
-		<%= link_to 'Indietro', feeds_path %>
+	<%= link_to 'Mostra', @feed %> |
+	<%= link_to 'Indietro', feeds_path %>
 	
 </body>
