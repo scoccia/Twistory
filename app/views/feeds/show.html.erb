@@ -1,12 +1,93 @@
-<p>
-  <strong>Feed text:</strong>
-  <%= @feed.feed_text %>
-</p>
+<html>
+	<head>
+		<title>Mostra Feed</title>
 
-<p>
-  <strong>Date:</strong>
-  <%= @feed.date %>
-</p>
+	    <style type="text/css">
 
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+	      body
+	      {
+	        background-image: url(<%= asset_path 'background.jpg' %>);
+	        background-repeat:no-repeat;
+	        background-attachment:fixed;
+	        background-size:cover;
+	        font-family:Courier,Arial;
+	        color:black;
+	      }
+
+	      div.dialog 
+	      {
+	        width: 55em;
+	        margin: 4em auto 0 auto;
+	        border: 1px solid #CCC;
+	        border-right-color: #999;
+	        border-left-color: #999;
+	        border-bottom-color: #BBB;
+	        border-top: #B00100 solid 4px;
+	        border-top-left-radius: 9px;
+	        border-top-right-radius: 9px;
+	        background-color: white;
+	        padding: 7px 4em 0 4em;
+	        
+	      }
+
+	      body > p 
+	      {
+	        width: 63em;
+	        margin: 0 auto 1em;
+	        padding: 1em 0;
+	        background-color: #F7F7F7;
+	        border: 1px solid #CCC;
+	        border-right-color: #999;
+	        border-bottom-color: #999;
+	        border-bottom-left-radius: 4px;
+	        border-bottom-right-radius: 4px;
+	        border-top-color: #DADADA;
+	        color: #666;
+	        box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
+	        color:black;
+	      }
+
+	      h1
+	      {
+	        font-family: Impact;
+	        color:black;
+	        font-size: 150%
+	      }
+
+	      th
+	      {
+	        font-family:Courier,Arial;
+	        color:black;
+	        font-size: 200%
+	      }
+	      
+	      td
+	      {
+	        font-family:Courier,Arial;
+	        color:black;
+	        font-size: 200%
+	      }
+
+
+	    </style>  
+	</head>
+	<body align="center">
+		<div class="dialog">
+		  <h1>Testo del Feed:</h1>
+		</div>
+		<p>
+		  <%= @feed.feed_text %>
+		</p>
+
+		<div class="dialog">
+			<h1>Data:</h1>
+		</div>
+
+		<p>
+		  <%= @feed.date %>
+		</p>
+
+		<%= link_to 'Modifica', edit_feed_path(@feed) %> |
+		<%= link_to 'Indietro', feeds_path %>
+	</body>
+</html>
