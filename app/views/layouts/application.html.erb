@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TwittwarApp</title>
+  <title>La Grande Guerra</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -21,12 +21,12 @@
 
 <body>
 
-	<% if notice %>
+  <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-	<% end %>
-	<% if alert %>
+  <% end %>
+  <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
-	<% end %>
+  <% end %>
 
 <%= yield %>
 
