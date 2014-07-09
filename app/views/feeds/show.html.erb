@@ -1,6 +1,8 @@
 <html>
+  
+  <title>Visualizza Feed</title>
 
-<style>
+  <style>
     a:link 
     { 
       color: #A60000;
@@ -10,31 +12,30 @@
     { 
       color: #A60000;
     }
-</style>
+  </style>
 
-<title>Visualizza Feed</title>
-
-<body>
+  <body>
 
     <div class="dialog">
 		  <h1><b>Visualizza Feed:</b></h1>
 		</div>
 		
-		<div class="form_box">
+		<div class="sheet">
 		  <h3><b>Feed:</b></h3>
       <%= @feed.feed_text %>
       <h3><b>Data di pubblicazione:</b></h3>
       <%= @feed.date %><br><br>  
     </div>
     
-    <p>
+    <div class="sheet">
       <% if @feed.user_id == current_user.id %>
         <%= link_to 'Modifica', edit_feed_path(@feed) %> |        
       <% end %>  
         
       <%= link_to 'Indietro', feeds_path %>
-    </p>
+    </div>
     
     
-</body>
+  </body>
+  
 </html>
