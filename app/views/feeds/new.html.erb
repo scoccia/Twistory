@@ -1,6 +1,8 @@
 <html>
 
-<style>
+  <title>Nuovo Feed</title>
+
+  <style>
     a:link 
     { 
       color: #A60000;
@@ -10,18 +12,20 @@
     { 
       color: #A60000;
     }
-</style>
-
-<title>Nuovo Feed</title>
+  </style>
 	
 <body>	
+
   <div class="dialog">
 	  <h1><b>Nuovo feed</b></h1>
 	</div>
 
 	<%= render 'form' %>
 		
-	<p><%= link_to 'Indietro', feeds_path %></p>
+	<div class="sheet">
+	  <%= link_to 'Indietro', feeds_path %>
+	</div>
+	  
 </body>
 
 </html>

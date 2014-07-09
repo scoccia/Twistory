@@ -1,6 +1,8 @@
 <html>
 
-<style>
+<title>La Grande Guerra</title>
+
+  <style>
     a:link 
     { 
       color: #A60000;
@@ -10,21 +12,21 @@
     { 
       color: #A60000;
     }
-</style>
+  </style>
 
   <div class="dialog">
     <h1><b>La Grande Guerra</b></h1>
   </div>
   
-  <p>
+  <div class="sheet">
     <%= link_to 'Nuovo Feed', new_feed_path %>
-  </p>
+  </div>
   
   <br>
 
-  <% @feeds.each do |feed| %>
   <body>
-    <p>
+  <% @feeds.each do |feed| %>
+    <div class="sheet">
       <b>Testo del Feed:</b><br><br>
       <%= feed.feed_text %><br><br>
       <b>Data di pubblicazione:</b><br><br><%= feed.date %><br><br>
@@ -36,14 +38,14 @@
       <% end %>
       
       <a href="http://localhost:3000">Torna all'inizio</a><br>
-    </p>
-  </body>
+    </div>
   <% end %>
+  </body>
     
   <br><br>
     
-  <p>
+  <div class="sheet">
     <%= link_to 'Nuovo Feed', new_feed_path %>
-  </p>
+  </div>
   
 </html>

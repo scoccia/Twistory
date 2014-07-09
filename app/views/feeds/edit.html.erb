@@ -1,6 +1,8 @@
 <html>
 
-<style>
+  <title>Modifica feed</title>
+
+  <style>
     a:link 
     { 
       color: #A60000;
@@ -10,9 +12,7 @@
     { 
       color: #A60000;
     }
-</style>
-
-<title>Modifica feed</title>
+  </style>
 
 <body>
 
@@ -22,10 +22,11 @@
 
 	<%= render 'form' %>
 		
-	<p>
+	<div class="sheet">
 	  <%= link_to 'Mostra', @feed %> |
     <%= link_to 'Indietro', feeds_path %>
-  </p>
+  </div>
   
 </body>
+
 </html>

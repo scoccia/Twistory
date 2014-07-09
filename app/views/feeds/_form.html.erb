@@ -1,4 +1,8 @@
-<style>
+<html>
+
+  <title>Modifica feed</title>
+ 
+  <style>
     a:link 
     { 
       color: #A60000;
@@ -8,26 +12,25 @@
     { 
       color: #A60000;
     }
-</style>
+  </style>
 
 <%= form_for(@feed) do |f| %>
   <% if @feed.errors.any? %>
-   <div id="error_explanation">
+   <div class="dialog">
       <% if @feed.errors.count == 1 %> 
         <h2>1 errore impedisce di salvare il feed:</h2>
       <% else %>
         <h2><%= @feed.errors.count %> errori impediscono di salvare il feed:</h2>
       <% end %>
 
-      <ul>
       <% @feed.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <%= msg %><br>
       <% end %>
-      </ul>
+      <br>
     </div>
   <% end %>
 
-  <div class="form_box">
+  <div class="sheet">
     <%= f.text_area :feed_text, size: "60x5"%><br><br>
     Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
     <%= f.datetime_select :date %><br><br>
@@ -35,4 +38,4 @@
   </div>
 <% end %>
 
-
+</html>
