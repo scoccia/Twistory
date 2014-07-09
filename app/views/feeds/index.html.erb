@@ -25,7 +25,7 @@
   <br>
 
   <body>
-  <% @feeds.each do |feed| %>
+  <% @feeds.reverse_each do |feed| %>
     <div class="sheet">
       <b>Testo del Feed:</b><br><br>
       <%= feed.feed_text %><br><br>
