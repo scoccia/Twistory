@@ -1,10 +1,10 @@
 <html>
-
+  <title>Accedi</title>
 	<div class="dialog">
 	  <h1>Accedi</h1>
   </div>
 	
-	<div class="form_box">
+	<div class="sheet">
 	  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 	  <h4 align="right">
 	    e-mail:
@@ -16,10 +16,10 @@
 	  <%= f.submit "Accedi" %>
   </div>
 	 
-	<p>   
+	<div class="sheet">  
 	  <% if devise_mapping.rememberable? -%>
 	    <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
 	  <% end -%>
-  </p>
+  </div>
 	<% end %>
 </html>
