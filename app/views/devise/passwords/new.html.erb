@@ -1,43 +1,21 @@
 <html>
 
-      <style type="text/css">
+  <title>Dimenticato la password?</title>
 
-      body
-      {
-        background-image: url(<%= asset_path 'background.jpg' %>);
-        background-repeat:no-repeat;
-        background-attachment:fixed;
-        background-size:cover;
-        font-family:Courier,Arial;
-        color:black;
-      }
-
-      h1
-      {
-        font-family: Impact;
-        color:black;
-        font-size: 200%
-      }
-
-      </style> 
-  
 <body>
-		<br><br>
-		<h1>Hai dimenticato la password?</h1>
+		<div class="dialog">
+		  <h1>Hai dimenticato la password?</h1>
+		</div>
 
 	  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 		<%= devise_error_messages! %>
 
-  <div>
-      <%= f.label :email %><br>
+  <div class="sheet">
+      <h3>e-mail:</h3>
       <%= f.email_field :email, autofocus: true %><br><br>
-      <%= f.submit "Invia email per nuova password" %><br>
+      <%= f.submit "Invia email" %><br>
   </div>
 		<% end %>
 </body>
-
-<p>
-<%= render "devise/shared/links" %>
-</p>
 
 </html>
