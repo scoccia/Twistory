@@ -2,18 +2,6 @@
 
 <title>La Grande Guerra</title>
 
-  <style>
-    a:link 
-    { 
-      color: #A60000;
-    }
-
-    a:visited 
-    { 
-      color: #A60000;
-    }
-  </style>
-
   <div class="dialog">
     <h1><b>La Grande Guerra</b></h1>
   </div>
@@ -37,7 +25,9 @@
       <%= link_to 'Mostra', feed %>
       
       <% if feed.user_id == current_user.id %>
-        <%= link_to 'Modifica', edit_feed_path(feed) %>
+        <% if feed.date > DateTime.now.utc %>
+          <%= link_to 'Modifica', edit_feed_path(feed) %>
+        <% end %>
         <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
       <% end %>
       

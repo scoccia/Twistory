@@ -3,16 +3,6 @@
 
 <style type="text/css">
 
-    a:link 
-    { 
-      color: #A60000;
-    }
-
-    a:visited 
-    { 
-      color: #A60000;
-    }
-
     div.sheet 
     {
       width: 30em;
@@ -109,7 +99,7 @@
 <div class="toolbar">
 <% if user_signed_in? %>
   Le tue credenziali sono: <strong><%= current_user.email %></strong><br>
-  <%= link_to 'Modifica profilo', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Modifica profilo", edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Esci", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
   <%= link_to "Accedi", new_user_session_path, :class => 'navbar-link'  %> |

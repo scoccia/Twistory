@@ -2,31 +2,19 @@
 
   <title>Modifica feed</title>
 
-  <style>
-    a:link 
-    { 
-      color: #A60000;
-    }
+  <body>
 
-    a:visited 
-    { 
-      color: #A60000;
-    }
-  </style>
+  <div class="dialog">
+    <h1><b>Modifica il tuo feed</b></h1>
+  </div>
 
-<body>
-
-<div class="dialog">
-  <h1><b>Modifica il tuo feed</b></h1>
-</div>
-
-	<%= render 'form' %>
+	  <%= render 'form' %>
 		
 	<div class="sheet">
 	  <%= link_to 'Mostra', @feed %> |
     <%= link_to 'Indietro', feeds_path %>
   </div>
   
-</body>
+  </body>
 
 </html>
