@@ -17,7 +17,7 @@
     {
       width: 34em;
       margin: 0 auto 1em;
-      padding: 1em 0;
+      padding: 1em 0px;
       background-color: #F7F7F7;
       border: 1px solid #CCC;
       border-right-color: #999;
@@ -54,6 +54,33 @@
       text-align: center;
       word-wrap: break-word;   
     }
+
+    div.toolbar
+    {
+      width: 20em;
+      margin: 0 auto 1em;
+      padding: 1em 0;
+      background-color: #F7F7F7;
+      border: 1px solid #CCC;
+      border-right-color: #999;
+      border-bottom-color: #999;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-top-color: #DADADA;
+      color: #444;
+      box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
+      font-family: Arial, Courier;
+      text-align: center;
+      word-wrap: break-word;
+      position:fixed;
+      overflow-y:scroll;
+      overflow-x:hidden;
+      margin-left: auto;
+      margin-right: auto;
+      margin-left: 85%;
+    }
     
     body
     {
@@ -79,9 +106,9 @@
   <%= csrf_meta_tags %>
 </head>
 
-<div class="sheet">
+<div class="toolbar">
 <% if user_signed_in? %>
-  Le tue credenziali sono: <strong><%= current_user.email %></strong><br>
+  Le tue credenziali sono: <br><strong><%= current_user.email %></strong><br>
   <%= link_to 'Modifica profilo', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Esci", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
@@ -89,16 +116,16 @@
   <%= link_to "Iscriviti", new_user_registration_path, :class => 'navbar-link'  %><br>
   <%= link_to "Hai dimenticato la password?", new_password_path(resource_name) %>
 <% end %>
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
 </div>
 
-
-
-  <% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
 
 <%= yield %>
 
