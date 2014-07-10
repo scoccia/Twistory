@@ -27,8 +27,10 @@
   <body>
   <% @feeds.reverse_each do |feed| %>
     <div class="sheet">
-      <b>Immagine relativa al Feed:</b><br><br>
-      <%= image_tag(feed.feed_image_url, :width => 400 , :height => 220) if feed.feed_image.present? %><br><br>
+      <% if feed.feed_image.present? %>
+        <b>Immagine relativa al Feed:</b><br><br>
+        <%= image_tag(feed.feed_image_url, :width => 390 , :height => 220) %><br><br>
+      <% end %>
       <b>Testo del Feed:</b><br><br>
       <%= feed.feed_text %><br><br>
       <b>Data di pubblicazione:</b><br><br><%= feed.date %><br><br>
