@@ -27,14 +27,14 @@ en:
       failure: "Non possiamo autenticarti da %{kind} perchè \"%{reason}\"."
       success: "Autenticato con successo da %{kind} dell' account."
     passwords:
-      no_token: "Non è possibile accedere a questa pagina senza proveniente da un indirizzo email di reimpostazione della password. Se lo fai venire da un email di reimpostazione della password, assicurarsi che hai usato l'indirizzo completo fornito."
+      no_token: "Non è possibile accedere a questa pagina senza provenire da un indirizzo email di reimpostazione della password. Assicurarsi che hai usato l'indirizzo completo fornito."
       send_instructions: "Riceverai un'e-mail con le istruzioni per cambiare la tua password in pochi minuti."
       send_paranoid_instructions: "Se il tuo indirizzo e-mail esiste nel nostro database, riceverai il link per recuperare la tua password in pochi minuti."
       updated: "La tua password è stata cambiata con successo. Ora sei registrato."
       updated_not_active: "La tua password è stata cambiata con successo."
     registrations:
-      destroyed: "Ciao! Il tuo account è stato cancellato con successo.Speriamo di rivederti presto!"
-      signed_up: "Benvenuto! Ti sei iscritto con successo."
+      destroyed: "Ciao! Il tuo account è stato cancellato con successo. Speriamo di rivederti presto!"
+      signed_up: "Benvenuto! L'iscrizione è avvenuta con successo."
       signed_up_but_inactive: "Ti sei iscritto con successo. Purtroppo ancora non puoi accedere perchè il tuo account non è ancora attivo."
       signed_up_but_locked: "Ti sei iscritto con successo. Purtroppo non puoi accedere perchè il tuo account è bloccato."
       signed_up_but_unconfirmed: "Un messaggio con un link di conferma è stato inviato al tuo indirizzo e-mail. Per favore apri il link per confermare il tuo account."
