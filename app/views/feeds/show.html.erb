@@ -5,15 +5,15 @@
   <body>
 
     <div class="dialog">
-		  <h1><b>Visualizza Feed:</b></h1>
-		</div>
+      <h1><b>Visualizza Feed:</b></h1>
+    </div>
 		
-		<div class="sheet">
-		  <% if @feed.feed_image.present? %>
+    <div class="sheet">
+      <% if @feed.feed_image.present? %>
         <b>Immagine relativa al Feed:</b><br><br>
         <%= image_tag(@feed.feed_image_url, :width => 390 , :height => 200) %>
       <% end %>
-		  <h3><b>Feed:</b></h3>
+      <h3><b>Feed:</b></h3>
       <%= @feed.feed_text %>
       <h3><b>Data di pubblicazione:</b></h3>
       <%= @feed.date %><br><br>  
@@ -25,6 +25,7 @@
       <% end %>  
         
       <%= link_to 'Indietro', feeds_path %>
+        
     </div>
     
     
