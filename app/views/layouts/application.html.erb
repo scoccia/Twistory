@@ -108,7 +108,7 @@
 
 <div class="toolbar">
 <% if user_signed_in? %>
-  Le tue credenziali sono: <strong><br><%= current_user.email %></strong><br>
+  Le tue credenziali sono: <br><strong><%= current_user.email %></strong><br>
   <%= link_to 'Modifica profilo', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Esci", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
@@ -119,10 +119,10 @@
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
+<% end %>
+<% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+<% end %>
 
 </div>
 
