@@ -3,7 +3,7 @@
 en:
   devise:
     confirmations:
-      confirmed: "Conferma account confermata con successo"
+      confirmed: "Account confermato con successo"
       send_instructions: "Riceverai un'e-mail con le istruzioni per confermare il tuo account in pochi minuti."
       send_paranoid_instructions: "Se il tuo indirizzo e-mail esiste nel nostro database, riceverai le istruzioni per confermare il tuo account in pochi minuti."
     failure:
