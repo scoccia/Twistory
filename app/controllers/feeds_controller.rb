@@ -32,7 +32,10 @@ class FeedsController < ApplicationController
   # GET /feeds/1/edit
   def edit
     if @feed.user_id != current_user.id
-      err_mex
+      err_mex 
+    elsif@feed.date <= DateTime.now.utc
+      flash[:notice] = "Non puoi modificare feed gia' pubblicati"
+      redirect_to action: 'index' 
     end
   end 
 # edit end #
@@ -45,8 +48,8 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Il Feed e\' stato creato con successo' }
-        format.json { render action: 'show', status: :created, location: @feed }
+        flash[:notice] = 'Il Feed e\' stato creato con successo'
+        format.html { redirect_to action: 'index' }
       else
         format.html { render action: 'new' }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
@@ -61,8 +64,8 @@ class FeedsController < ApplicationController
     if @feed.user_id == current_user.id
       respond_to do |format|
         if @feed.update(feed_params)
-          format.html { redirect_to @feed, notice: 'Il Feed e\' stato aggiornato con successo.' }
-          format.json { head :no_content }
+          flash[:notice] = 'Il Feed e\' stato aggiornato con successo'
+          format.html { redirect_to action: 'index' }
         else
           format.html { render action: 'edit' }
           format.json { render json: @feed.errors, status: :unprocessable_entity }

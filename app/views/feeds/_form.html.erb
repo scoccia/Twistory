@@ -1,18 +1,6 @@
 <html>
 
   <title>Modifica feed</title>
- 
-  <style>
-    a:link 
-    { 
-      color: #A60000;
-    }
-
-    a:visited 
-    { 
-      color: #A60000;
-    }
-  </style>
 
 <%= form_for(@feed) do |f| %>
 
@@ -36,6 +24,7 @@
     <%= f.file_field :feed_image %><br><br>
     <%= f.submit "conferma"%>
   </div>
+  
 <% end %>
 
 </html>
