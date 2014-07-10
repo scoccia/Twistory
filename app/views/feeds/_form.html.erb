@@ -15,8 +15,9 @@
   </style>
 
 <%= form_for(@feed) do |f| %>
-  <% if @feed.errors.any? %>
-   <div class="dialog">
+
+  <div class="sheet">
+    <% if @feed.errors.any? %>
       <% if @feed.errors.count == 1 %> 
         <h2>1 errore impedisce di salvare il feed:</h2>
       <% else %>
@@ -26,11 +27,8 @@
       <% @feed.errors.full_messages.each do |msg| %>
       <%= msg %><br>
       <% end %>
-      <br>
-    </div>
-  <% end %>
-
-  <div class="sheet">
+      <br>  
+    <% end %>
     <%= f.text_area :feed_text, size: "50x5"%><br><br>
     Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
     <%= f.datetime_select :date %><br><br>
