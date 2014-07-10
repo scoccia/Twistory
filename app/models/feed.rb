@@ -1,4 +1,7 @@
 class Feed < ActiveRecord::Base
+
+  mount_uploader :feed_image, ImageUploader
+
   validate :checking_feed_text
   validate :checking_for_date
 	

@@ -32,6 +32,8 @@
     <%= f.text_area :feed_text, size: "50x5"%><br><br>
     Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
     <%= f.datetime_select :date %><br><br>
+    Inserisci un'immagine:<br>
+    <%= f.file_field :feed_image %><br><br>
     <%= f.submit "conferma"%>
   </div>
 <% end %>

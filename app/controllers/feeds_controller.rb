@@ -45,7 +45,7 @@ class FeedsController < ApplicationController
 
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+        format.html { redirect_to @feed, notice: 'Il Feed e\' stato creato con successo' }
         format.json { render action: 'show', status: :created, location: @feed }
       else
         format.html { render action: 'new' }
@@ -61,7 +61,7 @@ class FeedsController < ApplicationController
     if @feed.user_id == current_user.id
       respond_to do |format|
         if @feed.update(feed_params)
-          format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
+          format.html { redirect_to @feed, notice: 'Il Feed e\' stato aggiornato con successo.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -101,7 +101,7 @@ class FeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
-      params.require(:feed).permit(:feed_text, :date)
+      params.require(:feed).permit(:feed_text, :date, :feed_image)
     end
 # feed_params end #
 end
