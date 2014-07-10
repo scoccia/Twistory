@@ -15,9 +15,9 @@
 
     div.sheet 
     {
-      width: 34em;
+      width: 30em;
       margin: 0 auto 1em;
-      padding: 1em 0px;
+      padding: 7px 2em 3px 2em;
       background-color: #F7F7F7;
       border: 1px solid #CCC;
       border-right-color: #999;
@@ -36,8 +36,9 @@
     
     div.dialog 
     {
-      width: 26em;
-      margin: 4em auto 0 auto;
+      width: 30em;
+      margin: 5em auto 0 auto;
+      padding: 7px 2em 3px 2em;
       border: 1px solid #CCC;
       border-right-color: #999;
       border-left-color: #999;
@@ -48,7 +49,6 @@
       border-bottom-left-radius: 3px;
       border-bottom-right-radius: 3px;
       background-color: white;
-      padding: 7px 4em 0 4em;
       color: #B00100;
       font-family: Arial, Courier;
       text-align: center;
@@ -57,9 +57,8 @@
 
     div.toolbar
     {
-      width: 20em;
-      margin: 0 auto 1em;
-      padding: 1em 0;
+      width: auto;
+      padding: 8px 3em 8px 3em;
       background-color: #F7F7F7;
       border: 1px solid #CCC;
       border-right-color: #999;
@@ -74,12 +73,11 @@
       font-family: Arial, Courier;
       text-align: center;
       word-wrap: break-word;
-      position:fixed;
-      overflow-y:scroll;
-      overflow-x:hidden;
-      margin-left: auto;
-      margin-right: auto;
-      margin-left: 85%;
+      
+      position: fixed;
+      top: 0;
+      left: 25%;
+      right: 25%;
     }
     
     body
@@ -95,7 +93,7 @@
 		{
 		  font-family: Arial, Courier;
 		  color:black;
-		  font-size: 170%
+		  font-size: 170%;
 		}
     
 </style>  
@@ -108,7 +106,7 @@
 
 <div class="toolbar">
 <% if user_signed_in? %>
-  Le tue credenziali sono: <br><strong><%= current_user.email %></strong><br>
+  Le tue credenziali sono: <strong><%= current_user.email %></strong><br>
   <%= link_to 'Modifica profilo', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Esci", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
