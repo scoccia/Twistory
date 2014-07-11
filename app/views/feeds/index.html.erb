@@ -22,7 +22,6 @@
       <h1 align="right">cit Voltaire</h1>
     </div>
   <% else %>
-
     <% @feeds.reverse_each do |feed| %>
       <div class="sheet">
         <% if feed.feed_image.present? %>
@@ -35,7 +34,7 @@
         <%= link_to 'Mostra', feed %>
         
         <% if feed.user_id == current_user.id %>
-          <% if feed.date > DateTime.now.utc %>
+          <% if feed.has_been_published == false %>
             <%= link_to 'Modifica', edit_feed_path(feed) %>
           <% end %>
           <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
