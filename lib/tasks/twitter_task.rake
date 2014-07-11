@@ -21,9 +21,14 @@ namespace :twitter_connection do
       i = 0
     
       while i != ctrl do
-        box[i].update_attribute(:has_been_published, true)
-        client.update(box[i].feed_text);
       
+        box[i].update_attribute(:has_been_published, true)
+        
+        if !box[i].feed_image.present?
+          client.update(box[i].feed_text)
+        else
+          client.update_with_media(box[i].feed_text, File.new(box[i].feed_image.path))
+        end
         ## use the line below to debug:                              
         ## puts "\n\nctrl: #{ctrl}, i: #{i}\ntime now: #{time_now}\nhas_been: #{box[i].has_been_published}\nfeed text: #{box[i].feed_text}"
 			  	
