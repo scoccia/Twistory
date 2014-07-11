@@ -35,7 +35,7 @@ class FeedsController < ApplicationController
       err_mex 
     elsif@feed.date <= DateTime.now.utc
       flash[:notice] = "Non puoi modificare feed gia' pubblicati"
-      redirect_to action: 'index' 
+      render "show"
     end
   end 
 # edit end #
