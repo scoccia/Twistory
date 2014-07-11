@@ -33,7 +33,7 @@ class FeedsController < ApplicationController
   def edit
     if @feed.user_id != current_user.id
       err_mex 
-    elsif@feed.date <= DateTime.now.utc
+    elsif @feed.has_been_published == true
       flash[:notice] = "Non puoi modificare feed gia' pubblicati"
       render "show"
     end
