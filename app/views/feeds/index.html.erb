@@ -13,26 +13,37 @@
   <br>
 
   <body>
-  <% @feeds.reverse_each do |feed| %>
+  
+  <% if !@feeds.present? %>
     <div class="sheet">
-      <% if feed.feed_image.present? %>
-        <b>Immagine relativa al Feed:</b><br><br>
-        <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
-      <% end %>
-      <b>Testo del Feed:</b><br><br>
-      <%= feed.feed_text %><br><br>
-      <b>Data di pubblicazione:</b><br><br><%= feed.date %><br><br>
-      <%= link_to 'Mostra', feed %>
-      
-      <% if feed.user_id == current_user.id %>
-        <% if feed.date > DateTime.now.utc %>
-          <%= link_to 'Modifica', edit_feed_path(feed) %>
-        <% end %>
-        <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-      <% end %>
-      
-      <a href="http://localhost:3000">Torna all'inizio</a><br>
+      <h1><b>Non Ci Sono Feeds</b></h1>
+      <br>
+      <b>Tutti i vizi di tutte le età e di tutti i paesi del globo riuniti assieme, non eguaglieranno mai i peccati che provoca una sola campagna di guerra.</b><br>
+      <h1 align="right">cit Voltaire</h1>
     </div>
+  <% else %>
+
+    <% @feeds.reverse_each do |feed| %>
+      <div class="sheet">
+        <% if feed.feed_image.present? %>
+          <b>Immagine relativa al Feed:</b><br><br>
+          <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
+        <% end %>
+        <b>Testo del Feed:</b><br><br>
+        <%= feed.feed_text %><br><br>
+        <b>Data di pubblicazione:</b><br><br><%= feed.date %><br><br>
+        <%= link_to 'Mostra', feed %>
+        
+        <% if feed.user_id == current_user.id %>
+          <% if feed.date > DateTime.now.utc %>
+            <%= link_to 'Modifica', edit_feed_path(feed) %>
+          <% end %>
+          <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+        <% end %>
+        
+        <a href="http://localhost:3000">Torna all'inizio</a><br>
+      </div>
+    <% end %>
   <% end %>
   </body>
     
