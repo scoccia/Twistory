@@ -20,9 +20,13 @@
         <b>Immagine relativa al Feed:</b>
         <%= image_tag(@feed.feed_image_url, :width => 380 , :height => 220) %>
       <% end %>
-      <h3><b>Feed:</b></h3>
+      <h3><b>Testo del Feed:</b></h3>
       <%= @feed.feed_text %>
-      <h3><b>Data di pubblicazione:</b></h3>
+      <% if @feed.has_been_published == true %>
+        <h3><b>Pubblicato in data:</b></h3>
+      <% else %>
+        <h3><b>Da pubblicare in data:</b></h3>
+      <% end %>
       <%= @feed.date %><br><br>  
     </div>
     

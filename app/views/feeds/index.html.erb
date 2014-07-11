@@ -37,7 +37,12 @@
         <% end %>
         <b>Testo del Feed:</b><br><br>
         <%= feed.feed_text %><br><br>
-        <b>Data di pubblicazione:</b><br><br><%= feed.date %><br><br>
+        <% if feed.has_been_published == true %>
+          <b>Pubblicato in data:</b><br><br>
+        <% else %>
+          <b>Da pubblicare in data:</b><br><br>
+        <% end %>
+        <%= feed.date %><br><br>
         <%= link_to 'Mostra', feed %>
         
         <% if feed.user_id == current_user.id %>
