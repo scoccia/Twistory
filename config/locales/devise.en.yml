@@ -55,5 +55,5 @@ en:
       not_found: "non trovato"
       not_locked: "non è stato bloccato"
       not_saved:
-        one: "1 errore, questo è proibito: %{resource} di essere salvato:"
+        one: "errore, questo %{resource} non può essere salvato:" 
         other: "%{count} errore, questo è proibito  %{resource} di essere salvato:"
