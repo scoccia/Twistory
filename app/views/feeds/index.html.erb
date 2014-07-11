@@ -2,6 +2,13 @@
 
 <title>La Grande Guerra</title>
 
+  <style type="text/css">
+    body
+    {
+      background-image: url(<%= asset_path 'background.jpg' %>);
+    }
+  </style>
+
   <div class="dialog">
     <h1><b>La Grande Guerra</b></h1>
   </div>
@@ -16,7 +23,7 @@
   
   <% if !@feeds.present? %>
     <div class="sheet">
-      <h1><b>Non Ci Sono Feeds</b></h1>
+      <h1><b>Benvenuto!</b></h1>
       <br>
       <b>Tutti i vizi di tutte le età e di tutti i paesi del globo riuniti assieme, non eguaglieranno mai i peccati che provoca una sola campagna di guerra.</b><br>
       <h1 align="right">cit Voltaire</h1>
