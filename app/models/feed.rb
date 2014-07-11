@@ -4,6 +4,13 @@ class Feed < ActiveRecord::Base
 
   validate :checking_feed_text
   validate :checking_for_date
+  validate :checking_for_image_size
+ 
+  private
+ 
+  def checking_for_image_size
+    errors[:base] = "L'immagine non può superare 300 Kb" if feed_image.size > 300.kilobytes
+  end
 	
   def checking_feed_text
     if !(feed_text.present?)
