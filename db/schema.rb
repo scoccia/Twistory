@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710135028) do
+ActiveRecord::Schema.define(version: 20140713151808) do
 
   create_table "feeds", force: true do |t|
     t.string   "feed_text"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20140710135028) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "permission_level",       default: 100
+    t.string   "user_name"
+    t.string   "profile_image"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
