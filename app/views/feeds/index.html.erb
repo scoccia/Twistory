@@ -30,9 +30,15 @@
     </div>
   <% else %>
     <% @feeds.reverse_each do |feed| %>
+      <% read_usr = User.find(feed.user_id) %>
       <div class="sheet">
+        <b>Scritto da:</b>
+        <h2><%= read_usr.user_name %></h2>
+        <% if read_usr.profile_image.present? %>
+          <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
+        <% end %>
         <% if feed.feed_image.present? %>
-          <b>Immagine relativa al Feed:</b><br><br>
+          <b>Immagine allegata al Feed:</b><br><br>
           <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
         <% end %>
         <b>Testo del Feed:</b><br><br>

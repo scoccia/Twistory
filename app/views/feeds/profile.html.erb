@@ -10,8 +10,11 @@
   </style>
 
   <div class="dialog">
-    <h1><b><%= current_user.email %></b></h1>
-    <%= link_to "Modifica profilo", edit_user_registration_path, :class => 'navbar-link' %><br><br>
+    <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
+    <% if current_user.profile_image.present? %>
+      <%= image_tag(current_user.profile_image_url, :width => 160 , :height => 100) %>
+    <% end %><br>
+    <%= link_to "Modifica profilo", edit_user_registration_path, :class => 'navbar-link' %><br>
   </div>
   <br>
   <div class="sheet">

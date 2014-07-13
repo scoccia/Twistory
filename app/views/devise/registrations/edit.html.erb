@@ -17,6 +17,15 @@
   <%= devise_error_messages! %>
 
   <div class="sheet" align="center">
+    <% if current_user.profile_image.present? %>
+      <%= image_tag(current_user.profile_image_url, :width => 160 , :height => 100) %>
+    <% end %>
+    <h4>Cambia immagine del profilo:</h4>
+    <%= f.file_field :profile_image %>
+    
+    <h4>Cambia nome:</h4>
+    <%= f.text_field :user_name %>
+    
     <h4>e-mail:</h4>
     <%= f.email_field :email, autofocus: true %>
 
@@ -33,14 +42,13 @@
     <h4>password attuale: <i>(necessaria per confermare i cambiamenti)</i></h4>
     <%= f.password_field :current_password, autocomplete: "off" %>
     <br><br>
-    <%= f.submit "Conferma" %>
-  </div>
+    <%= f.submit "Conferma" %> |
 <% end %>
+    
+    <%= link_to "indietro", :back %>
 
-<div class="sheet">
-  <h3>Elimina il mio account</h3>
-  <%= button_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %><br>
-  <%= link_to "indietro", :back %>
+    <h4>Elimina il mio account</h4>
+    <%= button_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %><br>
 </div>
 
 </html>
