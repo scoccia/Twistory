@@ -1,4 +1,5 @@
 TwittwarApp::Application.routes.draw do  
+  get "/profile" => 'feeds#profile'
   devise_for :users
   resources :feeds
 
