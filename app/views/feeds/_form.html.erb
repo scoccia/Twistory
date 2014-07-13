@@ -2,27 +2,17 @@
 
   <title>Modifica feed</title>
 
-<%= form_for(@feed) do |f| %>
+  <%= form_for(@feed) do |f| %>
+  
+  <%= feed_error_messages! %>
 
   <div class="sheet">
-    <% if @feed.errors.any? %>
-      <% if @feed.errors.count == 1 %> 
-        <h2>1 errore impedisce di salvare il feed:</h2>
-      <% else %>
-        <h2><%= @feed.errors.count %> errori impediscono di salvare il feed:</h2>
-      <% end %>
-
-      <% @feed.errors.full_messages.each do |msg| %>
-      <%= msg %><br>
-      <% end %>
-      <br>  
-    <% end %>
     <%= f.text_area :feed_text, class: "text_box" %><br><br>
     Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
     <%= f.datetime_select :date %><br><br>
     Inserisci un'immagine:<br>
     <%= f.file_field :feed_image %><br><br>
-    <%= f.submit "conferma"%>
+    <%= f.submit %>
   </div>
   
 <% end %>
