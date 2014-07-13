@@ -1,5 +1,9 @@
 source 'https://rubygems.org'
 
+# For internalization
+gem 'rails-i18n', '~> 4.0.0'
+
+# For twitter
 gem 'twurl' 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
