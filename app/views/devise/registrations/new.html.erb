@@ -16,13 +16,13 @@
   <%= devise_error_messages! %>
 
   <div class="sheet">
-   <h3 align="right">
-     e-mail:
-	   <%= f.email_field :email, autofocus: true %><br>
-
+    <h3 align="right">
+      e-mail:
+	    <%= f.email_field :email, autofocus: true %><br>
+	  
 	    password:
       <%= f.password_field :password, autocomplete: "off" %><br>
-
+    
       conferma password:
       <%= f.password_field :password_confirmation, autocomplete: "off" %><br>
     </h3>

@@ -17,7 +17,7 @@
 		
     <div class="sheet">
       <% if @feed.feed_image.present? %>
-        <b>Immagine relativa al Feed:</b>
+        <b>Immagine relativa al Feed:</b><br><br>
         <%= image_tag(@feed.feed_image_url, :width => 380 , :height => 220) %>
       <% end %>
       <h3><b>Testo del Feed:</b></h3>
