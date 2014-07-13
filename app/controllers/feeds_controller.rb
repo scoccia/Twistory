@@ -15,7 +15,10 @@ class FeedsController < ApplicationController
   end
 # index end #
 
-
+  def profile
+      @feeds = Feed.all
+  end 
+  
   # GET /feeds/1
   def show
   end

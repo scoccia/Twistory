@@ -1,0 +1,78 @@
+<html>
+
+<title>Profilo</title>
+
+  <style type="text/css">
+    body
+    {
+      background-image: url(<%= asset_path 'background.jpg' %>);
+    }
+  </style>
+
+  <div class="dialog">
+    <h1><b><%= current_user.email %></b></h1>
+    <%= link_to "Modifica profilo", edit_user_registration_path, :class => 'navbar-link' %> |
+  </div>
+  <br>
+  <div class="sheet">
+    <%= link_to 'Nuovo Feed', new_feed_path %>
+  </div>
+  
+  <br>
+
+  <body>
+  
+  <% control_feed=0 %>
+
+  <% @feeds.each do |feed| %>
+    <% if feed.user_id == current_user.id %>
+      <% control_feed=1 %>
+    <% end %> 
+  <% end %>
+  
+  <% if controll_feed==0 %>
+    <div class="sheet">
+      <h1><b>Benvenuto nel tuo profilo!</b></h1>
+      <br>
+      <b>Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.</b><br>
+      <h1 align="right">cit Pär Lagerkvist</h1>
+    </div>
+  <% else %>
+    <% @feeds.reverse_each do |feed| %>
+      <% if feed.user_id == current_user.id %> 
+        <div class="sheet">
+          <% if feed.feed_image.present? %>
+            <b>Immagine relativa al Feed:</b><br><br>
+            <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
+          <% end %>
+          <b>Testo del Feed:</b><br><br>
+          <%= feed.feed_text %><br><br>
+          <% if feed.has_been_published == true %>
+            <b>Pubblicato in data:</b><br><br>
+          <% else %>
+            <b>Da pubblicare in data:</b><br><br>
+          <% end %>
+          <%= feed.date %><br><br>
+          <%= link_to 'Mostra', feed %>
+          
+          <% if feed.has_been_published == false %>
+              <%= link_to 'Modifica', edit_feed_path(feed) %>
+          <% end %>
+            <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+          
+          
+          <a href="http://localhost:3000/profile">Torna all'inizio</a><br>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+  </body>
+    
+  <br><br>
+    
+  <div class="sheet">
+    <%= link_to 'Nuovo Feed', new_feed_path %>
+  </div>
+  
+</html>
+
