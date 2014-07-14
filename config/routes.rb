@@ -1,7 +1,8 @@
 TwittwarApp::Application.routes.draw do  
-  get "/profile" => 'feeds#profile'
   devise_for :users
   resources :feeds
+  
+  get "/profile" => 'feeds#profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
