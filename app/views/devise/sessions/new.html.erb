@@ -21,16 +21,17 @@
 	    password:
 	    <%= f.password_field :password, autocomplete: "off" %><br>
 	  </h4>
-	  <%= f.submit "Accedi" %>
+	  <%= f.submit "Accedi" %><br><br>
+
+	  <% if devise_mapping.rememberable? -%>
+	    <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
+	  <% end -%>
+
   </div>
 	 
 	<div class="sheet">  
 	  <%= link_to 'Missione', '/mission' %> |
-    	  <%= link_to 'Chi Siamo', '/about' %> <br><br>
-	  <br>
-	  <% if devise_mapping.rememberable? -%>
-	    <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
-	  <% end -%>	
+    	  <%= link_to 'Chi Siamo', '/about' %> <br>	
   </div>
 	<% end %>
 </html>
