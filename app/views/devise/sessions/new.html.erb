@@ -25,9 +25,12 @@
   </div>
 	 
 	<div class="sheet">  
+	  <%= link_to 'Missione', '/mission' %> |
+    	  <%= link_to 'Chi Siamo', '/about' %> <br><br>
+	  <br>
 	  <% if devise_mapping.rememberable? -%>
 	    <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
-	  <% end -%>
+	  <% end -%>	
   </div>
 	<% end %>
 </html>

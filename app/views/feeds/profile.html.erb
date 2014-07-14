@@ -68,10 +68,11 @@
   </body>
     
   <br><br>
-    
-  <div class="sheet">
-    <%= link_to 'Nuovo Feed', new_feed_path %>
-  </div>
+  <% if control_feed==1 %> 
+    <div class="sheet">
+      <%= link_to 'Nuovo Feed', new_feed_path %>
+    </div>
+  <% end %>
   
 </html>
 
