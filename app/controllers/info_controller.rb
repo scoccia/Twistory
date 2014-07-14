@@ -2,6 +2,6 @@ class InfoController < ApplicationController
   def mission
   end
 
-  def aboutus
+  def about
   end
 end
