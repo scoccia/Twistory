@@ -11,8 +11,14 @@ class ApplicationController < ActionController::Base
   protected
   
   def take_current_host
-    @current_host = 'http://' + Rails::Server.new.options[:Host].to_s + ':' + Rails::Server.new.options[:Port].to_s
-    config.asset_host = @current_host
+    ctrl_host = Rails::Server.new.options[:Host].to_s
+    if ctrl_host == "ragazzidel99.it"
+      @current_host = 'http://' + Rails::Server.new.options[:Host].to_s
+      config.asset_host = @current_host
+    else
+      @current_host = "http://localhost:3000"
+      config.asset_host = @current_host
+    end
   end
 
   def configure_permitted_parameters
