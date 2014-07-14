@@ -3,11 +3,17 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   
   protect_from_forgery with: :exception
+  before_action :take_current_host
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   before_action :check_permission_level
   
   protected
+  
+  def take_current_host
+    @current_host = 'http://' + Rails::Server.new.options[:Host].to_s + ':' + Rails::Server.new.options[:Port].to_s
+    config.asset_host = @current_host
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :password_confirmation, :user_name) }
@@ -19,7 +25,7 @@ class ApplicationController < ActionController::Base
       permission = User.where(id: current_user.id).take
       if permission.permission_level != 0
         sign_out 
-        redirect_to "http://localhost:3000/acces_denied.html" # in public folder 
+        redirect_to @current_host + "/acces_denied.html" # in public folder 
       end
     end 
   end
