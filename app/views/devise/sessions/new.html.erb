@@ -28,6 +28,9 @@
 	  <% if devise_mapping.rememberable? -%>
 	    <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
 	  <% end -%>
+	  <br>
+	  	<%= link_to 'Missione', '/mission' %> |
+    	<%= link_to 'Chi Siamo', '/about' %> <br><br>
   </div>
 	<% end %>
 </html>
