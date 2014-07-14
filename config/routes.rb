@@ -4,7 +4,7 @@ TwittwarApp::Application.routes.draw do
   
   get "/profile" => 'feeds#profile'
   get "/mission" => 'info#mission'
-  get "/aboutus" => 'info#aboutus'
+  get "/about" => 'info#about'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
