@@ -29,9 +29,10 @@
 
   </div>
 	 
-	<div class="sheet">  
+	<div class="sheet">
+	  <%= link_to "Hai dimenticato la password?", new_password_path(resource_name) %><br>  
 	  <%= link_to 'Missione', '/mission' %> |
-    	  <%= link_to 'Chi Siamo', '/about' %> <br>	
+    <%= link_to 'Chi Siamo', '/about' %> <br>	
   </div>
 	<% end %>
 </html>
