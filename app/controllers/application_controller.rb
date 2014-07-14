@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def take_current_host
     ctrl_host = Rails::Server.new.options[:Host].to_s
     if ctrl_host == "ragazzidel99.it"
-      @current_host = 'http://' + Rails::Server.new.options[:Host].to_s
+      @current_host = 'http://www.' + ctrl_host
       config.asset_host = @current_host
     else
       @current_host = "http://localhost:3000"
