@@ -3,22 +3,19 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   
   protect_from_forgery with: :exception
-  before_action :take_current_host
+  # before_action :take_current_host
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   before_action :check_permission_level
   
   protected
   
+  # Note by Vincenzo: no need to set @current host if we only need for the redirect_to
+  # at the bottom of this file.
+  # redirect_to implicitly takes the hostname for its redirection:
+  # http://apidock.com/rails/ActionController/Base/redirect_to
   def take_current_host
-    ctrl_host = Rails::Server.new.options[:Host].to_s
-    if ctrl_host == "ragazzidel99.it"
-      @current_host = 'http://www.' + ctrl_host
-      config.asset_host = @current_host
-    else
-      @current_host = "http://localhost:3000"
-      config.asset_host = @current_host
-    end
+    @current_host = "http://" + request.host
   end
 
   def configure_permitted_parameters
@@ -31,7 +28,9 @@ class ApplicationController < ActionController::Base
       permission = User.where(id: current_user.id).take
       if permission.permission_level != 0
         sign_out 
-        redirect_to @current_host + "/acces_denied.html" # in public folder 
+        # No need to specifiy @current_host . See note above. 
+        # redirect_to @current_host + "/acces_denied.html" # in public folder 
+        redirect_to "/acces_denied.html"
       end
     end 
   end
