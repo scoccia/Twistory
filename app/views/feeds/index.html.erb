@@ -56,9 +56,11 @@
             <%= link_to 'Modifica', edit_feed_path(feed) %>
           <% end %>
           <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+          
         <% end %>
         
-        <a href="http://localhost:3000">Torna all'inizio</a><br>
+        <%= link_to 'Torna all\'inizio', @current_host %>
+        
       </div>
     <% end %>
   <% end %>
