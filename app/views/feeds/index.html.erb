@@ -31,7 +31,11 @@
   <% else %>
     <% @feeds.reverse_each do |feed| %>
       <% read_usr = User.find(feed.user_id) %>
-      <div class="sheet">
+      <% if feed.user_id == current_user.id %>
+        <div class="my_sheet">
+      <% else %>  
+        <div class="sheet">
+      <% end %>  
         <b>Scritto da:</b>
         <h2><%= read_usr.user_name %></h2>
         <% if read_usr.profile_image.present? %>
