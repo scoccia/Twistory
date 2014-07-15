@@ -9,24 +9,25 @@
 </head>
 
 <div class="toolbar">
-<% if user_signed_in? %>
-  Le tue credenziali sono: <strong><%= current_user.email %></strong><br>
-  <%= link_to 'Profilo', '/profile' %> |
-  <%= link_to 'Home', @current_host %> |
-  <%= link_to "Modifica profilo", edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to 'Esci', destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-<% else %>
-  <br>
-  <%= link_to "Accedi", new_user_session_path, :class => 'navbar-link'  %> |
-  <%= link_to "Iscriviti", new_user_registration_path, :class => 'navbar-link'  %>
-<% end %>
+  <% if user_signed_in? %>
+  <p align="right">
+    <%= link_to(image_tag("home_icon.png"), @current_host) %>&nbsp
+    <%= link_to(image_tag("profile_icon.png"), '/profile') %>&nbsp 
+    <%= link_to(image_tag("edit_icon.png"), edit_user_registration_path, :class => 'navbar-link') %>&nbsp
+    <%= link_to(image_tag("exit_icon.png"), destroy_user_session_path, method: :delete, :class => 'navbar-link') %>&nbsp
+  </p>
+  <% else %>
+    <br>
+    <%= link_to "Accedi", new_user_session_path, :class => 'navbar-link'  %> |
+    <%= link_to "Iscriviti", new_user_registration_path, :class => 'navbar-link'  %>
+  <% end %>
 
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 </div>
 
 
