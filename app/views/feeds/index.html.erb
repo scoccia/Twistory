@@ -31,45 +31,52 @@
   <% else %>
     <% @feeds.reverse_each do |feed| %>
       <% read_usr = User.find(feed.user_id) %>
+      
       <% if feed.user_id == current_user.id %>
         <div class="my_sheet">
       <% else %>  
         <div class="sheet">
-      <% end %>  
+      <% end %>
+        
         <b>Scritto da:</b>
         <h2><%= read_usr.user_name %></h2>
+        
         <% if read_usr.profile_image.present? %>
           <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
         <% end %>
+        
         <% if feed.feed_image.present? %>
           <b>Immagine allegata al Feed:</b><br><br>
           <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
         <% end %>
+        
         <b>Testo del Feed:</b><br><br>
         <%= feed.feed_text %><br><br>
+        
         <% if feed.has_been_published == true %>
           <b>Pubblicato in data:</b><br><br>
         <% else %>
           <b>Da pubblicare in data:</b><br><br>
         <% end %>
+        
         <%= feed.date %><br><br>
         <%= link_to 'Mostra', feed %>
         
         <% if feed.user_id == current_user.id %>
+        
           <% if feed.has_been_published == false %>
             <%= link_to 'Modifica', edit_feed_path(feed) %>
           <% end %>
           <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
           
-        <% end %>
-        
-        
+        <% end %> 
       </div>
     <% end %>
   <% end %>
   </body>
     
   <br><br>
+  
   <% if @feeds.present? %> 
     <div class="sheet">
       <%= link_to 'Nuovo Feed', new_feed_path %>
