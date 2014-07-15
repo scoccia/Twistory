@@ -13,10 +13,8 @@
     <h1><b>La Grande Guerra</b></h1>
   </div>
   
-  <div class="sheet">
-    <%= link_to 'Nuovo Feed', new_feed_path %>
-  </div>
-  
+  <%= render 'form' %>
+    
   <br>
 
   <body>
@@ -38,7 +36,7 @@
         <div class="sheet">
       <% end %>
         
-        <b>Scritto da:</b>
+        <b>Scritto da:</b><br>
         <h2><%= read_usr.user_name %></h2>
         
         <% if read_usr.profile_image.present? %>
@@ -46,8 +44,8 @@
         <% end %>
         
         <% if feed.feed_image.present? %>
-          <b>Immagine allegata al Feed:</b><br><br>
-          <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
+          <b>Immagine relativa al Feed:</b><br><br>
+          <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
         <% end %>
         
         <b>Testo del Feed:</b><br><br>
@@ -76,11 +74,5 @@
   </body>
     
   <br><br>
-  
-  <% if @feeds.present? %> 
-    <div class="sheet">
-      <%= link_to 'Nuovo Feed', new_feed_path %>
-    </div>
-  <% end %>
-  
+    
 </html>

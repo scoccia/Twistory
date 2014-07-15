@@ -1,16 +1,17 @@
 <html>
 
   <%= form_for(@feed) do |f| %>
-  
+    
     <%= feed_error_messages! %>
-
-    <div class="sheet">
+    
+    <div class="sheet">  
+      <b>Inserisci qui il testo del tuo Feed:</b><br>
       <%= f.text_area :feed_text, class: "text_box", autofocus: true %><br><br>
-      Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
+      <b>Inserisci la data in cui verrà pubblicato (fuso orario UTC):</b><br><br>
       <%= f.datetime_select :date %><br><br>
-      Inserisci un'immagine:<br>
+      <b>Inserisci un'immagine:</b><br>
       <%= f.file_field :feed_image %><br><br>
-      <%= f.submit %>
+      <%= f.submit %><br>
     </div>
   
   <% end %>
