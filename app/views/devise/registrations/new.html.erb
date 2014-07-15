@@ -18,10 +18,10 @@
   <div class="sheet">
     <h3 align="right">
       Nome pubblico:
-      <%= f.text_field :user_name %><br>
+      <%= f.text_field :user_name, autofocus: true %><br>
     
       e-mail:
-	    <%= f.email_field :email, autofocus: true %><br>
+	    <%= f.email_field :email %><br>
 	  
 	    password:
       <%= f.password_field :password, autocomplete: "off" %><br>
