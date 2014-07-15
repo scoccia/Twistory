@@ -12,13 +12,11 @@
   <div class="dialog">
     <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
     <% if current_user.profile_image.present? %>
-      <%= image_tag(current_user.profile_image_url, :width => 160 , :height => 100) %>
-    <% end %><br>
+      <%= image_tag(current_user.profile_image_url, :width => 160 , :height => 100) %><br>
+    <% end %>
   </div>
   
-  <div class="sheet">
-    <%= link_to 'Nuovo Feed', new_feed_path %>
-  </div>
+  <%= render 'form' %>
   
   <br>
   
@@ -29,25 +27,31 @@
     <% @feeds.reverse_each do |feed| %>
       <% if feed.user_id == current_user.id %> 
         <% control_feed=1 %>
+        
         <div class="sheet">
           <% if feed.feed_image.present? %>
             <b>Immagine relativa al Feed:</b><br><br>
-            <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %>
+            <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
           <% end %>
+          
           <b>Testo del Feed:</b><br><br>
           <%= feed.feed_text %><br><br>
+          
           <% if feed.has_been_published == true %>
             <b>Pubblicato in data:</b><br><br>
           <% else %>
             <b>Da pubblicare in data:</b><br><br>
           <% end %>
+          
           <%= feed.date %><br><br>
+          
           <%= link_to 'Mostra', feed %>
           
           <% if feed.has_been_published == false %>
               <%= link_to 'Modifica', edit_feed_path(feed) %>
           <% end %>
-            <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+          
+          <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
         </div>
       <% end %>
     <% end %>
@@ -62,13 +66,6 @@
   <% end %>
 
   </body>
-    
-  <br><br>
-  <% if control_feed==1 %> 
-    <div class="sheet">
-      <%= link_to 'Nuovo Feed', new_feed_path %>
-    </div>
-  <% end %>
   
 </html>
 
