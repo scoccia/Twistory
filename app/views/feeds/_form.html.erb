@@ -7,7 +7,7 @@
     <%= feed_error_messages! %>
 
     <div class="sheet">
-      <%= f.text_area :feed_text, class: "text_box" %><br><br>
+      <%= f.text_area :feed_text, class: "text_box", autofocus: true %><br><br>
       Inserisci la data in cui verrà pubblicato (fuso orario UTC):<br><br>
       <%= f.datetime_select :date %><br><br>
       Inserisci un'immagine:<br>
