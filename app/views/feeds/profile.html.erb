@@ -14,15 +14,14 @@
     <% if current_user.profile_image.present? %>
       <%= image_tag(current_user.profile_image_url, :width => 160 , :height => 100) %>
     <% end %><br>
-    <%= link_to "Modifica profilo", edit_user_registration_path, :class => 'navbar-link' %><br>
   </div>
-  <br>
+  
   <div class="sheet">
     <%= link_to 'Nuovo Feed', new_feed_path %>
   </div>
   
   <br>
-
+  
   <body>
   
   <% control_feed=0 %>
@@ -49,9 +48,6 @@
               <%= link_to 'Modifica', edit_feed_path(feed) %>
           <% end %>
             <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-          
-          
-          <a href="http://localhost:3000/profile">Torna all'inizio</a><br>
         </div>
       <% end %>
     <% end %>
