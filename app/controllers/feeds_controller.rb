@@ -9,29 +9,30 @@ class FeedsController < ApplicationController
   end
 # err_mex end #
 		
-
   # GET /feeds
   def index
     @feeds = Feed.all
+    @feed = Feed.new
   end
 # index end #
 
+  # GET /feeds
   def profile
-      @feeds = Feed.all
-  end 
+    @feeds = Feed.all
+    @feed = Feed.new
+  end
+# profile end # 
   
   # GET /feeds/1
   def show
   end
 # show end #
 
-
   # GET /feeds/new
   def new
     @feed = Feed.new
   end
 # new end #
-
 
   # GET /feeds/1/edit
   def edit
@@ -43,7 +44,6 @@ class FeedsController < ApplicationController
     end
   end 
 # edit end #
-
 
   # POST /feeds
   def create
@@ -61,7 +61,6 @@ class FeedsController < ApplicationController
     end
   end
 # create end #
-
 
   # PATCH/PUT /feeds/1
   def update
@@ -81,7 +80,6 @@ class FeedsController < ApplicationController
   end	
 # update end #
  
-
   # DELETE /feeds/1
   def destroy
     if @feed.user_id == current_user.id
@@ -96,7 +94,6 @@ class FeedsController < ApplicationController
   end	
 # destroy end #
 
-
   private
 
     # Use callbacks to share common setup or constraints between actions.
@@ -104,7 +101,6 @@ class FeedsController < ApplicationController
       @feed = Feed.find(params[:id])
     end
 # set_feed end #
-
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
