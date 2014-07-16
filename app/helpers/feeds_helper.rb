@@ -8,10 +8,8 @@ module FeedsHelper
                       resource: @feed.class.model_name.human.downcase)
 
     html = <<-HTML
-    <div class="sheet">
       <h2 align="center">#{sentence}</h2>
       <h4 align="left">#{messages}</h4>
-    </div>
     HTML
 
     html.html_safe
