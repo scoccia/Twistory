@@ -1,29 +1,25 @@
 <html>
   
-  <title>Chi Siamo</title>
+  <head>
+    <title>Chi Siamo</title>
+    <style type="text/css">body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
+  </head>
   
-  <style type="text/css">
-    body
-    {
-      background-image: url(<%= asset_path 'background.jpg' %>);
-    }
-  </style>
-
   <body>
 
     <div class="dialog">
       <h1><b>Chi Siamo</b></h1>
     </div>
 		
-    <div class="sheet">
-       <br>ragazzidel99.it è un progetto ideato, come lascia intuire il dominio, da ragazzi di giovane età.<br> Il sito è stato ideato per essere semplice da utilizzare ed efficiente, il tutto in stretti tempi di progettazione.<br><br>
-    </div>
-    
-    <div class="sheet">
+    <div class="f-sheet">
+      <br>
+      ragazzidel99.it è un progetto ideato, come lascia intuire il dominio, da ragazzi di giovane età.
+      <br>
+      Il sito è stato ideato per essere semplice da utilizzare ed efficiente, il tutto in stretti tempi di progettazione.
+      <br><br>
       <%= link_to 'Indietro', :back %>
     </div>
-    
-    
+ 
   </body>
   
 </html>
