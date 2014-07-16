@@ -1,34 +1,45 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <%= favicon_link_tag "/favicon.ico" %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <%= favicon_link_tag "/favicon.ico" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<div class="toolbar">
-<% if user_signed_in? %>
-  <%= link_to(image_tag("profile_icon.png"), '/profile') %> 
-  <%= link_to(image_tag("home_icon.png"), @current_host) %> 
-  <%= link_to(image_tag("edit_icon.png"), edit_user_registration_path, :class => 'navbar-link' )%> 
-  <%= link_to(image_tag("exit_icon.png"), destroy_user_session_path, method: :delete, :class => 'navbar-link' )%>
-<% else %>
-  <br>
-  <%= link_to "Accedi", new_user_session_path, :class => 'navbar-link' %> |
-  <%= link_to "Iscriviti", new_user_registration_path, :class => 'navbar-link' %>
-<% end %>
+  <% if user_signed_in? %>
+    <div class="header">
+      <div class="p-left">
+        <%= image_tag("logo.png") %>
+      </div>
+      <div class="p-right">
+        <%= link_to(image_tag("profile_icon.png"), '/profile') %>
+        <%= link_to(image_tag("home_icon.png"), @current_host) %> 
+        <%= link_to(image_tag("edit_icon.png"), edit_user_registration_path) %> 
+        <%= link_to(image_tag("exit_icon.png"), destroy_user_session_path, method: :delete) %>
+      </div>
+    </div>
+  <% else %>
+    <div class="header">
+      <div class="p-right">
+        <%= link_to "Accedi", new_user_session_path, :class => 'navbar-link' %> |
+        <%= link_to "Iscriviti", new_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to 'Missione', '/mission' %> |
+        <%= link_to 'Chi Siamo', '/about' %>
+  </div>
+      </div>
+    </div>
+  <% end %>
 
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-</div>
-
-
+<!--
+      <% if notice %>
+        <div class="p-right"><%= notice %></div>
+      <% end %>
+      <% if alert %>
+        <div class="p-right"><%= alert %></div>
+      <% end %>
+-->
 <%= yield %>
 
 </html>
