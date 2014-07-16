@@ -1,38 +1,35 @@
 <html>
-  <title>Accedi</title>
 
-    <style type="text/css">
-      body
-      {
-        background-image: url(<%= asset_path 'background.jpg' %>);
-      }
-    </style>
+  <head>
+    <title>Accedi</title>
+    <style type="text/css">body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
+  </head>
+  
+  <body>
 
-	<div class="dialog">
-	  <h1>Accedi</h1>
-  </div>
+	  <div class="dialog">
+	    <h1>Accedi</h1>
+    </div>
 	
-	<div class="sheet">
-	  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	  <h4 align="right">
-	    e-mail:
-	    <%= f.email_field :email, autofocus: true %><br>
+	  <div class="f-sheet">
+	    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	      <h4 align="right">
+	        e-mail:
+	        <%= f.email_field :email, autofocus: true %><br>
 	  
-	    password:
-	    <%= f.password_field :password, autocomplete: "off" %><br>
-	  </h4>
-	  <%= f.submit "Accedi" %><br><br>
+	        password:
+	        <%= f.password_field :password, autocomplete: "off" %><br>
+	      </h4>
+	      <%= f.submit "Accedi" %><br><br>
 
-	  <% if devise_mapping.rememberable? -%>
-	    <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
-	  <% end -%>
-
-  </div>
-	 
-	<div class="sheet">
-	  <%= link_to "Hai dimenticato la password?", new_password_path(resource_name) %><br>  
-	  <%= link_to 'Missione', '/mission' %> |
-    <%= link_to 'Chi Siamo', '/about' %> <br>	
-  </div>
-	<% end %>
+	      <% if devise_mapping.rememberable? -%>
+	        <%= f.check_box :remember_me %> Mantieni aperto l'accesso<br>
+	      <% end -%>
+	      <br>
+	      <%= link_to "Hai dimenticato la password?", new_password_path(resource_name) %>
+	    <% end %>
+    </div>
+    
+  </body>
+	
 </html>
