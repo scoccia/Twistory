@@ -2,37 +2,33 @@
 
   <head>
     <title>Iscriviti</title>
-    <style type="text/css">body {background-image: url(<%= asset_path 'background_sign_up.jpg' %>);}</style>
   </head>
   
   <body>
-  
+ 
     <div class="dialog">
       <h1>Iscriviti</h1>
     </div>
   
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
 
       <div class="f-sheet">
+        <%= devise_error_messages! %>
         <h3 align="right">
           Nome pubblico:
           <%= f.text_field :user_name, autofocus: true %><br>
-    
-          e-mail:
-	        <%= f.email_field :email %><br>
-	  
-	        password:
+          E-mail:
+          <%= f.email_field :email %><br>
+          Password:
           <%= f.password_field :password, autocomplete: "off" %><br>
-    
-          conferma password:
+          Conferma password
           <%= f.password_field :password_confirmation, autocomplete: "off" %><br>
         </h3>
-       <%= f.submit "Iscriviti" %><br>
-    </div>
+        <%= f.submit "Iscriviti" %><br>
+      </div>
   
     <% end %>
-    
+  
   </body>
   
 </html>
