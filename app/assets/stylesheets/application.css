@@ -11,7 +11,7 @@
 *= require_self
 *= require_tree .
 */
-
+ 
     .header
     {
       position: fixed;
@@ -19,10 +19,10 @@
       left: 0;
       
       width: 100%;
-      height: 3.2em;
+      height: 6em;
       
       border: 1px solid #CCC;
-      border-bottom: 2px solid gray;
+      border-bottom: 2px solid #F7EEE7;
       
       margin-top: 0;
       margin-right: 0;
@@ -33,30 +33,34 @@
       padding-bottom: 2px;
       
       background-color: white;
+    
+      box-shadow:0 3px 8px rgba(50, 50, 50, 0.15);
+      font-family: Arial, Courier;
     }
     
-    .p-left
+    .h-left
     {
-      border: 1px solid none; /* replace 'none' with red for debug */
       float: left;
-      margin-left: 1em;
+      margin-top: 0.5em;
+      margin-bottom:  0.5em;
+      margin-left: 6em;
     }
     
-    .p-right
+    .h-right
     {
-      border: 1px solid none; /* replace 'none' with red for debug */
-      float: right;
-      margin-right: 1em;   
+      float:right;
+      margin-top: 2em;
+      margin-right:8em;
     }
     
     .f-sheet
     {
-      width: 36em;
+      width: 40%;
       
       margin-top: 0;
       margin-bottom: 1em;
-      margin-right: 30em;
-      margin-left: 30em;
+      margin-right: 30%;
+      margin-left: 30%;
       
       padding-top: 1em;
       padding-bottom: 1em;
@@ -64,17 +68,17 @@
       padding-right: 2em;
       
       border: 1px solid #999;
-      border-top-color: #999;
+      border-top-color: #DADADA;
       border-bottom-color: #999;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
       
-      box-shadow:0 3px 8px rgba(50, 50, 50, 0.17);
-      background-color: white;
-      
-      color: #324B4B;
+      background-color: #F5F5F5;
+      box-shadow:0 3px 8px rgba(50, 50, 50, 0.15);
+           
+      color: rgba(65, 65, 65, 0.9);
       text-align: center;
       font-family: Arial, Courier;
       word-wrap: break-word;
@@ -82,12 +86,12 @@
     
     .dialog
     {
-      width: 36em;
+      width: 40%;
       
-      margin-top: 5em;
+      margin-top: 8em;
       margin-bottom: 0;
-      margin-right: 30em;
-      margin-left: 30em;
+      margin-right: 30%;
+      margin-left: 30%;
       
       padding-top: 1em;
       padding-bottom: 1em;
@@ -95,7 +99,7 @@
       padding-right: 2em;
       
       border: 1px solid #999;
-      border-top: #B00100 solid 4px;
+      
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
       border-bottom-left-radius: 3px;
@@ -111,8 +115,8 @@
     
     .text-box
     {
-      width: 30em;
-      height: 7em;
+      width: 80%;
+      height: 8em;
     }
     
     body
