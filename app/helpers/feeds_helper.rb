@@ -10,6 +10,7 @@ module FeedsHelper
     html = <<-HTML
       <h2 align="center">#{sentence}</h2>
       <h4 align="left">#{messages}</h4>
+      <br>
     HTML
 
     html.html_safe
