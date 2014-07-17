@@ -6,7 +6,7 @@
   </head>  
 
   <body>
-    
+  
     <div class="dialog">
       <h1><b>La Grande Guerra</b></h1>
     </div>
@@ -14,7 +14,7 @@
     <%= render 'form' %>
     
     <br>
-
+    
     <% if !@feeds.present? %>
       <div class="f-sheet">
         <h1><b>Benvenuto!</b></h1>
@@ -28,7 +28,7 @@
       
         <div class="f-sheet">
           <b>Scritto da:</b><br>
-          <h2><%= read_usr.user_name %></h2>
+          <h2><%= read_usr.user_name %></h2><br>
         
           <% if read_usr.profile_image.present? %>
             <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
@@ -59,6 +59,7 @@
         </div>
       <% end %>
     <% end %>
+  
   </body>
         
 </html>
