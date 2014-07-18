@@ -1,13 +1,8 @@
 <html>
 
-  <title>Dimenticato la password?</title>
-
-    <style type="text/css">
-      body
-      {
-        background-image: url(<%= asset_path 'background.jpg' %>);
-      }
-    </style>
+  <head>
+    <title>Dimenticato la password?</title>
+  </head>
 
 <body>
 	
@@ -16,19 +11,14 @@
 		</div>
 
 	  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-		<%= devise_error_messages! %>
 
-  <div class="sheet">
-      <h3>e-mail:</h3>
-      <%= f.email_field :email, autofocus: true %><br><br>
-      <%= f.submit "Invia email" %><br>
-  </div>
+      <div class="f-sheet">
+        <%= devise_error_messages! %>
+        <h3>e-mail:</h3>
+        <%= f.email_field :email, autofocus: true %><br><br>
+        <%= f.submit "Invia email" %><br>
+      </div>
 		<% end %>
-
-  <div class="sheet">
-    <%= link_to 'Missione', '/mission' %> |
-    <%= link_to 'Chi Siamo', '/about' %> <br>
-  </div>
 
 </body>
 

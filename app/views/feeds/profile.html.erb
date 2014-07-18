@@ -1,14 +1,10 @@
 <html>
-
-<title>Profilo</title>
-
-  <style type="text/css">
-    body
-    {
-      background-image: url(<%= asset_path 'background.jpg' %>);
-    }
-  </style>
-
+  
+  <head>
+    <title>Profilo</title>
+    <style type="text/css">body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>   
+  </head>
+  
   <div class="dialog">
     <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
     <% if current_user.profile_image.present? %>
@@ -17,18 +13,15 @@
   </div>
   
   <%= render 'form' %>
-  
-  <br>
-  
+    
   <body>
   
-  <% control_feed=0 %>
-
+    <% control_feed=0 %>
     <% @feeds.reverse_each do |feed| %>
       <% if feed.user_id == current_user.id %> 
         <% control_feed=1 %>
         
-        <div class="sheet">
+        <div class="f-sheet">
           <% if feed.feed_image.present? %>
             <b>Immagine relativa al Feed:</b><br><br>
             <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
@@ -56,14 +49,18 @@
       <% end %>
     <% end %>
   
-  <% if control_feed==0 %>
-    <div class="sheet">
-      <h1><b>Benvenuto nel tuo profilo!</b></h1>
-      <br>
-      <b>Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.</b><br>
-      <h1 align="right">cit Pär Lagerkvist</h1>
-    </div>
-  <% end %>
+    <% if control_feed==0 %>
+      <div class="f-sheet">
+        <h1><b>Benvenuto nel tuo profilo!</b></h1>
+        <br>
+        <b>
+          Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, 
+          che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.
+        </b>
+        <br>
+        <h1 align="right">cit Pär Lagerkvist</h1>
+      </div>
+    <% end %>
 
   </body>
   

@@ -1,78 +1,65 @@
 <html>
 
-<title>La Grande Guerra</title>
-
-  <style type="text/css">
-    body
-    {
-      background-image: url(<%= asset_path 'background.jpg' %>);
-    }
-  </style>
-
-  <div class="dialog">
-    <h1><b>La Grande Guerra</b></h1>
-  </div>
-  
-  <%= render 'form' %>
-    
-  <br>
+  <head>
+    <title>La Grande Guerra</title>
+    <style type="text/css"> body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
+  </head>  
 
   <body>
   
-  <% if !@feeds.present? %>
-    <div class="sheet">
-      <h1><b>Benvenuto!</b></h1>
-      <br>
-      <b>Tutti i vizi di tutte le età e di tutti i paesi del globo riuniti assieme, non eguaglieranno mai i peccati che provoca una sola campagna di guerra.</b><br>
-      <h1 align="right">cit Voltaire</h1>
+    <div class="dialog">
+      <h1><b>La Grande Guerra</b></h1>
     </div>
-  <% else %>
-    <% @feeds.reverse_each do |feed| %>
-      <% read_usr = User.find(feed.user_id) %>
+  
+    <%= render 'form' %>
+    
+    <br>
+    
+    <% if !@feeds.present? %>
+      <div class="f-sheet">
+        <h1><b>Benvenuto!</b></h1>
+        <br>
+        <b>Tutti i vizi di tutte le età e di tutti i paesi del globo riuniti assieme, non eguaglieranno mai i peccati che provoca una sola campagna di guerra.</b><br>
+        <h1 align="right">cit Voltaire</h1>
+      </div>
+    <% else %>
+      <% @feeds.reverse_each do |feed| %>
+        <% read_usr = User.find(feed.user_id) %>
       
-      <% if feed.user_id == current_user.id %>
-        <div class="my_sheet">
-      <% else %>  
-        <div class="sheet">
-      <% end %>
+        <div class="f-sheet">
+          <b>Scritto da:</b><br>
+          <h2><%= read_usr.user_name %></h2><br>
         
-        <b>Scritto da:</b><br>
-        <h2><%= read_usr.user_name %></h2>
+          <% if read_usr.profile_image.present? %>
+            <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
+          <% end %>
         
-        <% if read_usr.profile_image.present? %>
-          <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
-        <% end %>
+          <% if feed.feed_image.present? %>
+            <b>Immagine relativa al Feed:</b><br><br>
+            <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
+          <% end %>
         
-        <% if feed.feed_image.present? %>
-          <b>Immagine relativa al Feed:</b><br><br>
-          <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
-        <% end %>
+          <b>Testo del Feed:</b><br><br>
+          <%= feed.feed_text %><br><br>
         
-        <b>Testo del Feed:</b><br><br>
-        <%= feed.feed_text %><br><br>
+          <% if feed.has_been_published == true %>
+            <b>Pubblicato in data:</b><br><br>
+          <% else %>
+            <b>Da pubblicare in data:</b><br><br>
+          <% end %>
         
-        <% if feed.has_been_published == true %>
-          <b>Pubblicato in data:</b><br><br>
-        <% else %>
-          <b>Da pubblicare in data:</b><br><br>
-        <% end %>
+          <%= feed.date %><br><br>
+          <%= link_to 'Mostra', feed %>
         
-        <%= feed.date %><br><br>
-        <%= link_to 'Mostra', feed %>
-        
-        <% if feed.user_id == current_user.id %>
-        
-          <% if feed.has_been_published == false %>
+          <% if feed.user_id == current_user.id and feed.has_been_published == false %>
             <%= link_to 'Modifica', edit_feed_path(feed) %>
           <% end %>
-          <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
-          
-        <% end %> 
-      </div>
+        
+          <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>   
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  
   </body>
-    
-  <br><br>
-    
+        
 </html>

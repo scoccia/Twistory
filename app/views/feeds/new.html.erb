@@ -1,14 +1,10 @@
 <html>
 
-  <title>Nuovo Feed</title>
-
-  <style type="text/css">
-    body
-    {
-      background-image: url(<%= asset_path 'background.jpg' %>);
-    }
-  </style>
-
+  <head>
+    <title>Nuovo Feed</title>
+    <style type="text/css">body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
+  </head>
+  
   <body>	
 
     <div class="dialog">
@@ -17,7 +13,7 @@
 
     <%= render 'form' %>
 
-    <div class="sheet">
+    <div class="f-sheet">
       <%= link_to 'Indietro', :back %>
     </div>
 	  

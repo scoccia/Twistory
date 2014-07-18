@@ -2,9 +2,15 @@ TwittwarApp::Application.routes.draw do
   devise_for :users
   resources :feeds
   
+  get "home/access"
+  get "home/mission"
+  get "home/about"
+  get "/access"  => 'home#access'
+  get "/mission" => 'home#mission'
+  get "/about"   => 'home#about'
   get "/profile" => 'feeds#profile'
-  get "/mission" => 'info#mission'
-  get "/about" => 'info#about'
+  
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -13,11 +19,13 @@ TwittwarApp::Application.routes.draw do
   devise_scope :user do
   
     authenticated :user do
+      get '/users' => 'devise/registrations#edit'
       root 'feeds#index', as: :authenticated_root
     end
 
     unauthenticated do
-      root 'devise/registrations#new', as: :unauthenticated_root
+      get '/users' => 'devise/registrations#new'
+      root 'home#access', as: :unauthenticated_root
     end
   end
     
