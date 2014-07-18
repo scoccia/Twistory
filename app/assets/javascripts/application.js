@@ -14,3 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function show_hide()
+{
+    nuovo_stato = (document.getElementById ("key").style.display == 'none') ? 'block' : 'none';
+    document.getElementById ("key").style.display = nuovo_stato;
+}
