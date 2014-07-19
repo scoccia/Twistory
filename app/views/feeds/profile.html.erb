@@ -6,60 +6,82 @@
   </head>
   
   <div class="dialog">
-    <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
     <% if current_user.profile_image.present? %>
-      <%= image_tag(current_user.profile_image_url, :width => 160 , :height => 100) %><br>
+      <div class="image-box">
+        <%= image_tag(current_user.profile_image_url, :height => 100) %><br>
+      </div>
     <% end %>
-  </div>
-  
-  <%= render 'form' %>
-    
+
+    <div class="title">
+      <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
+    </div>
+    <%= render 'form' %>
+  </div> 
   <body>
   
     <% control_feed=0 %>
     <% @feeds.reverse_each do |feed| %>
       <% if feed.user_id == current_user.id %> 
         <% control_feed=1 %>
-        
-        <div class="f-sheet">
-          <% if feed.feed_image.present? %>
-            <b>Immagine relativa al Feed:</b><br><br>
-            <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
-          <% end %>
-          
-          <b>Testo del Feed:</b><br><br>
-          <%= feed.feed_text %><br><br>
-          
-          <% if feed.has_been_published == true %>
-            <b>Pubblicato in data:</b><br><br>
-          <% else %>
-            <b>Da pubblicare in data:</b><br><br>
-          <% end %>
-          
-          <%= feed.date %><br><br>
-          
-          <%= link_to 'Mostra', feed %>
-          
-          <% if feed.has_been_published == false %>
-              <%= link_to 'Modifica', edit_feed_path(feed) %>
-          <% end %>
-          
-          <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+        <br>
+        <div class="document">
+            
+            <div class="my-dochead">
+              <span class="dhead"><%= current_user.user_name %></span>
+            </div>
+                
+            <div>
+              <span class="post">
+                <% if feed.has_been_published == true %>
+                  Pubblicato in data: <%= feed.date %>
+                <% else %>
+                  Da pubblicare in data: <%= feed.date %>
+                <% end %>
+              </span>
+            </div>
+                
+            <% if feed.feed_image.present? %>
+              <br><br>
+              <div align="center">
+                <%= image_tag(feed.feed_image_url, :height => 400 , :width => 400) %><br>
+              </div>
+            <% end %>
+
+            <div class="dcontent">
+              <div class="text">
+              <%= feed.feed_text %>
+              </div>
+            </div>
+            <br><br><br><br>
+            <div class="my-bubble" align="right">
+              <span> <%= link_to 'Mostra', feed %></span>
+                <% if feed.has_been_published == false %>
+                  <span> <%= link_to 'Modifica', edit_feed_path(feed) %></span>
+                  <span> <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %></span>
+                <% end %>
+            </div>
         </div>
+
       <% end %>
     <% end %>
   
     <% if control_feed==0 %>
-      <div class="f-sheet">
-        <h1><b>Benvenuto nel tuo profilo!</b></h1>
+      <br>
+      <div class="document">
+        <div class="title" align="center">
+          <h1><b>Benvenuto nel tuo profilo!</b><h1>
+        </div>
         <br>
-        <b>
-          Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, 
-          che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.
-        </b>
-        <br>
-        <h1 align="right">cit Pär Lagerkvist</h1>
+        <div class="text">  
+          <b>Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, 
+            che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.</b><br><br>
+        </div>
+        <div class="dochead">  
+          <h1 align="right">cit Pär Lagerkvist</h1>
+        </div>
       </div>
+
+      </div>-->
     <% end %>
 
   </body>

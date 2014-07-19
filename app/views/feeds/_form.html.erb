@@ -2,7 +2,8 @@
 
   <%= form_for(@feed) do |f| %>
      
-    <div class="f-sheet">
+    
+      <br>
       <%= feed_error_messages! %>  
       <%= f.text_area :feed_text, class: "text-box", :onclick => 'show_hide();' , :placeholder => "Scrivi qui il tuo feed"%>
       <p id="key" style="display: none">
@@ -12,9 +13,8 @@
       <b>Inserisci un'immagine:</b><br>
       <%= f.file_field :feed_image %><br><br>
       <%= f.submit %>
-      </p><br>
-    </div>
-  
+      </p><br><br>
+      
   <% end %>
 
 </html>
