@@ -8,55 +8,88 @@
   <body>
   
     <div class="dialog">
-      <h1><b>La Grande Guerra</b></h1>
-    </div>
+      <div class="title">
+        <h1><b>La Grande Guerra</b></h1>
+      </div>
+    
   
     <%= render 'form' %>
-    
+    </div>
     <br>
     
     <% if !@feeds.present? %>
-      <div class="f-sheet">
-        <h1><b>Benvenuto!</b></h1>
+      <div class="document">
+        <div class="title" align="center">
+          <h1><b>Benvenuto!</b></h1>
+        </div>
         <br>
-        <b>Tutti i vizi di tutte le età e di tutti i paesi del globo riuniti assieme, non eguaglieranno mai i peccati che provoca una sola campagna di guerra.</b><br>
-        <h1 align="right">cit Voltaire</h1>
+        <div class="text"> 
+         <b>Tutti i vizi di tutte le età e di tutti i paesi del globo riuniti assieme, non eguaglieranno mai i peccati che provoca una sola campagna di guerra.</b><br><br>
+        </div>
+        <div class="dochead">  
+          <h1 align="right">cit Voltaire</h1>
+        </div>
       </div>
     <% else %>
       <% @feeds.reverse_each do |feed| %>
         <% read_usr = User.find(feed.user_id) %>
-      
-        <div class="f-sheet">
-          <b>Scritto da:</b><br>
-          <h2><%= read_usr.user_name %></h2><br>
-        
-          <% if read_usr.profile_image.present? %>
-            <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
-          <% end %>
-        
-          <% if feed.feed_image.present? %>
-            <b>Immagine relativa al Feed:</b><br><br>
-            <%= image_tag(feed.feed_image_url, :width => 380 , :height => 220) %><br>
-          <% end %>
-        
-          <b>Testo del Feed:</b><br><br>
-          <%= feed.feed_text %><br><br>
-        
-          <% if feed.has_been_published == true %>
-            <b>Pubblicato in data:</b><br><br>
-          <% else %>
-            <b>Da pubblicare in data:</b><br><br>
-          <% end %>
-        
-          <%= feed.date %><br><br>
-          <%= link_to 'Mostra', feed %>
-        
-          <% if feed.user_id == current_user.id and feed.has_been_published == false %>
-            <%= link_to 'Modifica', edit_feed_path(feed) %>
-          <% end %>
-        
-          <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>   
+
+        <div class="document">
+              
+                <% if read_usr.profile_image.present? %>
+                    <div class="image-box">
+                      <%= image_tag(read_usr.profile_image_url, :width => 75 , :height => 75) %>
+                    </div>
+                <% end %>
+
+                <% if feed.user_id == current_user.id %>
+                  <div class="my-dochead">
+                <% else %>
+                  <div class="dochead">
+                <% end %> 
+
+                    <span class="dhead"><%= read_usr.user_name %></span>
+                  </div>
+                
+                <div>
+                    <span class="post">
+                      <% if feed.has_been_published == true %>
+                        Pubblicato in data: <%= feed.date %>
+                      <% else %>
+                        Da pubblicare in data: <%= feed.date %>
+                      <% end %>
+                    </span>
+                </div>
+                
+                <% if feed.feed_image.present? %>
+                  <br><br>
+                  <div align="center">
+                    <%= image_tag(feed.feed_image_url, :height => 400) %><br>
+                  </div>
+                <% end %>
+
+                <div class="dcontent">
+                  <div class="text">
+                    <%= feed.feed_text %>
+                  </div>
+                </div>
+                <br><br><br><br>
+                
+                <% if feed.user_id == current_user.id %>
+                  <div class="my-bubble" align="right">
+                <% else %>
+                  <div class="bubble" align="right">
+                <% end %> 
+                  <span> <%= link_to 'Mostra', feed %></span>
+               
+
+                    <% if feed.user_id == current_user.id and feed.has_been_published == false %>
+                      <span> <%= link_to 'Modifica', edit_feed_path(feed) %></span>
+                      <span> <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %></span>
+                    <% end %>
+                  </div>
         </div>
+        <br>
       <% end %>
     <% end %>
   

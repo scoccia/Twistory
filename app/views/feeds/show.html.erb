@@ -8,43 +8,63 @@
   <body>
 
     <div class="dialog">
-      <h1><b>Visualizza Feed:</b></h1>
+      <div class="title">
+        <h1><b>Visualizza Feed:</b></h1>
+      </div>
     </div>
 		
-    <div class="f-sheet">
+    <div class="document">
       <% read_usr = User.find(@feed.user_id) %>
       
-      <b>Scritto da:</b><br>
-      <h2><%= read_usr.user_name %></h2>
-      
-      <% if read_usr.profile_image.present? %>
-          <%= image_tag(read_usr.profile_image_url, :width => 50 , :height => 50) %><br><br>
-      <% end %>
-      
-      <% if @feed.feed_image.present? %>
-        <b>Immagine relativa al Feed:</b><br><br>
-        <%= image_tag(@feed.feed_image_url, :width => 380 , :height => 220) %>
-      <% end %>
-      
-      <h3><b>Testo del Feed:</b></h3>
-      <%= @feed.feed_text %>
-      
-      <% if @feed.has_been_published == true %>
-        <h3><b>Pubblicato in data:</b></h3>
-      <% else %>
-        <h3><b>Da pubblicare in data:</b></h3>
-      <% end %>
-      <%= @feed.date %><br><br>  
-    </div>
+        <% if read_usr.profile_image.present? %>
+          <div class="image-box">
+            <%= image_tag(read_usr.profile_image_url, :width => 75 , :height => 75) %>
+          </div>
+        <% end %>
+
+        <% if @feed.user_id == current_user.id %>
+          <div class="my-dochead">
+        <% else %>
+          <div class="dochead">
+        <% end %> 
+            <span class="dhead"><%= read_usr.user_name %></span>
+          </div>
+                
+        <div>
+          <span class="post">
+            <% if @feed.has_been_published == true %>
+              Pubblicato in data: <%= @feed.date %>
+            <% else %>
+              Da pubblicare in data: <%= @feed.date %>
+            <% end %>
+          </span>
+        </div>
+                
+        <% if @feed.feed_image.present? %>
+          <br><br>
+          <div align="center">
+            <%= image_tag(@feed.feed_image_url, :height => 400) %><br>
+          </div>
+        <% end %>
+
+        <div class="dcontent">
+          <div class="text">
+            <%= @feed.feed_text %>
+          </div>
+        </div><br> 
     
-    <div class="f-sheet">
+    
+    
       <% if @feed.user_id == current_user.id and @feed.has_been_published == false %>
-        <%= link_to 'Modifica', edit_feed_path(@feed) %> |        
+        <div class="my-bubble" align="center">
+        <%= link_to 'Modifica', edit_feed_path(@feed) %> |
+      <% else %>
+        <div class="bubble" align="center">       
       <% end %>  
         
       <%= link_to 'Indietro', :back %>
     </div>
-    
+  </div>
   </body>
   
 </html>
