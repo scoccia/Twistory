@@ -1,0 +1,264 @@
+    body
+    {
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    
+    h1
+    {
+      font-family: Arial, Courier;
+      color: #324B4B;
+      font-size: 170%;
+    }
+
+    .header
+    {
+      position: fixed;
+      top: 0;
+      left: 0;
+      
+      width: 100%;
+      height: 6em;
+      
+      border: 1px solid #CCC;
+      border-bottom: 2px solid #F7EEE7;
+      
+      margin-top: 0;
+      margin-right: 0;
+      margin-left: 0;
+      margin-bottom: 52px;
+      
+      padding-top: 5px;
+      padding-bottom: 2px;
+      
+      background-color: white;
+    
+      box-shadow:0 3px 8px rgba(50, 50, 50, 0.15);
+      font-family: Arial, Courier;
+    }
+    
+    .h-left
+    {
+      float: left;
+      margin-top: 0.5em;
+      margin-bottom:  0.5em;
+      margin-left: 6em;
+    }
+    
+    .h-right
+    {
+      float:right;
+      margin-top: 2em;
+      margin-right:8em;
+    }
+    
+    .dialog
+    {
+      
+      
+      margin-top: 8em;
+      margin-bottom: 0;
+      margin-right: 30%;
+      margin-left: 30%;
+      
+      padding-top: 1em;
+      padding-bottom: 1em;
+      padding-left: 2em;
+      padding-right: 2em;
+      
+      border: 0px solid #999;
+      
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      
+      
+      background-color: #F5F5F5;
+      
+      color: #324B4B;
+      text-align: center;
+      font-family: Arial, Courier;
+      word-wrap: break-word;
+    }
+    
+    .text-box
+    {
+      width: 80%;
+      height: 8em;
+    }
+
+    /*------------------------------------*/
+
+       .document
+    {
+      background-color:#F5F5F5;
+      margin-right: 30%;
+      margin-left: 30%;
+      padding:15px;
+    }
+
+    .dochead
+    {
+
+      background-color:#99CCCC;
+      height:50px;
+      font:24px Tahoma, Geneva, sans-serif;
+      color:#744C7F;
+      width: 385px;
+      margin-left:-35px;
+    }
+
+    .dochead span
+    {
+      margin-left: 20px;  
+    }
+
+    .my-dochead
+    {
+
+      background-color:#6F9292;
+      height:50px;
+      font:24px Tahoma, Geneva, sans-serif;
+      color:#744C7F;
+      width: 385px;
+      margin-left:-35px;
+    }
+
+    .my-dochead span
+    {
+      margin-left: 20px;  
+    }
+
+    .post
+    {
+      color:#656565;
+      font:12px Tahoma, Geneva, sans-serif;
+      line-height: 30px;
+      margin-left: 15px;
+    }
+
+    .dcontent
+    {
+      font:16px Tahoma, Geneva, sans-serif;
+      color:#1f1e1e;
+      margin-top:20px;
+      line-height:23px;
+      margin-left: 15px;
+      
+      letter-spacing:1px;
+
+      word-wrap: break-word;
+    }
+
+    .bubble
+    {
+      background-color:#6F9292;
+      height:45px;
+      
+      font:24px Tahoma, Geneva, sans-serif;
+      color:#FFF;
+      text-align: center;
+      
+      margin-right:-25px;
+      margin-left:650px;
+
+    }
+
+    .bubble span
+    {
+      margin-right:15px;
+      text-align:center;
+      color:#FFF;
+      font:12px Tahoma, Geneva, sans-serif;
+      font-weight:bold;
+      line-height: 30px;
+    }
+
+    .my-bubble
+    {
+      background-color:#6F9292;
+      height:45px;
+      
+      font:24px Tahoma, Geneva, sans-serif;
+      color:#FFF;
+      text-align: center;
+      
+      margin-right:-25px;
+      margin-left:500px;
+
+    }
+
+    .my-bubble span
+    {
+      margin-right:15px;
+      text-align:center;
+      color:#FFF;
+      font:12px Tahoma, Geneva, sans-serif;
+      font-weight:bold;
+      line-height: 30px;
+    }
+
+    .dhead
+    {
+      line-height:45px; 
+    }
+
+    .image-box
+    {
+
+      height:75px;
+      width: 75px;
+      margin-left:-35px;
+    }
+
+    .title
+    {
+      background-color:#99CCCC;
+      height:60px;
+      font:24px Tahoma, Geneva, sans-serif;
+      color:#744C7F;
+      margin-left:-45px;
+      margin-right: -45px;
+    }
+
+    .text
+    {
+      background-color:#99CCCC;
+      
+      font:24px Tahoma, Geneva, sans-serif;
+      color:#744C7F;
+      text-align: right;
+      
+      margin-right:-35px;
+      margin-left:50px;
+
+      padding:10px;
+
+    }
+ 
+    /*------------------------------------*/
+
+    a:link 
+    {
+    color: #744C7F;
+    text-decoration: none;
+    }
+    
+    a:visited 
+    
+    {
+      text-decoration: none;
+      color: #744C7F;
+    }
+    
+    a:hover 
+    {
+      text-decoration: none;
+      color: #744C7F;
+    }
+    
+    a:active 
+    {
+      text-decoration: none;
+      color: #744C7F;
+    }
