@@ -57,7 +57,7 @@
     
       <% if @feed.user_id == current_user.id and @feed.has_been_published == false %>
         <div class="my-bubble" align="center">
-        <%= link_to 'Modifica', edit_feed_path(@feed) %> |
+        <%= link_to 'Modifica', edit_feed_path(@feed) %> 
       <% else %>
         <div class="bubble" align="center">       
       <% end %>  
