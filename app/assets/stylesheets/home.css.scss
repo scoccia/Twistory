@@ -5,21 +5,3 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-    .home-link
-    {
-      font-size: 20px;
-      
-      a:link, a:visited 
-      {
-        text-decoration: none;
-        color: rgba(115,75,125, 0.9);
-        background-color: transparent;
-      }
-      
-      a:hover, a:active
-      {
-        text-shadow: 0px 0px 2px #744C7F;
-        text-decoration: none;  
-      }
-    }
