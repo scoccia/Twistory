@@ -5,8 +5,20 @@
     <title>Dimenticato la password?</title>
   </head>
 
-<body>
-	
+  <body>
+    <div class="header">
+      <div class="h-left">
+        <%= image_tag("logo.png") %>
+      </div>
+      <div class="h-right">
+        <div class="home-link">
+          <%= link_to 'Home', @current_host %>&nbsp 
+          <%= link_to 'Accedi', new_user_session_path %>&nbsp
+          <%= link_to "Iscriviti", new_user_registration_path %>
+        </div>
+      </div>
+    </div>
+    	
     <div class="dialog">
 		  <div class="title">
         <h1>Dimenticato la password?</h1>
