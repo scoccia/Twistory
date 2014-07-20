@@ -2,12 +2,9 @@ TwittwarApp::Application.routes.draw do
   devise_for :users
   resources :feeds
   
-  get "home/access"
-  get "home/mission"
-  get "home/about"
-  get "/access"  => 'home#access'
-  get "/mission" => 'home#mission'
-  get "/about"   => 'home#about'
+  get "home/index"
+ 
+  get "/index"   => 'home#index'
   get "/profile" => 'feeds#profile'
   
   
@@ -25,7 +22,7 @@ TwittwarApp::Application.routes.draw do
 
     unauthenticated do
       get '/users' => 'devise/registrations#new'
-      root 'home#access', as: :unauthenticated_root
+      root 'home#index', as: :unauthenticated_root
     end
   end
     
