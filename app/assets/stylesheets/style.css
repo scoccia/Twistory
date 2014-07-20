@@ -1,24 +1,8 @@
-    /*-------------Start-header-section-------------*/
-    
-    body
+/*-------------Start-header-section-------------*/
+       
+    .home-link
     {
-      margin-top: 7em;
-      margin-bottom: 0;
-      margin-left: 0;
-      margin-right: 0;
-        
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      
-      /*border: 1px solid red; /* debug red */
-    }
-    
-    h1
-    {
-      font-family: Arial, Courier;
-      color: #324B4B;
-      font-size: 170%;
+      font-size: 1.5em;
     }
 
     .header
@@ -28,6 +12,8 @@
       left: 0;
       width: 100%;
       height: 6em;
+      
+      padding: 1em;
                   
       background-color: white;
     
@@ -53,20 +39,19 @@
         
       /*border: 1px solid red; /* debug red */ 
     }
+
+/*-------------End-header-section-------------*/
+/*-------------Start-dialog-section-----------*/
     
     .dialog
     {
-      margin-right: 29%;
-      margin-left: 29%;
-      margin-bottom: 0.4em;
+      margin: 0.4em 29%;
       
-      padding: 1em 2em;
-      
-      border: 1px solid #999;
-      
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      
+      padding-top: 0.1em;
+      padding-bottom: 0.5em;
+            
+      border-radius: 3px;
+            
       background-color: #F5F5F5;
       
       color: #324B4B;
@@ -77,15 +62,31 @@
       /*border: 1px solid red; /* debug red */
     }
     
-    .text-box
+    .title
     {
-      width: 90%;
-      height: 6em;
+      margin: 0.1em -2em;
+      
+      border-radius: 5px;
+             
+      font: 2em Tahoma, Geneva, sans-serif;
+      text-align: center;
+      word-wrap: break-word;
+      
+      background-color: #99CCCC;
       
       /*border: 1px solid red; /* debug red */
     }
-
-    /*-------------End-header-section-------------*/
+    
+    .text-box
+    {
+      width: 80%;
+      height: 6em;
+                    
+      /*border: 1px solid red; /* debug red */
+    }
+    
+/*-------------End-dialog-section-------------*/ 
+/*-------------Start-main/feed-section--------*/
 
     .document
     {
@@ -95,17 +96,32 @@
       padding-left: 1em;
       padding-right: 1em;
       
+      border-radius: 2px;
+            
       background-color:#F5F5F5;
       
       /*border: 1px solid red; /* debug red */
     }
-
+    
+    .image-box
+    {
+      height:75px;
+      width: 75px;
+      margin-left: -2em;
+      
+      /*border: 1px solid red; /* debug red */
+    }   
+    
     .dochead
     {
       height: 2em;
       max-width: 60%;
       margin-left: -1em;
       margin-bottom: 0.1em;
+      
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 4px;
            
       background-color:#6F9292;
       font: 2em Tahoma, Geneva, sans-serif;
@@ -120,8 +136,15 @@
       
       /*border: 1px solid red; /* debug red */  
     }
+    
+    .dhead
+    {
+      line-height: 2em;
+      
+      /*border: 1px solid red; /* debug red */ 
+    }
 
-    .post
+    .post-date
     {
       margin-top: 0.2em;
       margin-left: 0;
@@ -132,64 +155,15 @@
                 
       /*border: 1px solid red; /* debug red */ 
     }
-
-    
-    .bubble
-    {
-      float: left;
-      margin-top: 0.5em;
-      padding: 0.5em;
-            
-      background-color: #6F9292;
        
-      font: 1.1em Arial, Courier, sans-serif;
-      text-align: center;
-      font-weight: bold;
-      word-wrap: break-word;
-              
-      /*border: 1px solid red; /* debug red */
-    }
-    
-    .dhead
-    {
-      line-height: 2em;
-      
-      /*border: 1px solid red; /* debug red */ 
-    }
-
-    .image-box
-    {
-      height:75px;
-      width: 75px;
-      margin-left: -2em;
-      
-      /*border: 1px solid red; /* debug red */
-    }
-
-    .title
-    {
-      margin-top: 1em;    
-      margin-left: -2em;
-      margin-right: -2em;
-          
-      font: 2em Tahoma, Geneva, sans-serif;
-      text-align: center;
-      word-wrap: break-word;
-      
-      background-color: #99CCCC;
-      
-      /*border: 1px solid red; /* debug red */
-    }
-    
-    
     .post-text
     {
       margin-top: 0.8em;
       margin-bottom: 0.5em;
       margin-left: 2em;
-      margin-right: -2em;
-      
+      margin-right: -2em; 
       padding: 0.5em;
+      border-radius: 4px;
             
       font: 1.2em Arial, Courier, sans-serif;
       color: #324B4B;
@@ -200,30 +174,54 @@
       
       /*border: 1px solid red; /* debug red */ 
     }
- 
-    /*------------------------------------*/
+    
+    .bubble
+    {
+      float: left;
+      margin-top: 0.5em;
+      padding: 0.5em;
+       
+      border-radius: 4px;
+            
+      background-color: #6F9292;
+       
+      font: 1.1em Arial, Courier, sans-serif;
+      text-align: center;
+      font-weight: bold;
+      word-wrap: break-word;
+              
+      /*border: 1px solid red; /* debug red */
+    }
+     
+     
+    .form-box
+    {
+      margin-top: 0.8em;
+      margin-bottom: 0.5em;
+      margin-left: 2em;
+      margin-right: -2em;
+      
+      padding: 0.5em;
+      
+      border-radius: 5px;
+            
+      font: 1.2em Arial, Courier, sans-serif;
+      color: #324B4B;
+      text-align: right;
+      word-wrap: break-word;
+      
+      background-color:#99CCCC;
+      
+      /*border: 1px solid red; /* debug red */ 
+    }
 
-    a:link 
-    {
-      color: #324B4B;
-      text-decoration: none;
-    }
+/*-------------End-main/feed-section----------*/ 
+/*-------------Start-form-section-------------*/
     
-    a:visited 
-    
+    .form-box ul
     {
-      text-decoration: none;
-      color: #324B4B;
+      list-style-type: none;
     }
-    
-    a:hover 
-    {
-      text-decoration: none;
-      color: #324B4B;
-    }
-    
-    a:active 
-    {
-      text-decoration: none;
-      color: #324B4B;
-    }
+
+/*------------End-form-section----------------*/
+

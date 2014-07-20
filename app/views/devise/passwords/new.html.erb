@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
   <head>
@@ -7,16 +8,28 @@
 <body>
 	
     <div class="dialog">
-		  <h1>Hai dimenticato la password?</h1>
+		  <div class="title">
+        <h1>Dimenticato la password?</h1>
+      </div>
 		</div>
 
 	  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-      <div class="f-sheet">
-        <%= devise_error_messages! %>
-        <h3>e-mail:</h3>
-        <%= f.email_field :email, autofocus: true %><br><br>
-        <%= f.submit "Invia email" %><br>
+    <div class="document">
+      <%= devise_error_messages! %>
+      <div class="text">
+        <div class="form-box">
+          <h3 align="left">
+            Invieremo un e-mail all'indirizzo che ci fornirai
+            che ti permettera' di recuperare la password.
+          </h3> 
+          <ul> 
+            <li>
+              <h3>e-mail:</h3>
+              <%= f.email_field :email, autofocus: true %>
+            </li>
+          </ul>
+        <p align="center"><%= f.submit "Invia e-mail" %> | <%= link_to 'Indietro', :back %></p>
       </div>
 		<% end %>
 

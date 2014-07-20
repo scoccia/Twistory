@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
   <head>
@@ -39,9 +40,9 @@
         <br><br>
         <%= f.submit "Conferma" %> 
       <% end %>
-    
-      <h4>Elimina il mio account</h4>
-      <%= link_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %>
+      <br>
+      <b>Elimina il mio account:</b>
+      <h3><%= link_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %></h3>
     </div>
     
   </body>
