@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   
   <head>
@@ -8,12 +9,13 @@
   <body>
     
     <div class="dialog">
+    <!--
       <% if current_user.profile_image.present? %>
         <div class="image-box">
-          <%= image_tag(current_user.profile_image_url, :height => 105, :width => 105) %>
+          <%= image_tag(current_user.profile_image_url, :height => 75, :width => 75) %>
         </div>
       <% end %>
-
+    -->
       <div class="title">
         <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
       </div>
@@ -31,7 +33,7 @@
             <span class="dhead"><%= current_user.user_name %></span>
           </div>
                 
-          <div class="post">
+          <div class="post-date">
             <% if feed.has_been_published == true %>
               Pubblicato in data: <%= feed.date %>
             <% else %>

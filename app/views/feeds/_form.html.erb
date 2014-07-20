@@ -1,20 +1,22 @@
+<!DOCTYPE html>
 <html>
 
-  <%= form_for(@feed) do |f| %>
+  <body>
+    <%= form_for(@feed) do |f| %>
      
-    
-      <br>
       <%= feed_error_messages! %>  
-      <%= f.text_area :feed_text, class: "text-box", :onclick => 'show_hide();' , :placeholder => "Scrivi qui il tuo feed"%>
+      <%= f.text_area :feed_text, class: "text-box", :onclick => 'show_hide();' , :placeholder => "Scrivi qui il testo del tuo feed"%>
       <p id="key" style="display: none">
-      <br><br>
-      <b>Inserisci la data in cui verrà pubblicato (fuso orario UTC):</b><br><br>
-      <%= f.datetime_select :date %><br><br>
-      <b>Inserisci un'immagine:</b><br>
-      <%= f.file_field :feed_image %><br><br>
-      <%= f.submit %>
-      </p><br><br>
+        <b>Inserisci la data in cui verrà pubblicato (fuso orario UTC):</b><br>
+        <%= f.datetime_select :date %>
+        <br><br>
+        <b>Inserisci un'immagine:</b><br>
+        <%= f.file_field :feed_image %>
+        <br><br>
+        <%= f.submit %>
+      </p>
       
-  <% end %>
+    <% end %>
+  </body>
 
 </html>
