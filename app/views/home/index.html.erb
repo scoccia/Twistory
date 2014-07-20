@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>La Grande Guerra</title>
+    <style type="text/css"> body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
+  </head>  
+
+  <body>
+    <div class="header">
+      <div class="h-left">
+        <%= image_tag("logo.png") %>
+      </div>
+      <div class="h-right">
+        <div class="home-link">
+          <%= link_to 'Home', @current_host %>&nbsp
+          <a href="#about">Chi Siamo</a>&nbsp
+          <a href="#tech">Tecnologia</a>&nbsp  
+          <%= link_to 'Accedi', new_user_session_path %>&nbsp
+          <%= link_to "Iscriviti", new_user_registration_path %>
+        </div>
+      </div>
+    </div>
+  
+    <div class="dialog">
+      <div class="home-title-lx">
+        <h1><b>Home</b></h1>
+      </div>
+      
+      <div class="home-text-rx">
+        <b><h4>
+        Quando un popolo non ha più senso vitale del suo passato si spegne.<br> 
+        La vitalità creatrice è fatta di una riserva di passato.<br> 
+        Si diventa creatori anche noi, quando si ha un passato.<br> 
+        La giovinezza dei popoli è una ricca vecchiaia!
+        </h4> 
+        <h3 align="center">-cit Cesare Pavese</h3>
+        Cento anni fa aveva inizio una delle più grandi tragedie della Storia.<br> 
+        Allo stesso tempo iniziava il processo che portò alla completa liberazione dell'Italia dalle potenze straniere, 
+        e che avvenne grazie al sacrificio di una generazione di ragazzi appena maggiorenni.<br><br>
+        Siamo ragazzi di 16-18 anni: vogliamo raccontare quegli anni, giorno per giorno, 
+        facendo leva sulle nostre competenze di sviluppo informatico.<br> 
+        In una situazione non felice per i giovani Italiani di oggi, abbiamo voluto creare una piattaforma tecnologica moderna 
+        che ricordi le storie che portarono i nostri coetanei di allora ad affrontare e superare contro ogni aspettativa 
+        un momento di crisi ben più grave.<br><br>
+
+        Seguiteci sul nostro <a href="https://twitter.com/lagrandeguerra" target="_blank">canale Twitter</a> o scrivete a info@ragazzidel99.it
+        </b>
+      </div>    
+    </div>
+    
+    <div class="dialog">
+      <div class="home-title-rx">
+        <h1><b><a id="tech">Tecnologia</a></b></h1>
+      </div>
+      
+      <div class="home-text-lx">
+        <b><h4>
+          Linux Ubuntu 14.04,&nbsp
+          Apache 2.2,&nbsp
+          Ruby 2.0,&nbsp
+          Rails 4.0,&nbsp
+          MySQL 5.5,&nbsp
+          HTML5.<br>
+          Server su Amazon Web Services (AWS)<br><br>
+          Visita la repository git: <a href="https://github.com/scoccia/Twistory" target="_blank">repository</a>
+        </b>
+      </div>
+    </div>
+    
+    <div class="dialog">
+      <div class="home-title">
+        <h1><b><a id="about">Chi Siamo</a></b></h1>
+      </div>
+      
+      <div class="home-image-lx">
+        <%= image_tag("logo.png", :width => 75 , :height => 75) %>
+      </div>
+      <div class="home-head-lx">
+        Vincenzo Di Nicola
+      </div>
+      <div class="home-grade-lx">
+        Teramo (TE) classe 1979, Coordinatore.    
+      </div>
+      
+      <div class="home-image-rx">
+        <%= image_tag("logo.png", :width => 75 , :height => 75) %>
+      </div>
+      <div class="home-head-rx">
+        Davide Di Carlo
+      </div>
+      <div class="home-grade-rx">
+        Teramo (TE) classe 1997, Sviluppatore.    
+      </div>
+      
+      <div class="home-image-lx">
+        <%= image_tag("logo.png", :width => 75 , :height => 75) %>
+      </div>
+      <div class="home-head-lx">
+        Davide Barbieri
+      </div>
+      <div class="home-grade-lx">
+        Teramo (TE) classe 1997, Sviluppatore.    
+      </div>
+      
+      <div class="home-image-rx">
+        <%= image_tag("logo.png", :width => 75 , :height => 75) %>
+      </div>
+      <div class="home-head-rx">
+        Simone Coccia
+      </div>
+      <div class="home-grade-rx">
+        Teramo (TE) classe ???, Sviluppatore.    
+      </div>
+      
+      <div class="home-image-lx">
+        <%= image_tag("logo.png", :width => 75 , :height => 75) %>
+      </div>
+      <div class="home-head-lx">
+        Marco MAzzoni
+      </div>
+      <div class="home-grade-lx">
+        Teramo (TE) classe ??, Sviluppatore.    
+      </div>
+      
+      <div class="home-image-rx">
+        <%= image_tag("logo.png", :width => 75 , :height => 75) %>
+      </div>
+      <div class="home-head-rx">
+        Federico Pomponii
+      </div>
+      <div class="home-grade-rx">
+        Teramo (TE) classe 1997, Sviluppatore.    
+      </div>              
+    </div>
+  
+  </body>
+        
+</html>
