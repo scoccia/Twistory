@@ -21,7 +21,5 @@ module TwittwarApp
     # config.i18n.default_locale = :de
     
     config.i18n.default_locale = :it
-    
-    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag.html_safe }
   end
 end
