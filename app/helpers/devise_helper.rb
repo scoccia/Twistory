@@ -15,7 +15,7 @@ module DeviseHelper
 
     html = <<-HTML
       <h2 align="center">#{sentence}</h2>
-      <h4 align="left">#{messages}</h4>
+      <b><h4 align="center">#{messages}</h4></b>
       <br>
     HTML
 
