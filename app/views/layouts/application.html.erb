@@ -9,31 +9,21 @@
     <style type="text/css"> body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
   </head>
 
+  <% if user_signed_in? %>
   <div class="header">
     <div class="h-left">
       <%= image_tag("logo.png") %>
     </div>
-    <% if user_signed_in? %>
-      <div class="h-right">
-        <div class="home-link">
-          <%= link_to 'HOME', @current_host %>&nbsp
-          <%= link_to 'PROFILO', '/profile' %>&nbsp
-          <%= link_to 'IMPOSTAZIONI', edit_user_registration_path %>&nbsp
-          <%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %>
-        </div>
+    <div class="h-right">
+      <div class="home-link">
+        <%= link_to 'Home', @current_host %>&nbsp
+        <%= link_to 'Profilo', '/profile' %>&nbsp
+        <%= link_to 'Impostazioni', edit_user_registration_path %>&nbsp
+        <%= link_to 'Esci', destroy_user_session_path, method: :delete %>
       </div>
-    <% else %>
-      <div class="h-right">
-        <div class="home-link">
-          <%= link_to 'BENVENUTO', @current_host %>&nbsp
-          <%= link_to 'ACCEDI', new_user_session_path %>&nbsp
-          <%= link_to "ISCRIVITI", new_user_registration_path %>&nbsp
-          <%= link_to 'MISSIONE', '/mission' %>&nbsp
-          <%= link_to 'CHI SIAMO', '/about' %>&nbsp          
-        </div>
-      </div>
-    <% end %>
+    </div>
   </div>
+  <% end %>
 
 <%= yield %>
 
