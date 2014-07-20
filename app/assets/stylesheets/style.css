@@ -1,8 +1,17 @@
+    /*-------------Start-header-section-------------*/
+    
     body
     {
+      margin-top: 7em;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+        
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
+      
+      /*border: 1px solid red; /* debug red */
     }
     
     h1
@@ -17,61 +26,46 @@
       position: fixed;
       top: 0;
       left: 0;
-      
       width: 100%;
       height: 6em;
-      
-      border: 1px solid #CCC;
-      border-bottom: 2px solid #F7EEE7;
-      
-      margin-top: 0;
-      margin-right: 0;
-      margin-left: 0;
-      margin-bottom: 52px;
-      
-      padding-top: 5px;
-      padding-bottom: 2px;
-      
+                  
       background-color: white;
     
       box-shadow:0 3px 8px rgba(50, 50, 50, 0.15);
       font-family: Arial, Courier;
+      
+      /*border: 1px solid red; /* debug red */
     }
     
     .h-left
     {
       float: left;
-      margin-top: 0.5em;
-      margin-bottom:  0.5em;
-      margin-left: 6em;
+      margin: 0.5em 4em;
+        
+      /*border: 1px solid red; /* debug red */ 
     }
-    
+      
     .h-right
     {
       float:right;
-      margin-top: 2em;
-      margin-right:8em;
+      margin-top: 3em;
+      margin-right: 2em;
+        
+      /*border: 1px solid red; /* debug red */ 
     }
     
     .dialog
     {
+      margin-right: 29%;
+      margin-left: 29%;
+      margin-bottom: 0.4em;
       
+      padding: 1em 2em;
       
-      margin-top: 8em;
-      margin-bottom: 0;
-      margin-right: 30%;
-      margin-left: 30%;
-      
-      padding-top: 1em;
-      padding-bottom: 1em;
-      padding-left: 2em;
-      padding-right: 2em;
-      
-      border: 0px solid #999;
+      border: 1px solid #999;
       
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
-      
       
       background-color: #F5F5F5;
       
@@ -79,186 +73,157 @@
       text-align: center;
       font-family: Arial, Courier;
       word-wrap: break-word;
+      
+      /*border: 1px solid red; /* debug red */
     }
     
     .text-box
     {
-      width: 80%;
-      height: 8em;
+      width: 90%;
+      height: 6em;
+      
+      /*border: 1px solid red; /* debug red */
     }
 
-    /*------------------------------------*/
+    /*-------------End-header-section-------------*/
 
-       .document
+    .document
     {
+      margin: 0.8em 29%; 
+      padding-top: 2em;
+      padding-bottom: 4em;
+      padding-left: 1em;
+      padding-right: 1em;
+      
       background-color:#F5F5F5;
-      margin-right: 30%;
-      margin-left: 30%;
-      padding:15px;
+      
+      /*border: 1px solid red; /* debug red */
     }
 
     .dochead
     {
-
-      background-color:#99CCCC;
-      height:50px;
-      font:24px Tahoma, Geneva, sans-serif;
-      color:#744C7F;
-      width: 385px;
-      margin-left:-35px;
+      height: 2em;
+      max-width: 60%;
+      margin-left: -1em;
+      margin-bottom: 0.1em;
+           
+      background-color:#6F9292;
+      font: 2em Tahoma, Geneva, sans-serif;
+      color: #324B4B;
+      
+      /*border: 1px solid red; /* debug red */ 
     }
 
     .dochead span
     {
-      margin-left: 20px;  
-    }
-
-    .my-dochead
-    {
-
-      background-color:#6F9292;
-      height:50px;
-      font:24px Tahoma, Geneva, sans-serif;
-      color:#744C7F;
-      width: 385px;
-      margin-left:-35px;
-    }
-
-    .my-dochead span
-    {
-      margin-left: 20px;  
+      margin-left: 0.5em;
+      
+      /*border: 1px solid red; /* debug red */  
     }
 
     .post
     {
-      color:#656565;
-      font:12px Tahoma, Geneva, sans-serif;
-      line-height: 30px;
-      margin-left: 15px;
-    }
-
-    .dcontent
-    {
-      font:16px Tahoma, Geneva, sans-serif;
-      color:#1f1e1e;
-      margin-top:20px;
-      line-height:23px;
-      margin-left: 15px;
+      margin-top: 0.2em;
+      margin-left: 0;
+      margin-bottom: 1em;
       
-      letter-spacing:1px;
-
-      word-wrap: break-word;
+      color:#656565;
+      font: 0.8em Tahoma, Geneva, sans-serif;
+                
+      /*border: 1px solid red; /* debug red */ 
     }
 
+    
     .bubble
     {
-      background-color:#6F9292;
-      height:45px;
-      
-      font:24px Tahoma, Geneva, sans-serif;
-      color:#FFF;
+      float: left;
+      margin-top: 0.5em;
+      padding: 0.5em;
+            
+      background-color: #6F9292;
+       
+      font: 1.1em Arial, Courier, sans-serif;
       text-align: center;
-      
-      margin-right:-25px;
-      margin-left:15em;
-
+      font-weight: bold;
+      word-wrap: break-word;
+              
+      /*border: 1px solid red; /* debug red */
     }
-
-    .bubble span
-    {
-      margin-right:15px;
-      text-align:center;
-      color:#FFF;
-      font:12px Tahoma, Geneva, sans-serif;
-      font-weight:bold;
-      line-height: 30px;
-    }
-
-    .my-bubble
-    {
-      background-color:#6F9292;
-      height:45px;
-      
-      font:24px Tahoma, Geneva, sans-serif;
-      color:#FFF;
-      text-align: center;
-      
-      margin-right:-25px;
-      margin-left:11em;
-
-    }
-
-    .my-bubble span
-    {
-      margin-right:15px;
-      text-align:center;
-      color:#FFF;
-      font:12px Tahoma, Geneva, sans-serif;
-      font-weight:bold;
-      line-height: 30px;
-    }
-
+    
     .dhead
     {
-      line-height:45px; 
+      line-height: 2em;
+      
+      /*border: 1px solid red; /* debug red */ 
     }
 
     .image-box
     {
-
       height:75px;
       width: 75px;
-      margin-left:-35px;
+      margin-left: -2em;
+      
+      /*border: 1px solid red; /* debug red */
     }
 
     .title
     {
-      background-color:#99CCCC;
-      height:60px;
-      font:24px Tahoma, Geneva, sans-serif;
-      color:#744C7F;
-      margin-left:-45px;
-      margin-right: -45px;
+      margin-top: 1em;    
+      margin-left: -2em;
+      margin-right: -2em;
+          
+      font: 2em Tahoma, Geneva, sans-serif;
+      text-align: center;
+      word-wrap: break-word;
+      
+      background-color: #99CCCC;
+      
+      /*border: 1px solid red; /* debug red */
     }
-
-    .text
+    
+    
+    .post-text
     {
+      margin-top: 0.8em;
+      margin-bottom: 0.5em;
+      margin-left: 2em;
+      margin-right: -2em;
+      
+      padding: 0.5em;
+            
+      font: 1.2em Arial, Courier, sans-serif;
+      color: #324B4B;
+      text-align: left;
+      word-wrap: break-word;
+      
       background-color:#99CCCC;
       
-      font:24px Tahoma, Geneva, sans-serif;
-      color:#744C7F;
-      text-align: right;
-      
-      margin-right:-35px;
-      margin-left:50px;
-
-      padding:10px;
-
+      /*border: 1px solid red; /* debug red */ 
     }
  
     /*------------------------------------*/
 
     a:link 
     {
-    color: #744C7F;
-    text-decoration: none;
+      color: #324B4B;
+      text-decoration: none;
     }
     
     a:visited 
     
     {
       text-decoration: none;
-      color: #744C7F;
+      color: #324B4B;
     }
     
     a:hover 
     {
       text-decoration: none;
-      color: #744C7F;
+      color: #324B4B;
     }
     
     a:active 
     {
       text-decoration: none;
-      color: #744C7F;
+      color: #324B4B;
     }
