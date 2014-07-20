@@ -4,85 +4,79 @@
     <title>Profilo</title>
     <style type="text/css">body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>   
   </head>
-  
-  <div class="dialog">
-    <% if current_user.profile_image.present? %>
-      <div class="image-box">
-        <%= image_tag(current_user.profile_image_url, :height => 100) %><br>
-      </div>
-    <% end %>
-
-    <div class="title">
-      <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
-    </div>
-    <%= render 'form' %>
-  </div> 
+    
   <body>
+    
+    <div class="dialog">
+      <% if current_user.profile_image.present? %>
+        <div class="image-box">
+          <%= image_tag(current_user.profile_image_url, :height => 105, :width => 105) %>
+        </div>
+      <% end %>
+
+      <div class="title">
+        <h1><b>Ciao <%= current_user.user_name %>!</b></h1>
+      </div>
+      <%= render 'form' %>
+    </div> 
   
     <% control_feed=0 %>
     <% @feeds.reverse_each do |feed| %>
       <% if feed.user_id == current_user.id %> 
         <% control_feed=1 %>
-        <br>
+
         <div class="document">
             
-            <div class="my-dochead">
-              <span class="dhead"><%= current_user.user_name %></span>
-            </div>
+          <div class="dochead">
+            <span class="dhead"><%= current_user.user_name %></span>
+          </div>
                 
-            <div>
-              <span class="post">
-                <% if feed.has_been_published == true %>
-                  Pubblicato in data: <%= feed.date %>
-                <% else %>
-                  Da pubblicare in data: <%= feed.date %>
-                <% end %>
-              </span>
-            </div>
-                
-            <% if feed.feed_image.present? %>
-              <br><br>
-              <div align="center">
-                <%= image_tag(feed.feed_image_url, :height => 400 , :width => 400) %><br>
-              </div>
+          <div class="post">
+            <% if feed.has_been_published == true %>
+              Pubblicato in data: <%= feed.date %>
+            <% else %>
+              Da pubblicare in data: <%= feed.date %>
             <% end %>
+          </div>
+                
+          <% if feed.feed_image.present? %>
+            <div align="center">
+              <%= image_tag(feed.feed_image_url, :height => 320 , :width => 420) %>
+            </div>
+          <% end %>
 
-            <div class="dcontent">
-              <div class="text">
+          <div class="dcontent">
+            <div class="post-text">
               <%= feed.feed_text %>
-              </div>
             </div>
-            <br><br><br><br>
-            <div class="my-bubble" align="right">
-              <span> <%= link_to 'Mostra', feed %></span>
-                <% if feed.has_been_published == false %>
-                  <span> <%= link_to 'Modifica', edit_feed_path(feed) %></span>
-                  <span> <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %></span>
-                <% end %>
-            </div>
+          </div>
+           
+          <div class="bubble">
+            <%= link_to 'Mostra', feed %>
+            <% if feed.has_been_published == false %>
+              | <%= link_to 'Modifica', edit_feed_path(feed) %> |
+              <%= link_to 'Elimina', feed, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+            <% end %>
+          </div>
         </div>
 
       <% end %>
     <% end %>
   
     <% if control_feed==0 %>
-      <br>
-      <div class="document">
-        <div class="title" align="center">
-          <h1><b>Benvenuto nel tuo profilo!</b><h1>
-        </div>
-        <br>
-        <div class="text">  
-          <b>Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, 
-            che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.</b><br><br>
-        </div>
-        <div class="dochead">  
-          <h1 align="right">cit Pär Lagerkvist</h1>
-        </div>
+    <div class="document">
+      <div class="title" align="center">
+        <h1><b>Benvenuto nel tuo profilo!</b><h1>
       </div>
-
-      </div>-->
-    <% end %>
+      <div class="post-text">  
+        <b>
+        Tutti gli uomini in fondo desiderano la guerra. Essa porta con sé una semplificazione di tutto, 
+        che gli uomini sentono come sollievo. Tutti trovano che la vita è troppo complicata.
+        </b>
+        <h1 align="right">cit Pär Lagerkvist</h1>
+      </div>
+    </div>
+    <% end %> 
 
   </body>
   
