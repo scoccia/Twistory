@@ -22,49 +22,39 @@
           </div>
         <% end %>
 
-        <% if @feed.user_id == current_user.id %>
-          <div class="my-dochead">
-        <% else %>
-          <div class="dochead">
-        <% end %> 
-            <span class="dhead"><%= read_usr.user_name %></span>
-          </div>
+        <div class="dochead">
+          <span class="dhead"><%= read_usr.user_name %></span>
+        </div>
                 
-        <div>
-          <span class="post">
-            <% if @feed.has_been_published == true %>
-              Pubblicato in data: <%= @feed.date %>
-            <% else %>
-              Da pubblicare in data: <%= @feed.date %>
-            <% end %>
-          </span>
+        <div class="post">
+          <% if @feed.has_been_published == true %>
+            Pubblicato in data: <%= @feed.date %>
+          <% else %>
+            Da pubblicare in data: <%= @feed.date %>
+          <% end %>
         </div>
                 
         <% if @feed.feed_image.present? %>
-          <br><br>
           <div align="center">
-            <%= image_tag(@feed.feed_image_url, :height => 400) %><br>
+            <%= image_tag(@feed.feed_image_url, :height => 320 , :width => 420) %>
           </div>
         <% end %>
 
-        <div class="dcontent">
-          <div class="text">
-            <%= @feed.feed_text %>
-          </div>
-        </div><br> 
-    
-    
-    
-      <% if @feed.user_id == current_user.id and @feed.has_been_published == false %>
-        <div class="my-bubble" align="center">
-        <%= link_to 'Modifica', edit_feed_path(@feed) %> 
-      <% else %>
-        <div class="bubble" align="center">       
-      <% end %>  
+        <div class="post-text">
+          <%= @feed.feed_text %>
+        </div>
+      </div> 
+      
+      <div class="document">
+        <div class="bubble">
+        <% if @feed.user_id == current_user.id and @feed.has_been_published == false %>
+          <%= link_to 'Modifica', edit_feed_path(@feed) %> |
+        <% end %>       
         
-      <%= link_to 'Indietro', :back %>
+        <%= link_to 'Indietro', :back %>
+      </div>
     </div>
-  </div>
+    
   </body>
   
 </html>
