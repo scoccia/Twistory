@@ -87,12 +87,14 @@
 
 ### Step 14 (optional)
 ### If you do not see any images, or the webpage layout looks messy, then run the following commands
---- sudo bundle exec rake assets:clean
---- sudo bundle exec rake assets:precompile
+### ("RAILS_ENV=<development/test/production>" is optional, depending on the environment you are using)
+--- sudo bundle exec rake assets:clean RAILS_ENV=development
+--- sudo bundle exec rake assets:clobber RAILS_ENV=development
+--- sudo bundle exec rake assets:precompile RAILS_ENV=development
 
 ### Step 15
 ### After creating feeds, you want to periodically push them to a specified Twitter account.
 ### Run the following task manually or, preferably, periodically in a cron job
---- rake twitter_connection:twitter_task
+--- sudo bundle exec rake twitter_connection:twitter_task
 
 ### You're done! Enjoy history in the making :)

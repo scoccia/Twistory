@@ -24,10 +24,10 @@ TwittwarApp::Application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
-  # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # Fallback to assets pipeline if a precompiled asset is missed.
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -36,7 +36,7 @@ TwittwarApp::Application.configure do
   config.assets.version = '1.0'
 
   # Specifies the header that your server uses for sending files.
-  # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
+  config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
@@ -77,4 +77,41 @@ TwittwarApp::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+
+
+#  config.action_mailer.smtp_settings =
+#  {
+#    :address => 'smtp.gmail.com',
+#    :port => 587,
+#    :domain => 'gmail.com',
+#    :authentication => 'plain',
+#    :enable_starttls_auto => true,
+#    :user_name => 'twittwar95@gmail.com',
+#    :password => 'caporetto'
+#  }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings =
+  {
+    :address => 'ENTER_VALUE',
+    :port => 587, # ENTER_VALUE
+    :domain => 'ENTER_VALUE',
+    :authentication => :plain,
+    :user_name => 'info@ragazzidel99.it',
+    :password => 'ENTER_VALUE',
+    :ssl => true,
+    :tls => true,
+  }
+
+
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { :host => 'www.ragazzidel99.it' }
+
+  # Send email in development mode?
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+
+
+
 end
