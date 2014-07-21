@@ -40,6 +40,21 @@
       /*border: 1px solid red; /* debug red */ 
     }
 
+    h5 span { 
+  margin-top: -300px;       
+  padding-bottom: 80px; 
+  display: block; 
+}
+
+    h5:before { 
+  display: block; 
+  content: " "; 
+  margin-top: -100px; 
+  height: 285px; 
+  visibility: hidden; 
+}
+
+
 /*-------------End-header-section-------------*/
 /*-------------Start-dialog-section-----------*/
     
