@@ -41,7 +41,7 @@
     }
 
     h5 span { 
-  margin-top: -300px;        /* Size of fixed header */
+  margin-top: -300px;       
   padding-bottom: 80px; 
   display: block; 
 }
