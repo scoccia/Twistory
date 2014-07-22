@@ -71,7 +71,7 @@ class FeedsController < ApplicationController
     # This will have be be modified with a 1 hour subtraction when daylight saving time changes
     # TODO: have a better solution
 
-    @feed.date = @feed.date - 2.hour 		
+    # @feed.date = @feed.date - 2.hour 		
 
     respond_to do |format|
       if @feed.save
