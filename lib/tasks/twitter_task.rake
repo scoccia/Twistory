@@ -1,12 +1,14 @@
 require 'twitter'
 
 namespace :twitter_connection do
-  desc "Connecttion to twitter"
+  desc "Connection to twitter"
 
   task twitter_task: :environment do
 		
-    time_now = DateTime.now.utc
-    box = Feed.where("has_been_published = ? and date < ?", '0', :time_now)
+    # Remember that the server time is UTC
+    time_now = DateTime.now.strftime('%Y-%m-%d %H:%M:%S')
+    
+    box = Feed.where("has_been_published = ? and date < ?", '0', time_now)
     ctrl = box.length
     
     if ctrl > 0

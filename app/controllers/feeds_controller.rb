@@ -48,7 +48,24 @@ class FeedsController < ApplicationController
   # POST /feeds
   def create
     @feed = Feed.new(feed_params)
-    @feed.user_id = current_user.id 		
+    @feed.user_id = current_user.id
+
+    # Here comes a quick dirty ugly workaround. Remember that:
+
+    # --- The server (both application and Database) uses and stores time in UTC (Universal Time)
+    # --- Feed dates are going to be entered by the user in the form
+    # --- S/he will enter the time values according to Italian timezone
+    # --- Currently (summer 2014), Italian time follows CEST (Central European Summer Time)
+    # --- CEST is 2 hours beyond UTC
+    # --- Important: after summer, Italian time will follow CET (Central European Time)
+    # --- CET is 1 hour beyond UTC
+ 
+    # So, for now, the dirty ugly workaround relies on converting the user-input CEST value to UTC 
+    # using a simple 2 hour subtraction from the DateTime object.
+    # This will have be be modified with a 1 hour subtraction when daylight saving time changes
+    # TODO: have a better solution
+
+    @feed.date = @feed.date - 2.hour 		
 
     respond_to do |format|
       if @feed.save
