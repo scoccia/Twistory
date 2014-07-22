@@ -36,12 +36,18 @@ class FeedsController < ApplicationController
 
   # GET /feeds/1/edit
   def edit
+
+    # Show CET/CEST time to the user starting from the UTC time in the Database
+    # TODO: have a better solution (see create action)
+    @feed.date = @feed.date + 2.hour 
+
     if @feed.user_id != current_user.id
       err_mex 
     elsif @feed.has_been_published == true
       flash[:notice] = "Non puoi modificare feed gia' pubblicati"
       render "show"
     end
+
   end 
 # edit end #
 
@@ -83,7 +89,14 @@ class FeedsController < ApplicationController
   def update
     if @feed.user_id == current_user.id
       respond_to do |format|
+
         if @feed.update(feed_params)
+
+          # Convert the CET/CEST time (inserted by the user) in UTC time (expected by the Database)
+    	  # TODO: have a better solution (see create action)
+    	  @feed.date = @feed.date - 2.hour 
+	  @feed.save
+
           flash[:notice] = 'Il Feed e\' stato aggiornato con successo'
           format.html { redirect_to action: 'index' }
         else
