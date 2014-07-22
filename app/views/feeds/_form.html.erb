@@ -8,7 +8,7 @@
       <%= f.text_area :feed_text, class: "text-box", :onclick => 'show_hide();' , :placeholder => "Scrivi qui il testo del tuo feed"%>
       <p id="key" style="display: none">
         <b>Inserisci la data in cui verrà pubblicato (fuso orario italiano):</b><br>
-        <%= f.datetime_select :date %>
+        <%= f.datetime_select :date, :minute_step => 15 %>
         <br><br>
         <b>Inserisci un'immagine:</b><br>
         <%= f.file_field :feed_image %>
