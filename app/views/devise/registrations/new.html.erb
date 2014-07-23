@@ -18,42 +18,39 @@
         </div>
       </div>
     </div>
- 
-    <div class="dialog">
-      <div class="title">
-        <h1>Iscriviti</h1>
-      </div>
-    
-  
+   
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
-      
-        <%= devise_error_messages! %>
-        <div class="text">
-          <div class="form-box">
-            <ul> 
-              <li>
-                <b>Nome pubblico:</b>
-                <%= f.text_field :user_name, autofocus: true %>
-              </li>
-              <li>
-                <b>E-mail:</b>
-                <%= f.email_field :email %>
-              </li>
-              <li>
-                <b>Password:</b>
-                <%= f.password_field :password, autocomplete: "off" %>
-              </li>
-              <li>
-                <b>Conferma password:</b>
-                <%= f.password_field :password_confirmation, autocomplete: "off" %>
-              </li>
-            </ul>
-            <p align="center"><%= f.submit "Iscriviti" %></p>
-          </div>
+ 
+    <div id="wrapper">
+	    <div class="login-form">
+	    
+	      <div class="title">
+          <h1>Iscriviti</h1>
         </div>
-      </div>
-  
+        
+        <% if notice %>
+          <p align="center"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p align="center"><%= alert %></p>
+        <% end %>
+        
+	      <%= devise_error_messages! %>
+	      
+		    <div class="content">
+		      <%= f.text_field :user_name, autofocus: true, :placeholder => "Nome Pubblico" %>
+		      <%= f.email_field :email, :placeholder => "e-mail"  %>
+		      <%= f.password_field :password, :placeholder => "Password" , autocomplete: "off" %>
+		      <%= f.password_field :password_confirmation, :placeholder => "Conferma password" , autocomplete: "off" %> 
+		  </div>
+
+		  <div class="footer">
+		    <%= f.submit "Iscriviti" %>
+		  </div>
+	
+	    </div>
+    </div>
+    
     <% end %>
   
   </body>
