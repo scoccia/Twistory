@@ -10,8 +10,16 @@
 
     <div class="dialog">
       <div class="title">
-        <h1><b>Nuovo feed</b></h1> 
+        <h1><b>Nuovo feed</b></h1>
       </div>
+      
+        <% if notice %>
+          <p align="center"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p align="center"><%= alert %></p>
+        <% end %>
+         
       <%= render 'form' %>
     </div>
 
