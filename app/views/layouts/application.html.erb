@@ -25,6 +25,17 @@
   </div>
   <% end %>
 
+  <% if notice %>
+    <div class="document" align="center">
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="document" align="center">
+      <%= alert %>
+    </div>
+  <% end %>  
+  
 <%= yield %>
 
 </html>
