@@ -18,35 +18,44 @@
       </div>
     </div>
 	
-	  <div class="dialog">
-      <div class="title">
-        <h1>Accedi</h1>
-      </div>
-    
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
-        <div class="text">
-          <div class="form-box">
-            <ul> 
-              <li>
-                <b>e-mail:</b>
-                <%= f.email_field :email, autofocus: true %>
-              </li>
-              <li>
-                <b>password:</b>
-                <%= f.password_field :password, autocomplete: "off" %>
-              </li>
-              <br>
-              <% if devise_mapping.rememberable? %>
-                <li><%= f.check_box :remember_me %><b>Mantieni aperto l'accesso</b></li>
-              <% end %>
-            </ul>
-            <p align="center"><%= f.submit "Accedi" %></p>
-            <p align="center"><%= link_to "Dimenticato la password?", new_password_path(resource_name) %></p>
-          </div>
+    <div id="wrapper">
+	    <div class="login-form">
+	    
+	      <div class="title">
+          <h1>Accedi</h1>
         </div>
-      </div>
+        
+        <% if notice %>
+          <p align="center"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p align="center"><%= alert %></p>
+        <% end %>
+        	      
+		    <div class="content">
+		      
+		      <div>
+		        <%= f.email_field :email, :placeholder => "e-mail", autofocus: true  %>
+		      </div>
+		      <div>
+		        <%= f.password_field :password, :placeholder => "Password" , autocomplete: "off" %>
+		      </div>
+		      <p>
+		      <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %><b>Mantieni aperto l'accesso</b>
+          <% end %>
+          </p> 
+		  </div>
+
+		  <div class="footer">
+		    <p><%= f.submit "Accedi" %></p>
+        <p><%= link_to "Dimenticato la password?", new_password_path(resource_name) %></p>
+		  </div>
+	
+	    </div>
+    </div>
                
       <% end %>  
         
