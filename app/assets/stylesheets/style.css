@@ -25,7 +25,8 @@
     
     .about-bg
     {
-      background-image: url('about-bg.png')
+      background-image: url('about-bg.png');
+      background-repeat: no-repeat;
     }
 
 
