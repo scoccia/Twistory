@@ -23,6 +23,12 @@
       /*border: 1px solid red; /* debug red */
     }
     
+    .about-bg
+    {
+      background-image: url('about-bg.png')
+    }
+
+
     .h-left
     {
       float: left;
