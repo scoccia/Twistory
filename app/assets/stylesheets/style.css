@@ -97,17 +97,35 @@
       background-color: #99CCCC;
       
       /*border: 1px solid red; /* debug red */
+    }   
+    
+/*-------------End-dialog-section-------------*/
+/*-------------Start-text-area-section--------*/   
+ 
+    .text-doc
+    {
+      width: 80%;
+      margin: 1em 10%;
+      
+      /*border: 1px solid red; /* debug red */
     }
     
     .text-box
     {
-      width: 80%;
-      height: 6em;
+      width: 90%;
+      height: 5em;
                     
       /*border: 1px solid red; /* debug red */
     }
     
-/*-------------End-dialog-section-------------*/ 
+    .text-counter
+    {
+      margin-left: 81%; 
+      
+      /*border: 1px solid red; /* debug red */
+    }
+    
+/*-------------End-text-area-section----------*/ 
 /*-------------Start-main/feed-section--------*/
 
     .document
