@@ -13,36 +13,55 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
         <% if current_user.profile_image.present? %>
-          <%= image_tag(current_user.profile_image_url, :height => 110) %>
+          <div class="feed-image-box">
+            <%= image_tag(current_user.profile_image_url) %>
+          </div>
         <% end %>
-    
-        <h4>Cambia immagine del profilo:</h4>
-        <%= f.file_field :profile_image %>
-    
-        <h4>Cambia nome:</h4>
-        <%= f.text_field :user_name, autofocus: true ,autocomplete: "off" %>
-    
-        <h4>e-mail:</h4>
-        <%= f.email_field :email %>
+        
+        <p>    
+          <b>Cambia immagine del profilo:</b><br>
+          <%= f.file_field :profile_image %>
+        </p>
+        <br>
+        <p>    
+          <b>Cambia nome:</b><br>
+          <%= f.text_field :user_name, autofocus: true ,autocomplete: "off" %>
+        </p>
 
+        <p>    
+          <b>Cambia e-mail:</b><br>
+          <%= f.email_field :email %>
+        </p>
+    
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
+        <br>
+        <p>    
+          <b>Password: <i>(Lascia in bianco se non desideri cambiarla)</i></b><br>
+          <%= f.password_field :password, autocomplete: "off"%>
+        </p>
 
-        <h4>password: <i>(Lascia in bianco se non desideri cambiarla)</i></h4>
-        <%= f.password_field :password, autocomplete: "off"%>
+        <p>    
+          <b>Conferma password:</b><br>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </p>
+        <br>
+        <p>    
+          <b>Password attuale: <i>(necessaria per confermare i cambiamenti)</i></b><br>
+          <%= f.password_field :current_password, autocomplete: "off" %>
+        </p>
 
-        <h4>conferma password:</h4>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
-        <h4>password attuale: <i>(necessaria per confermare i cambiamenti)</i></h4>
-        <%= f.password_field :current_password, autocomplete: "off" %>
-        <br><br>
+        <p>
         <%= f.submit "Conferma" %> 
+        </p>
+        
       <% end %>
-      <br>
-      <b>Elimina il mio account:</b>
-      <h3><%= link_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %></h3>
+      <p>
+        <b>Elimina il mio account:</b>
+        <h3><%= link_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %></h3>
+      </p>
+      
     </div>
     
   </body>
