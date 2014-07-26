@@ -16,7 +16,6 @@ module DeviseHelper
     html = <<-HTML
       <h2 align="center">#{sentence}</h2>
       <b><h4 align="center">#{messages}</h4></b>
-      <br>
     HTML
 
     html.html_safe

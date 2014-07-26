@@ -3,7 +3,6 @@
 
   <head>
     <title>La Grande Guerra</title>
-    <style type="text/css"> body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
   </head>  
 
   <body>
@@ -64,8 +63,8 @@
         </div>
                                 
         <% if feed.feed_image.present? %>
-          <div align="center">
-            <%= image_tag(feed.feed_image_url, :height => 320 , :width => 420) %>
+          <div class="feed-image-box">
+            <%= image_tag(feed.feed_image_url) %>
           </div>
         <% end %>
 
