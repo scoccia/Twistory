@@ -24,20 +24,30 @@ namespace :twitter_connection do
     
       while i != ctrl do
       
-        box[i].update_attribute(:has_been_published, true)
+        feed_text = box[i].feed_text
+	# Replace quotes and single quotes with `, since they can cause problems when they are in feeds
+    	# that we want to post with the twitter gem. Easier than escaping characters.
+        feed_text.gsub(/'/){ "`" }
+        feed_text.gsub(/"/){ "`" }
         
+        twitter_response = nil
         if !box[i].feed_image.present?
-          client.update(box[i].feed_text)
+          twitter_response = client.update(box[i].feed_text)
         else
-          client.update_with_media(box[i].feed_text, File.new(box[i].feed_image.path))
+          twitter_response = client.update_with_media(box[i].feed_text, File.new(box[i].feed_image.path))
         end
+
+        #TODO: Parse the Twitter response to be sure that Twitter processed the request correctly
+
+        box[i].update_attribute(:has_been_published, true)
+
         ## use the line below to debug:                              
         ## puts "\n\nctrl: #{ctrl}, i: #{i}\ntime now: #{time_now}\nhas_been: #{box[i].has_been_published}\nfeed text: #{box[i].feed_text}"
 			  	
         i = i+1
-      end #** while loop finish **#
-    end #** if statement finish **#
+      end # end of the "while" loop
+    end # end of the "if" statement
     
         
-  end #*** twitter_task finish ***#
+  end # enf of twitter_task
 end
