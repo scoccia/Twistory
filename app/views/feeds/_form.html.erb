@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html>
 
+  <head>
+    <script type="text/javascript">
+    $(document).ready(function() 
+    {
+      $("#box-content").keyup(function() 
+      {
+        var counter = $("#text-counter");
+        var charsRemaining = $(this).val().length;
+        counter.text(charsRemaining + "/140");
+        counter.css('color', (charsRemaining > 140) ? 'red' : 'green');
+      });
+    });
+    </script>
+  </head>
+
   <body>
     <%= form_for(@feed) do |f| %>
      
-      <%= feed_error_messages! %>  
-      <%= f.text_area :feed_text, class: "text-box", :onclick => 'show_hide();' , :placeholder => "Scrivi qui il testo del tuo feed"%>
+      <%= feed_error_messages! %>
+      
+      <div class="text-doc"> 
+        <%= f.text_area :feed_text, id: "box-content", class: "text-box", :onclick => 'show_hide();', 
+            :placeholder => "Scrivi qui il testo del tuo feed" %>
+        <div id="text-counter" class="text-counter"></div>
+      </div>
+       
       <p id="key" style="display: none">
         <b>Inserisci la data in cui verrà pubblicato (fuso orario italiano):</b><br>
         <%= f.datetime_select :date, :minute_step => 15 %>
