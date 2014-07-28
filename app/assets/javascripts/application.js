@@ -17,6 +17,23 @@
 
 function show_hide()
 {
-    nuovo_stato = (document.getElementById ("key").style.display == 'none') ? 'block' : 'none';
-    document.getElementById ("key").style.display = nuovo_stato;
+    nuovo_stato = (document.getElementById("key").style.display == 'none') ? 'block' : 'none';
+    document.getElementById("key").style.display = nuovo_stato;
+}
+
+function Expand_Image(id)
+{   
+  var newheight = "38em"; // Warning: be sure that style.css height is different to newheight 
+  var newmargin = "0 -20% 0 -20%";
+  
+  if (document.getElementById(id).style.height != newheight)
+  {     
+    document.getElementById(id).style.height= newheight;
+    document.getElementById(id).style.margin= newmargin;    
+  }
+  else
+  {
+    document.getElementById(id).style.height= "";
+    document.getElementById(id).style.margin= "";
+  }
 }

@@ -11,15 +11,21 @@
       <div class="title">
         <h1><b>Modifica il tuo feed</b></h1>
       </div>
+      <% if notice %>
+        <p align="center"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p align="center"><%= alert %></p>
+      <% end %>
       
-        <% if notice %>
-          <p align="center"><%= notice %></p>
-        <% end %>
-        <% if alert %>
-          <p align="center"><%= alert %></p>
-        <% end %>
-        
+      <% if @feed.feed_image.present? %>
+        <div id="<%= @feed.id %>" onclick="Expand_Image(<%= @feed.id %>)" class="feed-image-box">
+          <%= image_tag(@feed.feed_image_url) %>
+        </div>
+      <% end %>
+                
       <%= render 'form' %>
+      
 		</div>
 
 	  <div class="document">

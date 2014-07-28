@@ -13,7 +13,7 @@
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
         <% if current_user.profile_image.present? %>
-          <div class="feed-image-box">
+          <div id="<%= current_user.id %>" onclick="Expand_Image(<%= current_user.id %>)" class="feed-image-box">
             <%= image_tag(current_user.profile_image_url) %>
           </div>
         <% end %>
