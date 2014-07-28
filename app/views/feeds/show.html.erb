@@ -42,7 +42,7 @@
         </div>
                 
         <% if @feed.feed_image.present? %>
-          <div class="feed-image-box">
+          <div id="<%= @feed.id %>" onclick="Expand_Image(<%= @feed.id %>)" class="feed-image-box">
             <%= image_tag(@feed.feed_image_url) %>
           </div>
         <% end %>
