@@ -24,7 +24,7 @@
     <div id="wrapper">
 	    <div class="login-form">
 	    
-	      <div class="title">
+	      <div class="home-title">
           <h1>Iscriviti</h1>
         </div>
         
@@ -38,15 +38,23 @@
 	      <%= devise_error_messages! %>
 	      
 		    <div class="content">
-		      <%= f.text_field :user_name, autofocus: true, :placeholder => "Nome Pubblico" %>
+		      <div>
+		        <%= f.text_field :user_name, autofocus: true, :placeholder => "Nome Pubblico" %>
+		      </div>
+		      <div>
 		      <%= f.email_field :email, :placeholder => "e-mail"  %>
+		      </div>
+		      <div>
 		      <%= f.password_field :password, :placeholder => "Password" , autocomplete: "off" %>
-		      <%= f.password_field :password_confirmation, :placeholder => "Conferma password" , autocomplete: "off" %> 
-		  </div>
+		      </div>
+		      <div>
+		      <%= f.password_field :password_confirmation, :placeholder => "Conferma password" , autocomplete: "off" %>
+		      </div> 
+		    </div>
 
-		  <div class="footer">
-		    <%= f.submit "Iscriviti" %>
-		  </div>
+		    <div class="footer">
+		      <%= f.submit "Iscriviti" %>
+		    </div>
 	
 	    </div>
     </div>
