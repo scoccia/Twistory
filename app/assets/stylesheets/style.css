@@ -367,8 +367,8 @@
     .home-title-lx
     {
       margin: 0.1em;
-      margin-left: -1em;
-      width: 9em;
+      margin-left: -5%;
+      margin-right: 70%;
       
       padding-left: 0.5em;
       padding-right: 0.5em;
@@ -387,8 +387,8 @@
     .home-title-rx
     {
       margin: 0.1em;
-      margin-left: 60%;
-      width: 9em;
+      margin-left: 55%;
+      margin-right: -5%;
       
       padding-left: 0.5em;
       padding-right: 0.5em;
