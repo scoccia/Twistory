@@ -42,17 +42,17 @@ namespace :twitter_connection do
             twitter_response = client.update(feed_text)
             
             # Verify that twitter_response is not blank
-            if !twitter_response.blank? and !twitter_response.id,blank?
+            if !twitter_response.blank? and !twitter_response.id.blank?
 	      box[i].update_attribute(:has_been_published, 1)
 
             # If, by any chance, the twitter_response has issues, set the "has_been_published" attribute to a third undefined state
-            #TODO: we should also trigger an error email to info@ragazzidel99.it
+            # TODO: we should also trigger an error email to info@ragazzidel99.it
             else
               box[i].update_attribute(:has_been_published, -1)
             end
 
 	  else
-	    #TODO: trigger an error email to info@ragazzidel99.it
+	    # TODO: trigger an error email to info@ragazzidel99.it
 	  end
 
         # Case 2: pictures are posted
@@ -63,22 +63,23 @@ namespace :twitter_connection do
             twitter_response = client.update_with_media(feed_text, File.new(box[i].feed_image.path))
 
             # Verify that twitter_response is not blank
-            if !twitter_response.blank? and !twitter_response.id,blank?
+            if !twitter_response.blank? and !twitter_response.id.blank?
 	      box[i].update_attribute(:has_been_published, 1)
 
             # If, by any chance, the twitter_response has issues, set the "has_been_published" attribute to a third undefined state
-            #TODO: we should also trigger an error email to info@ragazzidel99.it
+            # TODO: we should also trigger an error email to info@ragazzidel99.it
             else
               box[i].update_attribute(:has_been_published, -1)
             end
 
           else
-	    #TODO: trigger an error email to info@ragazzidel99.it
+	    # TODO: trigger an error email to info@ragazzidel99.it
           end
 
         end
 
-        #TODO: Use rescue for exception handling in case and error occurs. For instance, when accidentally sending feeds to Twitter with length greater than 140, 
+        # TODO: Use rescue for exception handling in case and error occurs. 
+        # For instance, when accidentally sending feeds to Twitter with length greater than 140, 
         # the twitter gem produces a fatal error and exits the task immediately with Twitter::Error::Forbidden: Status is over 140 characters. 
 
 
