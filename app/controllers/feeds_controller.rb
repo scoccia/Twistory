@@ -95,7 +95,7 @@ class FeedsController < ApplicationController
           # Convert the CET/CEST time (inserted by the user) in UTC time (expected by the Database)
     	    # TODO: have a better solution (see create action)
     	    @feed.date = @feed.date - 2.hour 
-	        @feed.save
+	    @feed.save
 
           flash[:notice] = 'Il Feed e\' stato aggiornato con successo'
           format.html { redirect_to action: 'index' }
