@@ -26,7 +26,7 @@ namespace :twitter_connection do
       
         feed_text = box[i].feed_text
         
-	# Dead code
+	      # Dead code
         # feed_text.gsub(/'/){ "`" }
         # feed_text.gsub(/"/){ "`" }
 
@@ -35,47 +35,27 @@ namespace :twitter_connection do
         
         twitter_response = nil
 
-        # Case 1: no pictures are posted
-        if !box[i].feed_image.present?
-
-	  if feed_text.length <= 140
-            twitter_response = client.update(feed_text)
-            
-            # Verify that twitter_response is not blank
-            if !twitter_response.blank? and !twitter_response.id.blank?
-	      box[i].update_attribute(:has_been_published, 1)
-
-            # If, by any chance, the twitter_response has issues, set the "has_been_published" attribute to a third undefined state
-            # TODO: we should also trigger an error email to info@ragazzidel99.it
-            else
-              box[i].update_attribute(:has_been_published, -1)
-            end
-
-	  else
-	    # TODO: trigger an error email to info@ragazzidel99.it
-	  end
-
-        # Case 2: pictures are posted
-        else
-          # When sending pictures, Twitter creates a http URL that may count towards up to 23 characters
-          # As a result, only 140 - 23 = 117 characters are left
-	  if feed_text.length <= 117
-            twitter_response = client.update_with_media(feed_text, File.new(box[i].feed_image.path))
-
-            # Verify that twitter_response is not blank
-            if !twitter_response.blank? and !twitter_response.id.blank?
-	      box[i].update_attribute(:has_been_published, 1)
-
-            # If, by any chance, the twitter_response has issues, set the "has_been_published" attribute to a third undefined state
-            # TODO: we should also trigger an error email to info@ragazzidel99.it
-            else
-              box[i].update_attribute(:has_been_published, -1)
-            end
-
+        if !(box[i].feed_image.present?) # Case 1: no pictures are posted #
+          
+          twitter_response = client.update(feed_text)        
+          if !twitter_response.blank? and !twitter_response.id.blank? # Verify that twitter_response is not blank #
+	          box[i].update_attribute(:has_been_published, 1)
           else
-	    # TODO: trigger an error email to info@ragazzidel99.it
+            box[i].update_attribute(:has_been_published, -1)
+            # TODO: trigger an error email to info@ragazzidel99.it
           end
+          
+        else  # Case 2: pictures are posted #
+          
+          twitter_response = client.update_with_media(feed_text, File.new(box[i].feed_image.path))
 
+          if !twitter_response.blank? and !twitter_response.id.blank? # Verify that twitter_response is not blank
+	          box[i].update_attribute(:has_been_published, 1)
+          else
+            box[i].update_attribute(:has_been_published, -1)
+            # TODO: trigger an error email to info@ragazzidel99.it
+          end
+         
         end
 
         # TODO: Use rescue for exception handling in case and error occurs. 
