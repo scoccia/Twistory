@@ -92,7 +92,7 @@ class FeedsController < ApplicationController
 
         if @feed.update(feed_params)
 
-          # Convert the CET/CEST time (inserted by the user) in UTC time (expected by the Database)
+            # Convert the CET/CEST time (inserted by the user) in UTC time (expected by the Database)
     	    # TODO: have a better solution (see create action)
     	    @feed.date = @feed.date - 2.hour 
 	    @feed.save
