@@ -9,7 +9,9 @@ class Feed < ActiveRecord::Base
   private
  
   def checking_for_image_size
-    errors[:base] = "L'immagine non può superare 300 Kb" if feed_image.size > 300.kilobytes
+    if feed_image.size > 300.kilobytes
+      errors[:base] = "L'immagine non può superare 300 Kb"
+    end 
   end
 	
   def checking_feed_text
