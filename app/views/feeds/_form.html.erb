@@ -2,17 +2,17 @@
 <html>
 
   <head>
-    <script type="text/javascript">
-    $(document).ready(function() 
-    {
-      $("#box-content").keyup(function() 
-      {
-        var counter = $("#text-counter");
-        var charsRemaining = $(this).val().length;
-        counter.text(charsRemaining + "/124");
-        counter.css('color', (charsRemaining > 124) ? 'red' : 'green');
+    <script type="text/javascript">              
+      $(document).ready(function() {
+          
+        $("#box-content").keyup(function() {
+          var charsPermitted = 124;
+          var counter = $("#text-counter");
+          var charsWritten = $(this).val().length;
+          counter.text("Caratteri rimanenti: " + (charsPermitted-charsWritten)).css('color', ((charsPermitted-charsWritten) < 0) ? 'red' : 'green');
+        });
+          
       });
-    });
     </script>
   </head>
 
@@ -27,15 +27,19 @@
         <div id="text-counter" class="text-counter"></div>
       </div>
        
-      <p id="key" style="display: none">
-        <b>Inserisci la data in cui verrà pubblicato (fuso orario italiano):</b><br>
-        <%= f.datetime_select :date, :minute_step => 15 %>
-        <br><br>
-        <b>Inserisci un'immagine:</b><br>
-        <%= f.file_field :feed_image %>
-        <br><br>
-        <%= f.submit %>
-      </p>
+      <div id="key" style="display: none">
+        <p>
+          <b>Inserisci la data in cui verrà pubblicato (fuso orario italiano):</b><br>
+          <%= f.datetime_select :date, :minute_step => 15 %>
+        </p>
+        <p>
+          <b>Inserisci un'immagine:</b><br>
+          <%= f.file_field :feed_image %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      </div>
       
     <% end %>
   </body>
