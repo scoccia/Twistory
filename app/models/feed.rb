@@ -15,8 +15,10 @@ class Feed < ActiveRecord::Base
   def checking_feed_text
     if !(feed_text.present?)
       errors[:base] = "Non puoi pubblicare feed vuoti!"
-    elsif feed_text.size > 140
-      errors[:base] = "Il feed non puo' contenere piu' di 140 caratteri!"
+    elsif feed_image.present? and feed_text.size > 101
+      errors[:base] = "Quando inserisci un'immagine il feed non puo' contenere piu' di 101 caratteri!"
+    elsif feed_text.size > 124
+      errors[:base] = "Il feed non puo' contenere piu' di 124 caratteri!"         
     end
   end 
 	
