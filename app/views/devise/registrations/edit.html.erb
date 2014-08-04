@@ -57,9 +57,14 @@
         </p>
         
       <% end %>
+      <br>
       <p>
-        <b>Elimina il mio account:</b>
-        <h3><%= link_to "Elimina", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %></h3>
+        <b>
+          Non sei soddisfatto?
+          <u>
+            <%= link_to "Elimina il mio account", registration_path(resource_name), data: { confirm: "Sei sicuro?" }, method: :delete %>
+          </u>
+        </b>
       </p>
       
     </div>

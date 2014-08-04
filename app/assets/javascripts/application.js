@@ -17,8 +17,8 @@
 
 function show_hide()
 {
-    nuovo_stato = (document.getElementById("key").style.display == 'none') ? 'block' : 'none';
-    document.getElementById("key").style.display = nuovo_stato;
+    current_state = (document.getElementById("key").style.display == 'none') ? 'block' : 'none';
+    document.getElementById("key").style.display = current_state;
 }
 
 function Expand_Image(id)

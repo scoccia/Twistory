@@ -120,8 +120,10 @@
     
     .text-counter
     {
-      margin-left: 81%; 
-      
+      margin-left: 5%;
+      margin-right: 5%;
+       
+      text-align: right;
       /*border: 1px solid red; /* debug red */
     }
     
