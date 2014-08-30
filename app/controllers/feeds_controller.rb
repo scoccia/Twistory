@@ -1,3 +1,6 @@
+require 'google/api_client'
+require 'json'
+
 class FeedsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
@@ -71,7 +74,11 @@ class FeedsController < ApplicationController
     # This will have be be modified with a 1 hour subtraction when daylight saving time changes
     # TODO: have a better solution
 
-    @feed.date = @feed.date - 2.hour 		
+    @feed.date = @feed.date - 2.hour 	
+
+    # Translate from the original Italian text to English via Google Translate APIs
+    feed_text_english = translate_feed(@feed.feed_text)
+    @feed.feed_text_english = feed_text_english
 
     respond_to do |format|
       if @feed.save
@@ -125,6 +132,44 @@ class FeedsController < ApplicationController
 # destroy end #
 
   private
+    # Use Google Translate APIs to translate feed text from the original Italian to English
+    def translate_feed (feed_text)
+	google_client = Google::APIClient.new(
+		:application_name => APP_CONFIG['google']['production']['application_name'],
+		:key 		  => APP_CONFIG['google']['production']['key'],
+		:application_version => '1.0.0',
+		:authorization => nil
+	)
+
+	# Load client secrets from your client_secrets.json
+	# NOT needed for the Google Translate APIs
+	# client_secrets = Google::APIClient::ClientSecrets.load
+		
+	translate = google_client.discovered_api('translate', 'v2')
+	result = google_client.execute(
+	  :api_method => translate.translations.list,
+	  :parameters => {
+	    'format' => 'text',
+	    'source' => 'it',
+	    'target' => 'en',
+	    'q' => feed_text
+	  }
+	)
+
+	parsed = JSON.parse(result.data.to_json)
+
+	# Example of data returned 
+        # {"translations":[{"translatedText":"This is a pen"}]}'
+
+	english_translation = parsed["translations"][0]["translatedText"]
+
+	# TODO: return a warning if the translation is over 140 characters (or whatever limit we have)
+
+	return english_translation
+    end
+# translate_feed end #
+
+
 
     # Use callbacks to share common setup or constraints between actions.
     def set_feed

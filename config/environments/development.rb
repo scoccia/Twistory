@@ -29,13 +29,13 @@ TwittwarApp::Application.configure do
 
   config.action_mailer.smtp_settings = 
   {
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :domain => 'gmail.com',
-    :authentication => 'plain',
-    :enable_starttls_auto => true,
-    :user_name => 'twittwar95@gmail.com',
-    :password => 'caporetto'
+    :address 	=> APP_CONFIG['email']['development']['address'],
+    :port 	=> APP_CONFIG['email']['development']['port'],
+    :domain 	=> APP_CONFIG['email']['development']['domain'],
+    :user_name 	=> APP_CONFIG['email']['development']['user_name'],
+    :password 	=> APP_CONFIG['email']['development']['password'],
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
   
   # ActionMailer Config

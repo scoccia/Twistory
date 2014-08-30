@@ -14,11 +14,11 @@ namespace :twitter_connection do
     if ctrl > 0
     
       client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = "2kxyua2AU8XimCx70bOPUg"
-        config.consumer_secret     = "hZQ5vgQTMeZL9GiXWCaCdAji59CcrkJdsDzw1OYYEZs"
-        config.access_token        = "2422291368-f53dCUtUoHOt6ROHaKQ944899wixZvElyp9qv94"
-        config.access_token_secret = "OIFnMcailGAl2TcInFqpk8TF1a3cwIPS5goF9zEuaeidw"
-      end #those credentials refers to a testing account
+        config.consumer_key        = APP_CONFIG['twitter']['development']['consumer_key'],
+        config.consumer_secret     = APP_CONFIG['twitter']['development']['consumer_secret'],
+        config.access_token        = APP_CONFIG['twitter']['development']['access_token'],
+        config.access_token_secret = APP_CONFIG['twitter']['development']['access_token_secret'],
+      end # those credentials refers to a testing account
 		  
       i = 0
     
