@@ -33,9 +33,15 @@ twitter:
     consumer_secret: 	 
     access_token: 	 
     access_token_secret: 
+  production_english:
+    channel:		 ww1fromitaly
+    consumer_key: 	 
+    consumer_secret: 	 
+    access_token: 	 
+    access_token_secret: 
 
 
 google:
   production:
-    application_name: 
-    key: 
+    application_name:
+    key:
