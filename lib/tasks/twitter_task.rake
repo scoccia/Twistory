@@ -17,7 +17,7 @@ namespace :twitter_connection do
         config.consumer_key        = APP_CONFIG['twitter']['development']['consumer_key'],
         config.consumer_secret     = APP_CONFIG['twitter']['development']['consumer_secret'],
         config.access_token        = APP_CONFIG['twitter']['development']['access_token'],
-        config.access_token_secret = APP_CONFIG['twitter']['development']['access_token_secret'],
+        config.access_token_secret = APP_CONFIG['twitter']['development']['access_token_secret']
       end # those credentials refers to a testing account
 		  
       i = 0
