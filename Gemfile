@@ -47,6 +47,9 @@ gem 'devise'
 # gem 'carrierwave' for images' upload
 gem 'carrierwave'
 
+# gem for the Google Translate APIs
+gem 'google-api-client'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

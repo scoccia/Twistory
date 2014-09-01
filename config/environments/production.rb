@@ -78,32 +78,18 @@ TwittwarApp::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-
-
-#  config.action_mailer.smtp_settings =
-#  {
-#    :address => 'smtp.gmail.com',
-#    :port => 587,
-#    :domain => 'gmail.com',
-#    :authentication => 'plain',
-#    :enable_starttls_auto => true,
-#    :user_name => 'twittwar95@gmail.com',
-#    :password => 'caporetto'
-#  }
-
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings =
   {
-    :address => 'ENTER_VALUE',
-    :port => 587, # ENTER_VALUE
-    :domain => 'ENTER_VALUE',
+    :address 	=> APP_CONFIG['email']['production']['address'],
+    :port 	=> APP_CONFIG['email']['production']['port'],
+    :domain 	=> APP_CONFIG['email']['production']['domain'],
+    :user_name 	=> APP_CONFIG['email']['production']['user_name'],
+    :password 	=> APP_CONFIG['email']['production']['password'],
     :authentication => :plain,
-    :user_name => 'info@ragazzidel99.it',
-    :password => 'ENTER_VALUE',
     :ssl => true,
     :tls => true,
   }
-
 
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => 'www.ragazzidel99.it' }

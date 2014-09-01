@@ -11,16 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713151808) do
+ActiveRecord::Schema.define(version: 20140831225312) do
 
   create_table "feeds", force: true do |t|
     t.string   "feed_text"
     t.datetime "date"
-    t.boolean  "has_been_published", default: false
+    t.boolean  "has_been_published",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "feed_image"
+    t.string   "feed_text_english",          default: ""
+    t.boolean  "has_been_published_english", default: false
   end
 
   create_table "users", force: true do |t|
