@@ -114,7 +114,11 @@ namespace :send_feeds_to_twitter do
     
       while i != ctrl do
       
-        feed_text = box[i].feed_text
+        feed_text = box[i].feed_text_english
+
+	if feed_text.blank?
+	   next
+	end
         
         # Appending the #WW1fromItaly hashtag
         feed_text = feed_text + " #WW1fromItaly"
