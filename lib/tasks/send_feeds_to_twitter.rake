@@ -14,9 +14,9 @@ namespace :send_feeds_to_twitter do
     if ctrl > 0
     
       client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = APP_CONFIG['twitter']['development']['consumer_key'],
-        config.consumer_secret     = APP_CONFIG['twitter']['development']['consumer_secret'],
-        config.access_token        = APP_CONFIG['twitter']['development']['access_token'],
+        config.consumer_key        = APP_CONFIG['twitter']['development']['consumer_key']
+        config.consumer_secret     = APP_CONFIG['twitter']['development']['consumer_secret']
+        config.access_token        = APP_CONFIG['twitter']['development']['access_token']
         config.access_token_secret = APP_CONFIG['twitter']['development']['access_token_secret']
       end
 		  
@@ -104,9 +104,9 @@ namespace :send_feeds_to_twitter do
     if ctrl > 0
     
       client = Twitter::REST::Client.new do |config|
-        config.consumer_key        = APP_CONFIG['twitter']['production_english']['consumer_key'],
-        config.consumer_secret     = APP_CONFIG['twitter']['production_english']['consumer_secret'],
-        config.access_token        = APP_CONFIG['twitter']['production_english']['access_token'],
+        config.consumer_key        = APP_CONFIG['twitter']['production_english']['consumer_key']
+        config.consumer_secret     = APP_CONFIG['twitter']['production_english']['consumer_secret']
+        config.access_token        = APP_CONFIG['twitter']['production_english']['access_token']
         config.access_token_secret = APP_CONFIG['twitter']['production_english']['access_token_secret']
       end
 		  
