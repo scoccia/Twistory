@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <%= favicon_link_tag "/favicon.ico" %>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
-    <style type="text/css"> body {background-image: url(<%= asset_path 'background.jpg' %>);}</style>
+    <style type="text/css"> 
+      body .container 
+      {
+        background-image: url(<%= asset_path 'background.jpg' %>);
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
   </head>
 
   <% if user_signed_in? %>
