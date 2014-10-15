@@ -15,10 +15,26 @@
 //= require turbolinks
 //= require_tree .
 
+var maxChar = 124;
+
+function textCounter(element)
+{
+  var counter = document.getElementById("charCounter"); 
+  var remaining = maxChar - element.value.length;
+  
+  if (remaining >= 0) {
+    counter.style.color="green";
+  } else {
+    counter.style.color="red";
+  }
+  
+  counter.innerHTML = maxChar - element.value.length;
+}
+
 function show_hide()
 {
-    current_state = (document.getElementById("key").style.display == 'none') ? 'block' : 'none';
-    document.getElementById("key").style.display = current_state;
+    current_state = (document.getElementById("dateTimeBox").style.display == 'none') ? 'block' : 'none';
+    document.getElementById("dateTimeBox").style.display = current_state;
 }
 
 function Expand_Image(id)
@@ -37,3 +53,24 @@ function Expand_Image(id)
     document.getElementById(id).style.margin= "";
   }
 }
+
+function cleanLink()
+{
+  var cont = document.getElementsByName("Hlink");
+          
+  for (i=0; i!=cont.length; i++) {
+    cont[i].style.color='rgba(0, 0, 0, 0.5)';
+    cont[i].style.border='none';
+    cont[i].style.backgroundColor='#feffff';
+  }
+}
+
+function switchLink (element)
+{
+  cleanLink();
+  
+  element.style.color='white';
+  element.style.border='1px solid rgba(0, 80, 100, 0.5)';
+  element.style.borderRadius='5px';
+  element.style.backgroundColor='rgba(105, 180, 200, 0.75)';        
+}      

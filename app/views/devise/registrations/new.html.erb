@@ -1,31 +1,33 @@
 <!DOCTYPE html>
-<html>
 
+<html>
   <head>
     <title>Iscriviti</title>
   </head>
   
   <body>
+  
+    <table border="0" class="header">
+      <tr>
+        <th id="logo">
+          <a href="<%= @current_host %>"><%= image_tag("logo.png") %></a>
+        </th>
+        <th id="spacer"><!--inserire la barra di ricerca--></th>
+        <th id="buttons">
+          <a href="<%= @current_host %>">Home</a>
+          <a href="<%= new_user_session_path %>">Accedi</a>
+          <a href="<%= new_user_registration_path %>" id="activeButton">Iscriviti</a>
+        </th>
+      </tr>
+    </table>
     
-    <div class="header">
-      <div class="h-left">
-        <%= image_tag("logo.png") %>
-      </div>
-      <div class="h-right">
-        <div class="home-link">
-          <%= link_to 'Home', @current_host %>&nbsp
-          <%= link_to 'Accedi', new_user_session_path %>
-        </div>
-      </div>
-    </div>
-   
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
  
-    <div id="wrapper">
-	    <div class="login-form">
+    <div class="container">
+	    <div class="loginForm">
 	    
-	      <div class="home-title">
-          <h1>Iscriviti</h1>
+	      <div class="homeTitle">
+          Iscriviti
         </div>
         
         <% if notice %>
@@ -37,23 +39,23 @@
         
 	      <%= devise_error_messages! %>
 	      
-		    <div class="content">
-		      <div>
-		        <%= f.text_field :user_name, autofocus: true, :placeholder => "Nome Pubblico" %>
-		      </div>
-		      <div>
-		      <%= f.email_field :email, :placeholder => "e-mail"  %>
-		      </div>
-		      <div>
-		      <%= f.password_field :password, :placeholder => "Password" , autocomplete: "off" %>
-		      </div>
-		      <div>
-		      <%= f.password_field :password_confirmation, :placeholder => "Conferma password" , autocomplete: "off" %>
-		      </div> 
-		    </div>
+		    <ul>  
+		      <li>
+		        <%= f.text_field :user_name, autofocus: true, :class => "field", :placeholder => " Nome Pubblico" %>
+		      </li>
+		      <li>
+		      <%= f.email_field :email, :class => "field", :placeholder => " Indirizzo e-mail"  %>
+		      </li>
+		      <li>
+		      <%= f.password_field :password, :class => "field", :placeholder => " Password" , autocomplete: "off" %>
+		      </li>
+		      <li>
+		      <%= f.password_field :password_confirmation, :class => "field", :placeholder => " Conferma password" , autocomplete: "off" %>
+		      </li> 
+		    </ul>
 
 		    <div class="footer">
-		      <%= f.submit "Iscriviti" %>
+		      <%= f.submit "Procedi", :class => "button" %>
 		    </div>
 	
 	    </div>

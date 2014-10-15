@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <%= favicon_link_tag "/favicon.ico" %>
@@ -16,19 +17,22 @@
   </head>
 
   <% if user_signed_in? %>
-  <div class="header">
-    <div class="h-left">
-      <%= image_tag("logo.png") %>
-    </div>
-    <div class="h-right">
-      <div class="home-link">
-        <%= link_to 'Home', @current_host %>&nbsp
-        <%= link_to 'Profilo', '/profile' %>&nbsp
-        <%= link_to 'Impostazioni', edit_user_registration_path %>&nbsp
-        <%= link_to 'Esci', destroy_user_session_path, method: :delete %>
-      </div>
-    </div>
-  </div>
+  
+    <table border="0" class="header">
+      <tr>
+        <th id="logo">
+          <a href="<%= @current_host %>"><%= image_tag("logo.png") %></a>
+        </th>
+        <th id="spacer"><!--inserire la barra di ricerca--></th>
+        <th id="buttons">
+          <a href="<%= @current_host %>" onclick="switchLink(this)" id="activeButton" name="Hlink">Home</a>
+          <a href="<%= @current_host %>/profile" onclick="switchLink(this)" name="Hlink">Profilo</a>
+          <a href="<%= edit_user_registration_path %>" onclick="switchLink(this)" name="Hlink">Impostazioni</a>
+          <%= link_to 'Esci', destroy_user_session_path, method: :delete %>
+        </th>
+      </tr>
+    </table>
+   
   <% end %>
   
 <%= yield %>

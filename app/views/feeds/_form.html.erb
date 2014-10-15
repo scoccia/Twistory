@@ -1,47 +1,27 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <script type="text/javascript">              
-      $(document).ready(function() {
-          
-        $("#box-content").keyup(function() {
-          var charsPermitted = 124;
-          var counter = $("#text-counter");
-          var charsWritten = $(this).val().length;
-          counter.text("Caratteri rimanenti: " + (charsPermitted-charsWritten)).css('color', ((charsPermitted-charsWritten) < 0) ? 'red' : 'green');
-        });
-          
-      });
-    </script>
-  </head>
-
-  <body>
-    <%= form_for(@feed) do |f| %>
+<%= form_for(@feed) do |f| %>
      
-      <%= feed_error_messages! %>
+<%= feed_error_messages! %>
       
-      <div class="text-doc"> 
-        <%= f.text_area :feed_text, id: "box-content", class: "text-box", :onclick => 'show_hide();', 
-            :placeholder => "Scrivi qui il testo del tuo feed" %>
-        <div id="text-counter" class="text-counter"></div>
-      </div>
-       
-      <div id="key" style="display: none">
-        <p>
-          <b>Inserisci la data in cui verrà pubblicato (fuso orario italiano):</b><br>
-          <%= f.datetime_select :date, :minute_step => 15 %>
-        </p>
-        <p>
-          <b>Inserisci un'immagine:</b><br>
-          <%= f.file_field :feed_image %>
-        </p>
-        <p>
-          <%= f.submit %>
-        </p>
-      </div>
+<%= f.text_area :feed_text, class: "textBox", :onkeyup => 'textCounter(this);', :onclick => 'show_hide();', :placeholder => " Scrivi qui il testo del tuo feed" %>
+<div id="charCounter" class="counterBox">124</div>
       
-    <% end %>
-  </body>
+<div id="dateTimeBox">
+  
+  <p style="margin: 1% 0;">Inserisci la data di pubblicazione:</p>
+  <%= f.datetime_select :date, :minute_step => 15 %>
+  <br><br>
+  <p style="margin: 1% 0;">Inserisci un'immagine:</p>
+  <%= f.file_field :feed_image %>
+  <br>
+  <p>
+    <input type="submit" value="Crea Feed" class="button"/>
+  </p>
+  
+</div>
+<% end %>
 
-</html>
+<!--
+vecchi bottoni:
+< % = f.submit %>
+< % = f.file_field :feed_image %>
+-->

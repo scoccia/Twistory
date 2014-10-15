@@ -17,25 +17,6 @@
 
   <body>
     
-    <script>
-      function switchLink (element)
-      {
-       
-        var cont = document.getElementsByTagName("A");
-        
-        for (i=1; i<=3; i++) {
-          cont[i].style.color='rgba(0, 0, 0, 0.5)';
-          cont[i].style.border='none';
-          cont[i].style.backgroundColor='#feffff';
-        }
-       
-        element.style.color='white';
-        element.style.border='1px solid #0DA3A3';
-        element.style.borderRadius='5px';
-        element.style.backgroundColor='rgba(15, 160, 160, 0.5)';        
-      }
-    </script>
-    
     <table border="0" class="header">
       <tr>
         <th id="logo">
@@ -43,15 +24,15 @@
         </th>
         <th id="spacer"><!--inserire la barra di ricerca--></th>
         <th id="buttons">
-          <a href="<%= @current_host %>" id="linkHome">Home</a>
-          <a href="#about" onclick="switchLink(this)">Chi Siamo</a>
-          <a href="#tech" onclick="switchLink(this)">Tecnologia</a>
-          <a href="<%= new_user_session_path %>">Accedi</a>
-          <a href="<%= new_user_registration_path %>">Iscriviti</a>
+          <a href="<%= @current_host %>" onclick="switchLink(this)" id="activeButton" name="Hlink">Home</a>
+          <a href="<%= @current_host %>/#about" onclick="switchLink(this)" name="Hlink">Chi Siamo</a>
+          <a href="<%= @current_host %>/#tech" onclick="switchLink(this)" name="Hlink">Tecnologia</a>
+          <a href="<%= new_user_session_path %>" name="Hlink">Accedi</a>
+          <a href="<%= new_user_registration_path %>" name="Hlink">Iscriviti</a>
         </th>
       </tr>
     </table>
-    
+        
     <div class="container">
     
       <div class="groundSheet">
