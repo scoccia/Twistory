@@ -73,4 +73,19 @@ function switchLink (element)
   element.style.border='1px solid rgba(0, 80, 100, 0.5)';
   element.style.borderRadius='5px';
   element.style.backgroundColor='rgba(105, 180, 200, 0.75)';        
-}      
+} 
+
+function checkingChanges()
+{
+  var confirmBox = document.getElementById("confirmChanges");  
+  var listBox = document.getElementById("fields");
+   
+  if (confirmBox.style.display=="none") {
+    confirmBox.style.display="block";
+    listBox.style.display="none";
+  } else {
+    confirmBox.style.display="none";
+    listBox.style.display="block";
+  }
+}
+

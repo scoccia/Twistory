@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+  
   <head>
     <title>Accedi</title>   
   </head>
@@ -20,12 +21,11 @@
         </th>
       </tr>
     </table>
-	
+	    
+    <div class="container">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     
-    <div class="container">
 	    <div class="loginForm">
-	    
 	      <div class="homeTitle">
 	        Accedi
 	      </div>
@@ -57,12 +57,10 @@
 		      <p><%= f.submit "Accedi", :class => "button" %></p>
 		      <p style="font-size: 11px; text-decoration: underline;"><%= link_to "Dimenticato la password?", new_password_path(resource_name) %></p>
 		    </div>
-	
-	    </div>
-    </div>
-               
-      <% end %>  
-        
+		  </div>
+                
+    <% end %>  
+    </div>    
   </body>
 	
 </html>

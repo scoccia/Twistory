@@ -10,32 +10,32 @@ class FeedsController < ApplicationController
     flash.now[:notice] = "Non sei il possessore di questo feed e non detieni i privilegi per alterarlo!" 			
     render "show"
   end
-# err_mex end #
+  # err_mex end #
 		
   # GET /feeds
   def index
     @feeds = Feed.all
     @feed = Feed.new
   end
-# index end #
+  # index end #
 
   # GET /feeds
   def profile
     @feeds = Feed.all
     @feed = Feed.new
   end
-# profile end # 
+  # profile end # 
   
   # GET /feeds/1
   def show
   end
-# show end #
+  # show end #
 
   # GET /feeds/new
   def new
     @feed = Feed.new
   end
-# new end #
+  # new end #
 
   # GET /feeds/1/edit
   def edit
@@ -52,7 +52,7 @@ class FeedsController < ApplicationController
     end
 
   end 
-# edit end #
+  # edit end #
 
   # POST /feeds
   def create
@@ -76,10 +76,12 @@ class FeedsController < ApplicationController
 
     @feed.date = @feed.date - 2.hour 	
 
-    # Translate from the original Italian text to English via Google Translate APIs
-    feed_text_english = translate_feed(@feed.feed_text)
-    @feed.feed_text_english = feed_text_english
-
+    # Translate from the original Italian text to English via Google Translate APIs in production mode
+    if Rails.env.production?
+      feed_text_english = translate_feed(@feed.feed_text)
+      @feed.feed_text_english = feed_text_english
+    end
+    
     respond_to do |format|
       if @feed.save
         flash[:notice] = 'Il Feed e\' stato creato con successo'
@@ -90,7 +92,7 @@ class FeedsController < ApplicationController
       end
     end
   end
-# create end #
+  # create end #
 
   # PATCH/PUT /feeds/1
   def update
@@ -115,7 +117,7 @@ class FeedsController < ApplicationController
       err_mex
     end
   end	
-# update end #
+  # update end #
  
   # DELETE /feeds/1
   def destroy
@@ -129,57 +131,56 @@ class FeedsController < ApplicationController
       err_mex
     end
   end	
-# destroy end #
+  # destroy end #
 
   private
     # Use Google Translate APIs to translate feed text from the original Italian to English
-    def translate_feed (feed_text)
-	google_client = Google::APIClient.new(
-		:application_name => APP_CONFIG['google']['production']['application_name'],
-		:key 		  => APP_CONFIG['google']['production']['key'],
-		:application_version => '1.0.0',
-		:authorization => nil
-	)
+    def translate_feed(feed_text)
+	    google_client = Google::APIClient.new(
+		    :application_name => APP_CONFIG['google']['production']['application_name'],
+		    :key => APP_CONFIG['google']['production']['key'],
+		    :application_version => '1.0.0',
+		    :authorization => nil
+	    )
 
-	# Load client secrets from your client_secrets.json
-	# NOT needed for the Google Translate APIs
-	# client_secrets = Google::APIClient::ClientSecrets.load
+	    # Load client secrets from your client_secrets.json
+	    # NOT needed for the Google Translate APIs
+	    # client_secrets = Google::APIClient::ClientSecrets.load
 		
-	translate = google_client.discovered_api('translate', 'v2')
-	result = google_client.execute(
-	  :api_method => translate.translations.list,
-	  :parameters => {
-	    'format' => 'text',
-	    'source' => 'it',
-	    'target' => 'en',
-	    'q' => feed_text
-	  }
-	)
+  	  translate = google_client.discovered_api('translate', 'v2')
+	    result = google_client.execute(
+	      :api_method => translate.translations.list,
+	      :parameters => {
+	      'format' => 'text',
+	      'source' => 'it',
+	      'target' => 'en',
+	      'q' => feed_text
+	      }
+	    )
+      
+	    parsed = JSON.parse(result.data.to_json)
+      
+	    # Example of data returned 
+      # {"translations":[{"translatedText":"This is a pen"}]}'
+      
+      english_translation = parsed["translations"][0]["translatedText"]
+        
+      # TODO: return a warning if the translation is over 140 characters (or whatever limit we have)
 
-	parsed = JSON.parse(result.data.to_json)
-
-	# Example of data returned 
-        # {"translations":[{"translatedText":"This is a pen"}]}'
-
-	english_translation = parsed["translations"][0]["translatedText"]
-
-	# TODO: return a warning if the translation is over 140 characters (or whatever limit we have)
-
-	return english_translation
+	    return english_translation
+	   
     end
-# translate_feed end #
-
-
+    # translate_feed end #
 
     # Use callbacks to share common setup or constraints between actions.
     def set_feed
       @feed = Feed.find(params[:id])
     end
-# set_feed end #
+    # set_feed end #
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
       params.require(:feed).permit(:feed_text, :date, :feed_image)
     end
-# feed_params end #
-end
+    # feed_params end #
+  end
