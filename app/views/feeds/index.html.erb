@@ -26,7 +26,7 @@
   <div class="container">
   
     <div class="groundSheet">
-      
+          
       <div class="homeTitle">
         La Grande Guerra
       </div>
@@ -58,7 +58,7 @@
       <% read_usr = User.find(feed.user_id) %>
 
       <div class="groundSheet">
-         
+                       
         <% if read_usr.profile_image.present? %>
           <div class="imageBox">
             <%= image_tag(read_usr.profile_image_url) %>

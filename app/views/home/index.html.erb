@@ -23,7 +23,7 @@
         <th id="logo">
           <a href="<%= @current_host %>"><%= image_tag("logo.png") %></a>
         </th>
-        <th id="spacer"><!--inserire la barra di ricerca--></th>
+        <th id="spacer"></th>
         <th id="buttons">
           <a href="<%= @current_host %>" onclick="switchLink(this)" id="activeButton" name="Hlink">Home</a>
           <a href="<%= @current_host %>/#about" onclick="switchLink(this)" name="Hlink">Chi Siamo</a>
@@ -35,12 +35,12 @@
     </table>
         
     <div class="container">
-    
+         
       <div class="groundSheet">
         <div class="homeTitle">
           Home
         </div>
-      
+                
         <div class="homeTextRx">
           <p align="center"><i>
             Quando un popolo non ha più senso vitale del suo passato si spegne.<br> 
@@ -76,18 +76,24 @@
           Tecnologia
         </div>
       
-        <div class="homeTextLx">
-          <p align="center">
+        <div class="homeTextLx"  align="center">
+          <p>
             Linux Ubuntu 14.04,
             Apache 2.4,
             Ruby 2.0,
             Rails 4.0,
             MySQL 5.5,
             HTML5
-            <br><br>
-            Server su Amazon Web Services (AWS)<br><br>
-            Visita il repository git:<br> 
-            <a href="https://github.com/scoccia/Twistory" target="_blank"><u>https://github.com/scoccia/Twistory</u></a>
+          </p>
+          <p>
+            Server su Amazon Web Services (AWS)
+          </p>
+          <p>
+            Visita i repository git: 
+          </p>
+          <p>
+            <a href="https://github.com/scoccia/Twistory" target="_blank"><u>https://github.com/scoccia/Twistory</u></a><br>
+            <a href="https://github.com/davide-di-carlo/Twistory" target="_blank"><u>https://github.com/davide-di-carlo/Twistory</u></a>
           </p>
         </div>
       </div>
