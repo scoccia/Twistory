@@ -1,47 +1,30 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-    <script type="text/javascript">              
-      $(document).ready(function() {
-          
-        $("#box-content").keyup(function() {
-          var charsPermitted = 124;
-          var counter = $("#text-counter");
-          var charsWritten = $(this).val().length;
-          counter.text("Caratteri rimanenti: " + (charsPermitted-charsWritten)).css('color', ((charsPermitted-charsWritten) < 0) ? 'red' : 'green');
-        });
-          
-      });
-    </script>
-  </head>
-
-  <body>
-    <%= form_for(@feed) do |f| %>
+<%= form_for(@feed) do |f| %>
      
-      <%= feed_error_messages! %>
+<%= feed_error_messages! %>
       
-      <div class="text-doc"> 
-        <%= f.text_area :feed_text, id: "box-content", class: "text-box", :onclick => 'show_hide();', 
-            :placeholder => "Scrivi qui il testo del tuo feed" %>
-        <div id="text-counter" class="text-counter"></div>
-      </div>
-       
-      <div id="key" style="display: none">
-        <p>
-          <b>Inserisci la data in cui verrà pubblicato (fuso orario italiano):</b><br>
-          <%= f.datetime_select :date, :minute_step => 15 %>
-        </p>
-        <p>
-          <b>Inserisci un'immagine:</b><br>
-          <%= f.file_field :feed_image %>
-        </p>
-        <p>
-          <%= f.submit %>
-        </p>
-      </div>
-      
-    <% end %>
-  </body>
+<ul id="mainTextBoxContainer">
 
-</html>
+  <li>      
+    <%= f.text_area :feed_text, :class => "textBox", :onkeyup => 'textCounter(this, "charCounterIta");', :onclick => 'show_hide();', :placeholder => "Scrivi qui il testo del tuo feed ..." %>
+  </li>
+  <li id="charCounterIta" style="text-align: right; color: green; font-weight: normal">
+    124
+  </li>
+  
+  <div id="dateTimeBox">
+    <li>
+      Inserisci la data di pubblicazione:</br>
+      <%= f.datetime_select :date, :minute_step => 15 %>
+    </li>
+    <li>
+      Inserisci un'immagine:</br>
+      <%= f.file_field :feed_image %>
+    </li>
+    <li>
+      <input type="submit" value="Conferma" class="button"/>
+    </li>
+  </div>
+  
+</ul>
+
+<% end %>

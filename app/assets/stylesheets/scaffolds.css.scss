@@ -1,65 +1,49 @@
-body {
-  margin-top: 9em;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
+body, html {
+  margin: 0 0;
+  padding: 0 0;
+  width: 100%;
+  height: 100%;
     
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   
-  font-size: 12px;
-  line-height: 16px;
-}
-
-h1{
-  font-family: Arial, Courier;
-  color: #324B4B;
-  font-size: 160%;
-}
-
-p, ol, ul, td {
+  color: rgba(50, 50, 50, 0.65);
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 12px;
 }
 
 a:link{
-  color: #324B4B;
   text-decoration: none;
-  font-weight:bold;
+  
+  color: rgba(50, 50, 50, 0.65);
+  font-weight: bold;
 }
     
 a:visited {
   text-decoration: none;
-  color: #324B4B;
-  font-weight:bold;
+  
+  color: rgba(50, 50, 50, 0.65);
+  font-weight: bold;
 }
     
 a:hover{
-  text-shadow: 0px 0px 2px #744C7F;
   text-decoration: none;
-  color: #324B4B;
-  font-weight:bold;
+  
+  color: rgba(50, 50, 50, 0.65);
+  font-weight: bold;
 }
     
 a:active {
-  text-shadow: 0px 0px 2px #744C7F;
   text-decoration: none;
-  color: #324B4B;
-  font-weight:bold;
+  
+  color: rgba(50, 50, 50, 0.65);
+  font-weight: bold;
 }
 
 li{
   list-style-type: none;
 }
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
-
 
 div {
   &.field, &.actions {
@@ -84,6 +68,7 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
+  
   h2 {
     text-align: left;
     font-weight: bold;
@@ -94,6 +79,7 @@ div {
     background-color: #c00;
     color: #fff;
   }
+  
   ul li {
     font-size: 12px;
     list-style: square;
