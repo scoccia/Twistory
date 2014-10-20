@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-
-<html>
-
-  <head>
+    
     <title>La Grande Guerra</title>
   </head>  
 
@@ -88,7 +84,13 @@
         <div class="postText">
           <%= feed.feed_text %>
         </div>
-                            
+        
+        <% if feed.feed_text_english.present? %>
+          <div class="engPostText">
+            <%= feed.feed_text_english %>
+          </div>
+        <% end %>
+                           
         <div class="bubble">
           <%= link_to 'Mostra', feed %>
         

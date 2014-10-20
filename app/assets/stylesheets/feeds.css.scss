@@ -3,44 +3,49 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*-------------Start-text-area-section--------*/   
- 
-    .textBox
+    
+    #mainTextBoxContainer
     {
-      width: 67%;
-      height: 49px;
+      width: 80%;
+  	  margin: 2% 10% 0 10%;
+  	  padding: 1%;
+		  
+  	  background-color: rgba(120, 170, 200, 0.15);
+  	  border: 1px solid rgba(120, 170, 200, 0.2);
+  	  border-radius: 5px;
+  	  
+  	  text-align: center;
+  	  font-weight: bold;
+  	  
+  	  /*border: 1px solid red; /* debug red */
+    }
+    
+    #mainTextBoxContainer li
+    {
+      margin: 1% 1%;
+      padding: 1% 1%;   
       
-      margin: 2% 15% 0.5% 15%;
-      padding: 1.5%;
+      /*border: 1px solid red; /* debug red */ 
+    }
+    
+    .textBox
+    { 
+      width: 96%;
+      height: 59px;
+      margin: 0 0; 
+      padding: 2%;
       
       font-size: 13px;
                     
       /*border: 1px solid red; /* debug red */
     }
-    
-    .counterBox
-    {
-      margin-left: 15%;
-      margin-right: 15%;
-      
-      color: green;
        
-      text-align: right;
-      /*border: 1px solid red; /* debug red */
-    }
-    
     #dateTimeBox
     {
       display: none;
-      
-      width: 80%;
-      margin: 1% 10%;
-      
-      text-align: center;
-      font-weight: bold;
-      
-      /*border: 1px solid red; /* debug red */
     }
-    
+           
+      
 /*-------------End-text-area-section----------*/ 
 /*-------------Start-main/feed-section--------*/
 
@@ -121,6 +126,23 @@
       margin-top: 2%;
       margin-left: 12%;
       margin-right: -2.5%;
+      padding: 1% 2%;
+                
+      font: 1.2em;
+      word-wrap: break-word;
+      
+      background-color: #8BCCDF;
+    
+      border: 1px solid rgba(80, 50, 100, 0.20);
+      border-radius: 5px;  
+      /*border: 1px solid red; /* debug red */
+    }
+    
+    .engPostText
+    {
+      margin-top: 2%;
+      margin-left: -2.5%;
+      margin-right: 12%;
       padding: 1% 2%;
                 
       font: 1.2em;

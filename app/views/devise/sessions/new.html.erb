@@ -1,8 +1,4 @@
-<!DOCTYPE html>
 
-<html>
-  
-  <head>
     <title>Accedi</title>   
   </head>
   
@@ -39,7 +35,7 @@
         	      
 		    <ul>  
 		      <li>
-		      <%= f.email_field :email, :class => "field", :placeholder => " Indirizzo e-mail"  %>
+		      <%= f.email_field :email, autofocus: "true", :class => "field", :placeholder => " Indirizzo e-mail" %>
 		      </li>
 		      <li>
 		      <%= f.password_field :password, :class => "field", :placeholder => " Password" , autocomplete: "off" %>

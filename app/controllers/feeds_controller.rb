@@ -89,7 +89,7 @@ class FeedsController < ApplicationController
         else
           flash[:notice] = 'La versione Italiana del feed e\' stata creata con successo'
         end
-        format.html { redirect_to action: 'index' }
+        format.html { render action: 'edit' }
       else
         format.html { render action: 'new' }
         format.json { render json: @feed.errors, status: :unprocessable_entity }
@@ -107,8 +107,7 @@ class FeedsController < ApplicationController
 
           # Convert the CET/CEST time (inserted by the user) in UTC time (expected by the Database)
     	    # TODO: have a better solution (see create action)
-    	    @feed.date = @feed.date - 2.hour 
-          @feed.save
+    	    @feed.date = @feed.date - 2.hour
 
           flash[:notice] = 'Il Feed e\' stato aggiornato con successo'
           format.html { redirect_to action: 'index' }

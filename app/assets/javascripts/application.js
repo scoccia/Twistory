@@ -17,9 +17,9 @@
 
 var maxChar = 124;
 
-function textCounter(element)
+function textCounter(element, counterBox)
 {
-  var counter = document.getElementById("charCounter"); 
+  var counter = document.getElementById(counterBox); 
   var remaining = maxChar - element.value.length;
   
   if (remaining >= 0) {
@@ -33,8 +33,17 @@ function textCounter(element)
 
 function show_hide()
 {
-    current_state = (document.getElementById("dateTimeBox").style.display == 'none') ? 'block' : 'none';
-    document.getElementById("dateTimeBox").style.display = current_state;
+    var dateTimeBox = document.getElementById("dateTimeBox");
+    var mainTextBoxContainer = document.getElementById("mainTextBoxContainer");
+    
+    if (dateTimeBox.style.display == 'block')
+    {
+      dateTimeBox.style.display = 'none';
+    }
+    else
+    {
+      dateTimeBox.style.display = 'block';
+    }
 }
 
 function Expand_Image(id)

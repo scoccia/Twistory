@@ -1,8 +1,4 @@
-<!DOCTYPE html>
 
-<html>
-  
-  <head>
     <title>Visualizza Feed</title>
   </head>
   
@@ -68,6 +64,12 @@
         <div class="postText">
           <%= @feed.feed_text %>
         </div>
+        
+        <% if @feed.feed_text_english.present? %>
+          <div class="engPostText">
+            <%= @feed.feed_text_english %>
+          </div>
+        <% end %>
         
         <div class="bubble">
           <% if @feed.user_id == current_user.id and @feed.has_been_published == false %>
